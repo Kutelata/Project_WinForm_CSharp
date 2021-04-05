@@ -1,0 +1,9 @@
+E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\bin\Debug\InternetCafe.exe.config
+E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\bin\Debug\InternetCafe.exe
+E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\bin\Debug\InternetCafe.pdb
+E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.csprojAssemblyReference.cache
+E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.Properties.Resources.resources
+E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.csproj.GenerateResource.cache
+E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.csproj.CoreCompileInputs.cache
+E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.exe
+E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.pdb
