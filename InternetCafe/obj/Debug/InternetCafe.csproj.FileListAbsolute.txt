@@ -7,3 +7,13 @@ E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.
 E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.csproj.CoreCompileInputs.cache
 E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.exe
 E:\MyCSharp\InternetCafeCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.pdb
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp\InternetCafe\bin\Debug\InternetCafe.exe.config
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp\InternetCafe\bin\Debug\InternetCafe.exe
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp\InternetCafe\bin\Debug\InternetCafe.pdb
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.csprojAssemblyReference.cache
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.Properties.Resources.resources
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.csproj.GenerateResource.cache
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.exe
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.pdb
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.frmLogin.resources
