@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InternetCafe
+namespace InternetCafe.UI.Manager
 {
     public partial class Home : Form
     {
@@ -16,5 +16,6 @@ namespace InternetCafe
         {
             InitializeComponent();
         }
+        
     }
 }

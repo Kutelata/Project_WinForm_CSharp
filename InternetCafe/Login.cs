@@ -32,9 +32,9 @@ namespace InternetCafe
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Home h = new Home();
-            h.Show();
-            this.Hide();
+            //frmHome h = new frmHome();
+            //h.Show();
+            //this.Hide();
         }
     }
 }

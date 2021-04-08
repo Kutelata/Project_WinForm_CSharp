@@ -63,9 +63,9 @@ namespace InternetCafe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _7e12b6838e5cbdcafeab842555e4dec1 {
+        internal static System.Drawing.Bitmap Admin {
             get {
-                object obj = ResourceManager.GetObject("7e12b6838e5cbdcafeab842555e4dec1", resourceCulture);
+                object obj = ResourceManager.GetObject("Admin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace InternetCafe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Gender_Neutral_User_icon_icons_com_55902 {
+        internal static System.Drawing.Bitmap Background_Login {
             get {
-                object obj = ResourceManager.GetObject("Gender_Neutral_User_icon-icons.com_55902", resourceCulture);
+                object obj = ResourceManager.GetObject("Background_Login", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace InternetCafe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap lock_outlined_padlock_symbol_for_security_interface_icon_icons_com_57803 {
+        internal static System.Drawing.Bitmap Password {
             get {
-                object obj = ResourceManager.GetObject("lock-outlined-padlock-symbol-for-security-interface_icon-icons.com_57803", resourceCulture);
+                object obj = ResourceManager.GetObject("Password", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace InternetCafe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WpsqQq3 {
+        internal static System.Drawing.Bitmap User {
             get {
-                object obj = ResourceManager.GetObject("WpsqQq3", resourceCulture);
+                object obj = ResourceManager.GetObject("User", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
