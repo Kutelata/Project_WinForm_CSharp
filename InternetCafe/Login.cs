@@ -13,6 +13,7 @@ namespace InternetCafe
 {
     public partial class frmLogin : Form
     {
+        InternetCafeDataContext DB = new InternetCafeDataContext();
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
        (
@@ -32,9 +33,13 @@ namespace InternetCafe
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //frmHome h = new frmHome();
-            //h.Show();
-            //this.Hide();
+            DB.Check_Login(txtUser.ToString(), txtPassword.ToString());
+            UI.Manager.frmHome homeManager = new UI.Manager.frmHome();
+            UI.Employee.Home homeEmployee = new UI.Employee.Home();
+           // homeManager.Show();
+           // homeEmployee.Show();
+           // this.Hide();
+           // this.Close();
         }
     }
 }

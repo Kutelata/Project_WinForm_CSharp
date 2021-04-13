@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace InternetCafe.UI.Manager
 {
-    public partial class frmHome : Form
+    public partial class Role : Form
     {
-        public frmHome()
+        public Role()
         {
             InitializeComponent();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

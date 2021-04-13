@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using InternetCafe.UI.Manager;
 
 namespace InternetCafe
 {
@@ -17,7 +16,7 @@ namespace InternetCafe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.Manager.Home());
+            Application.Run(new UI.Manager.frmHome());
         }
     }
 }
