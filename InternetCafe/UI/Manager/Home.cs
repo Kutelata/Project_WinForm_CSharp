@@ -15,11 +15,17 @@ namespace InternetCafe.UI.Manager
         public frmHome()
         {
             InitializeComponent();
+           
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnArea_Click(object sender, EventArgs e)
         {
-
+            Area a = new Area();
+            a.TopLevel = false;
+            mainPanel.Controls.Clear();
+            a.Dock = DockStyle.Fill;
+            a.Show();
+            mainPanel.Controls.Add(a);
         }
     }
 }

@@ -28,7 +28,6 @@ C:\Users\ADMIN\Desktop\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCaf
 C:\Users\ADMIN\Desktop\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.exe
 C:\Users\ADMIN\Desktop\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.pdb
 C:\Users\ADMIN\Desktop\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.UI.Employee.Home.resources
-C:\Users\ADMIN\Desktop\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.UI.Manager.Home.resources
 E:\MyCSharp\InternetCafe\InternetCafe\bin\Debug\InternetCafe.exe.config
 E:\MyCSharp\InternetCafe\InternetCafe\bin\Debug\InternetCafe.exe
 E:\MyCSharp\InternetCafe\InternetCafe\bin\Debug\InternetCafe.pdb
@@ -42,3 +41,5 @@ E:\MyCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.exe
 E:\MyCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.pdb
 E:\MyCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.UI.Manager.frmHome.resources
 E:\MyCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.UI.Manager.Area.resources
+C:\Users\ADMIN\Desktop\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.UI.Manager.Area.resources
+C:\Users\ADMIN\Desktop\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.UI.Manager.frmHome.resources

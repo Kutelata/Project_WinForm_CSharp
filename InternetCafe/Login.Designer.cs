@@ -90,6 +90,7 @@ namespace InternetCafe
             this.linkFindPass.TabIndex = 3;
             this.linkFindPass.TabStop = true;
             this.linkFindPass.Text = "Forgot password ?";
+            this.linkFindPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFindPass_LinkClicked);
             // 
             // pbPassword
             // 
