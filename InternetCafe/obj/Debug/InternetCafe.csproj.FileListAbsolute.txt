@@ -41,3 +41,4 @@ E:\MyCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.csproj.CoreCompileI
 E:\MyCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.exe
 E:\MyCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.pdb
 E:\MyCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.UI.Manager.frmHome.resources
+E:\MyCSharp\InternetCafe\InternetCafe\obj\Debug\InternetCafe.UI.Manager.Area.resources
