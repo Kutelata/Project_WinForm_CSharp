@@ -87,23 +87,11 @@
     <Compile Include="UI\Employee\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Manager\Area.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Manager\Area.Designer.cs">
-      <DependentUpon>Area.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Manager\Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Manager\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Manager\Order.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Manager\Order.Designer.cs">
-      <DependentUpon>Order.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -118,9 +106,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Employee\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Manager\Area.resx">
-      <DependentUpon>Area.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Manager\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

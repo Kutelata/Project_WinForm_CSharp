@@ -16,6 +16,7 @@ namespace InternetCafe
         public string myTextBox { get; set; }
         public string FieldName { get; set; }
         public string Pattern { get; set; }
+        public char changeCharacter { get; set; }
         public myValidate()
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace InternetCafe
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             myTextBox = textBox1.Text;
+            textBox1.PasswordChar = changeCharacter;
         }
     }
 }

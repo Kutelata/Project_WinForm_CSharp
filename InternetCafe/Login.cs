@@ -33,12 +33,60 @@ namespace InternetCafe
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-           
+            var checkUser = DB.getUser(loginValidate.myTextBox, passValidate.myTextBox).FirstOrDefault();
+            if (checkUser != null)
+            {
+                if (checkUser.role_id == 1)
+                {
+                    MessageBox.Show("Welcome Admin " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    UI.Manager.frmHome adminHome = new UI.Manager.frmHome();
+                    adminHome.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Welcome Vendor " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    UI.Employee.frmHome empHome = new UI.Employee.frmHome();
+                    empHome.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Account or password is not exist");
+            }
         }
 
         private void linkFindPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+
+        private void btnLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            var checkUser = DB.getUser(loginValidate.myTextBox, passValidate.myTextBox).FirstOrDefault();
+            if (checkUser != null)
+            {
+                if (checkUser.role_id == 1)
+                {
+                    MessageBox.Show("Welcome Admin " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    UI.Manager.frmHome adminHome = new UI.Manager.frmHome();
+                    adminHome.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Welcome Vendor " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    UI.Employee.frmHome empHome = new UI.Employee.frmHome();
+                    empHome.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Account or password is not exist");
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

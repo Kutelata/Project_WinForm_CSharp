@@ -150,11 +150,18 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Check_Login")]
-		public ISingleResult<Check_LoginResult> Check_Login([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string account, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string password)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getUser")]
+		public ISingleResult<getUserResult> getUser([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string account, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string password)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), account, password);
-			return ((ISingleResult<Check_LoginResult>)(result.ReturnValue));
+			return ((ISingleResult<getUserResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllArea")]
+		public ISingleResult<getAllAreaResult> getAllArea()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<getAllAreaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1737,13 +1744,157 @@ namespace InternetCafe
 		}
 	}
 	
-	public partial class Check_LoginResult
+	public partial class getUserResult
 	{
+		
+		private int _entity_id;
+		
+		private string _account;
+		
+		private string _password;
+		
+		private string _firstName;
+		
+		private string _lastName;
+		
+		private string _image;
+		
+		private int _role_id;
+		
+		private int _entity_id1;
 		
 		private string _name;
 		
-		public Check_LoginResult()
+		public getUserResult()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_account", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string account
+		{
+			get
+			{
+				return this._account;
+			}
+			set
+			{
+				if ((this._account != value))
+				{
+					this._account = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this._password = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="NVarChar(255)")]
+		public string firstName
+		{
+			get
+			{
+				return this._firstName;
+			}
+			set
+			{
+				if ((this._firstName != value))
+				{
+					this._firstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string lastName
+		{
+			get
+			{
+				return this._lastName;
+			}
+			set
+			{
+				if ((this._lastName != value))
+				{
+					this._lastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string image
+		{
+			get
+			{
+				return this._image;
+			}
+			set
+			{
+				if ((this._image != value))
+				{
+					this._image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_id", DbType="Int NOT NULL")]
+		public int role_id
+		{
+			get
+			{
+				return this._role_id;
+			}
+			set
+			{
+				if ((this._role_id != value))
+				{
+					this._role_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id1", DbType="Int NOT NULL")]
+		public int entity_id1
+		{
+			get
+			{
+				return this._entity_id1;
+			}
+			set
+			{
+				if ((this._entity_id1 != value))
+				{
+					this._entity_id1 = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
@@ -1758,6 +1909,68 @@ namespace InternetCafe
 				if ((this._name != value))
 				{
 					this._name = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getAllAreaResult
+	{
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private double _price;
+		
+		public getAllAreaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
+		public double price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
 				}
 			}
 		}

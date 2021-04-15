@@ -35,9 +35,9 @@ namespace InternetCafe
             this.pbPassword = new System.Windows.Forms.PictureBox();
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.pbForm = new System.Windows.Forms.PictureBox();
-            this.loginValidate = new InternetCafe.myValidate();
-            this.passValidate = new InternetCafe.myValidate();
             this.btnExit = new System.Windows.Forms.Button();
+            this.passValidate = new InternetCafe.myValidate();
+            this.loginValidate = new InternetCafe.myValidate();
             ((System.ComponentModel.ISupportInitialize)(this.pbPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbForm)).BeginInit();
@@ -61,6 +61,7 @@ namespace InternetCafe
             this.btnLogin.Text = "Log in";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnLogin_KeyDown);
             // 
             // linkFindPass
             // 
@@ -108,28 +109,6 @@ namespace InternetCafe
             this.pbForm.TabIndex = 0;
             this.pbForm.TabStop = false;
             // 
-            // loginValidate
-            // 
-            this.loginValidate.BackColor = System.Drawing.Color.Black;
-            this.loginValidate.FieldName = "UserName";
-            this.loginValidate.Location = new System.Drawing.Point(104, 237);
-            this.loginValidate.myTextBox = null;
-            this.loginValidate.Name = "loginValidate";
-            this.loginValidate.Pattern = "^[a-z]([-\']?[a-z]+)*( [a-z]([-\']?[a-z]+)*)+$";
-            this.loginValidate.Size = new System.Drawing.Size(233, 43);
-            this.loginValidate.TabIndex = 6;
-            // 
-            // passValidate
-            // 
-            this.passValidate.BackColor = System.Drawing.Color.Black;
-            this.passValidate.FieldName = "Password";
-            this.passValidate.Location = new System.Drawing.Point(104, 283);
-            this.passValidate.myTextBox = null;
-            this.passValidate.Name = "passValidate";
-            this.passValidate.Pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
-            this.passValidate.Size = new System.Drawing.Size(233, 43);
-            this.passValidate.TabIndex = 7;
-            // 
             // btnExit
             // 
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -145,6 +124,31 @@ namespace InternetCafe
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // passValidate
+            // 
+            this.passValidate.BackColor = System.Drawing.Color.Black;
+            this.passValidate.changeCharacter = '*';
+            this.passValidate.FieldName = "Password";
+            this.passValidate.Location = new System.Drawing.Point(104, 283);
+            this.passValidate.myTextBox = null;
+            this.passValidate.Name = "passValidate";
+            this.passValidate.Pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
+            this.passValidate.Size = new System.Drawing.Size(233, 43);
+            this.passValidate.TabIndex = 7;
+            // 
+            // loginValidate
+            // 
+            this.loginValidate.BackColor = System.Drawing.Color.Black;
+            this.loginValidate.changeCharacter = '\0';
+            this.loginValidate.FieldName = "UserName";
+            this.loginValidate.Location = new System.Drawing.Point(104, 237);
+            this.loginValidate.myTextBox = null;
+            this.loginValidate.Name = "loginValidate";
+            this.loginValidate.Pattern = "^[a-z]([-\']?[a-z]+)*( [a-z]([-\']?[a-z]+)*)+$";
+            this.loginValidate.Size = new System.Drawing.Size(233, 43);
+            this.loginValidate.TabIndex = 6;
             // 
             // frmLogin
             // 

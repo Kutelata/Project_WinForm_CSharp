@@ -79,11 +79,26 @@
       <Association Name="role_user" Member="role" ThisKey="role_id" OtherKey="entity_id" Type="role" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.Check_Login" Method="Check_Login">
+  <Function Name="dbo.getUser" Method="getUser">
     <Parameter Name="account" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="password" Type="System.String" DbType="VarChar(255)" />
-    <ElementType Name="Check_LoginResult">
+    <ElementType Name="getUserResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="account" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="firstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="lastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="entity_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getAllArea" Method="getAllArea">
+    <ElementType Name="getAllAreaResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>
