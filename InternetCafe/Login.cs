@@ -33,20 +33,7 @@ namespace InternetCafe
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (DB.Check_Login(txtUser.ToString(), txtPassword.ToString()).Any())
-            {
-                if (true)
-                {
-
-                }
-            }
-            
-            UI.Manager.frmHome homeManager = new UI.Manager.frmHome();
-            UI.Employee.Home homeEmployee = new UI.Employee.Home();
-           // homeManager.Show();
-           // homeEmployee.Show();
-           // this.Hide();
-           // this.Close();
+           
         }
 
         private void linkFindPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

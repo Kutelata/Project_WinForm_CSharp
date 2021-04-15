@@ -30,40 +30,23 @@ namespace InternetCafe
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUser = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.linkFindPass = new System.Windows.Forms.LinkLabel();
             this.pbPassword = new System.Windows.Forms.PictureBox();
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.pbForm = new System.Windows.Forms.PictureBox();
+            this.loginValidate = new InternetCafe.myValidate();
+            this.passValidate = new InternetCafe.myValidate();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbForm)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtPassword
-            // 
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(113, 283);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(158, 22);
-            this.txtPassword.TabIndex = 1;
-            // 
-            // txtUser
-            // 
-            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Location = new System.Drawing.Point(113, 237);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(158, 22);
-            this.txtUser.TabIndex = 0;
-            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.Black;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnLogin.FlatAppearance.BorderSize = 2;
             this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -82,8 +65,9 @@ namespace InternetCafe
             // linkFindPass
             // 
             this.linkFindPass.AutoSize = true;
+            this.linkFindPass.BackColor = System.Drawing.Color.Black;
             this.linkFindPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkFindPass.LinkColor = System.Drawing.Color.Black;
+            this.linkFindPass.LinkColor = System.Drawing.Color.White;
             this.linkFindPass.Location = new System.Drawing.Point(114, 373);
             this.linkFindPass.Name = "linkFindPass";
             this.linkFindPass.Size = new System.Drawing.Size(119, 16);
@@ -98,7 +82,7 @@ namespace InternetCafe
             this.pbPassword.Image = global::InternetCafe.Properties.Resources.Password;
             this.pbPassword.Location = new System.Drawing.Point(76, 283);
             this.pbPassword.Name = "pbPassword";
-            this.pbPassword.Size = new System.Drawing.Size(22, 22);
+            this.pbPassword.Size = new System.Drawing.Size(22, 18);
             this.pbPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPassword.TabIndex = 5;
             this.pbPassword.TabStop = false;
@@ -109,7 +93,7 @@ namespace InternetCafe
             this.pbUser.Image = global::InternetCafe.Properties.Resources.User;
             this.pbUser.Location = new System.Drawing.Point(76, 237);
             this.pbUser.Name = "pbUser";
-            this.pbUser.Size = new System.Drawing.Size(22, 22);
+            this.pbUser.Size = new System.Drawing.Size(22, 18);
             this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbUser.TabIndex = 4;
             this.pbUser.TabStop = false;
@@ -124,16 +108,56 @@ namespace InternetCafe
             this.pbForm.TabIndex = 0;
             this.pbForm.TabStop = false;
             // 
+            // loginValidate
+            // 
+            this.loginValidate.BackColor = System.Drawing.Color.Black;
+            this.loginValidate.FieldName = "UserName";
+            this.loginValidate.Location = new System.Drawing.Point(104, 237);
+            this.loginValidate.myTextBox = null;
+            this.loginValidate.Name = "loginValidate";
+            this.loginValidate.Pattern = "^[a-z]([-\']?[a-z]+)*( [a-z]([-\']?[a-z]+)*)+$";
+            this.loginValidate.Size = new System.Drawing.Size(233, 43);
+            this.loginValidate.TabIndex = 6;
+            // 
+            // passValidate
+            // 
+            this.passValidate.BackColor = System.Drawing.Color.Black;
+            this.passValidate.FieldName = "Password";
+            this.passValidate.Location = new System.Drawing.Point(104, 283);
+            this.passValidate.myTextBox = null;
+            this.passValidate.Name = "passValidate";
+            this.passValidate.Pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
+            this.passValidate.Size = new System.Drawing.Size(233, 43);
+            this.passValidate.TabIndex = 7;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(294, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(43, 26);
+            this.btnExit.TabIndex = 8;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(337, 599);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.passValidate);
+            this.Controls.Add(this.loginValidate);
             this.Controls.Add(this.linkFindPass);
             this.Controls.Add(this.pbPassword);
             this.Controls.Add(this.pbUser);
-            this.Controls.Add(this.txtUser);
-            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pbForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -150,12 +174,13 @@ namespace InternetCafe
 
         #endregion
         private System.Windows.Forms.PictureBox pbForm;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox pbUser;
         private System.Windows.Forms.PictureBox pbPassword;
         private System.Windows.Forms.LinkLabel linkFindPass;
+        private myValidate loginValidate;
+        private myValidate passValidate;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 

@@ -33,5 +33,16 @@ namespace InternetCafe.Properties {
                 return ((string)(this["InternetCafeConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-4LEV3IV\\SQLEXPRESS;Initial Catalog=InternetCafe;Persist Secur" +
+            "ity Info=True;User ID=sa;Password=123")]
+        public string InternetCafeConnectionString1 {
+            get {
+                return ((string)(this["InternetCafeConnectionString1"]));
+            }
+        }
     }
 }

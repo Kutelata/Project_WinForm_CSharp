@@ -57,7 +57,7 @@ namespace InternetCafe
     #endregion
 		
 		public InternetCafeDataContext() : 
-				base(global::InternetCafe.Properties.Settings.Default.InternetCafeConnectionString, mappingSource)
+				base(global::InternetCafe.Properties.Settings.Default.InternetCafeConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -437,6 +437,8 @@ namespace InternetCafe
 		
 		private int _area_id;
 		
+		private EntitySet<order> _orders;
+		
 		private EntityRef<area> _area;
 		
     #region Extensibility Method Definitions
@@ -455,6 +457,7 @@ namespace InternetCafe
 		
 		public computer()
 		{
+			this._orders = new EntitySet<order>(new Action<order>(this.attach_orders), new Action<order>(this.detach_orders));
 			this._area = default(EntityRef<area>);
 			OnCreated();
 		}
@@ -543,6 +546,19 @@ namespace InternetCafe
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="computer_order", Storage="_orders", ThisKey="entity_id", OtherKey="computer_id")]
+		public EntitySet<order> orders
+		{
+			get
+			{
+				return this._orders;
+			}
+			set
+			{
+				this._orders.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="area_computer", Storage="_area", ThisKey="area_id", OtherKey="entity_id", IsForeignKey=true)]
 		public area area
 		{
@@ -596,6 +612,18 @@ namespace InternetCafe
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_orders(order entity)
+		{
+			this.SendPropertyChanging();
+			entity.computer = this;
+		}
+		
+		private void detach_orders(order entity)
+		{
+			this.SendPropertyChanging();
+			entity.computer = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.food")]
@@ -615,6 +643,8 @@ namespace InternetCafe
 		private string _image;
 		
 		private int _food_type_id;
+		
+		private EntitySet<order> _orders;
 		
 		private EntityRef<food_type> _food_type;
 		
@@ -638,6 +668,7 @@ namespace InternetCafe
 		
 		public food()
 		{
+			this._orders = new EntitySet<order>(new Action<order>(this.attach_orders), new Action<order>(this.detach_orders));
 			this._food_type = default(EntityRef<food_type>);
 			OnCreated();
 		}
@@ -766,6 +797,19 @@ namespace InternetCafe
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="food_order", Storage="_orders", ThisKey="entity_id", OtherKey="food_id")]
+		public EntitySet<order> orders
+		{
+			get
+			{
+				return this._orders;
+			}
+			set
+			{
+				this._orders.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="food_type_food", Storage="_food_type", ThisKey="food_type_id", OtherKey="entity_id", IsForeignKey=true)]
 		public food_type food_type
 		{
@@ -818,6 +862,18 @@ namespace InternetCafe
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_orders(order entity)
+		{
+			this.SendPropertyChanging();
+			entity.food = this;
+		}
+		
+		private void detach_orders(order entity)
+		{
+			this.SendPropertyChanging();
+			entity.food = null;
 		}
 	}
 	
@@ -945,7 +1001,9 @@ namespace InternetCafe
 		
 		private int _computer_id;
 		
-		private string _food_id;
+		private System.Nullable<int> _food_id;
+		
+		private System.Nullable<int> _user_id;
 		
 		private System.Nullable<int> _quantity;
 		
@@ -955,6 +1013,12 @@ namespace InternetCafe
 		
 		private EntitySet<bill> _bills;
 		
+		private EntityRef<computer> _computer;
+		
+		private EntityRef<food> _food;
+		
+		private EntityRef<user> _user;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -963,8 +1027,10 @@ namespace InternetCafe
     partial void Onentity_idChanged();
     partial void Oncomputer_idChanging(int value);
     partial void Oncomputer_idChanged();
-    partial void Onfood_idChanging(string value);
+    partial void Onfood_idChanging(System.Nullable<int> value);
     partial void Onfood_idChanged();
+    partial void Onuser_idChanging(System.Nullable<int> value);
+    partial void Onuser_idChanged();
     partial void OnquantityChanging(System.Nullable<int> value);
     partial void OnquantityChanged();
     partial void Onstart_timeChanging(System.DateTime value);
@@ -976,6 +1042,9 @@ namespace InternetCafe
 		public order()
 		{
 			this._bills = new EntitySet<bill>(new Action<bill>(this.attach_bills), new Action<bill>(this.detach_bills));
+			this._computer = default(EntityRef<computer>);
+			this._food = default(EntityRef<food>);
+			this._user = default(EntityRef<user>);
 			OnCreated();
 		}
 		
@@ -1010,6 +1079,10 @@ namespace InternetCafe
 			{
 				if ((this._computer_id != value))
 				{
+					if (this._computer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Oncomputer_idChanging(value);
 					this.SendPropertyChanging();
 					this._computer_id = value;
@@ -1019,8 +1092,8 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_food_id", DbType="NVarChar(255)")]
-		public string food_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_food_id", DbType="Int")]
+		public System.Nullable<int> food_id
 		{
 			get
 			{
@@ -1030,11 +1103,39 @@ namespace InternetCafe
 			{
 				if ((this._food_id != value))
 				{
+					if (this._food.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Onfood_idChanging(value);
 					this.SendPropertyChanging();
 					this._food_id = value;
 					this.SendPropertyChanged("food_id");
 					this.Onfood_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_id", DbType="Int")]
+		public System.Nullable<int> user_id
+		{
+			get
+			{
+				return this._user_id;
+			}
+			set
+			{
+				if ((this._user_id != value))
+				{
+					if (this._user.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onuser_idChanging(value);
+					this.SendPropertyChanging();
+					this._user_id = value;
+					this.SendPropertyChanged("user_id");
+					this.Onuser_idChanged();
 				}
 			}
 		}
@@ -1109,6 +1210,108 @@ namespace InternetCafe
 			set
 			{
 				this._bills.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="computer_order", Storage="_computer", ThisKey="computer_id", OtherKey="entity_id", IsForeignKey=true)]
+		public computer computer
+		{
+			get
+			{
+				return this._computer.Entity;
+			}
+			set
+			{
+				computer previousValue = this._computer.Entity;
+				if (((previousValue != value) 
+							|| (this._computer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._computer.Entity = null;
+						previousValue.orders.Remove(this);
+					}
+					this._computer.Entity = value;
+					if ((value != null))
+					{
+						value.orders.Add(this);
+						this._computer_id = value.entity_id;
+					}
+					else
+					{
+						this._computer_id = default(int);
+					}
+					this.SendPropertyChanged("computer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="food_order", Storage="_food", ThisKey="food_id", OtherKey="entity_id", IsForeignKey=true)]
+		public food food
+		{
+			get
+			{
+				return this._food.Entity;
+			}
+			set
+			{
+				food previousValue = this._food.Entity;
+				if (((previousValue != value) 
+							|| (this._food.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._food.Entity = null;
+						previousValue.orders.Remove(this);
+					}
+					this._food.Entity = value;
+					if ((value != null))
+					{
+						value.orders.Add(this);
+						this._food_id = value.entity_id;
+					}
+					else
+					{
+						this._food_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("food");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_order", Storage="_user", ThisKey="user_id", OtherKey="entity_id", IsForeignKey=true)]
+		public user user
+		{
+			get
+			{
+				return this._user.Entity;
+			}
+			set
+			{
+				user previousValue = this._user.Entity;
+				if (((previousValue != value) 
+							|| (this._user.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._user.Entity = null;
+						previousValue.orders.Remove(this);
+					}
+					this._user.Entity = value;
+					if ((value != null))
+					{
+						value.orders.Add(this);
+						this._user_id = value.entity_id;
+					}
+					else
+					{
+						this._user_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("user");
+				}
 			}
 		}
 		
@@ -1279,6 +1482,8 @@ namespace InternetCafe
 		
 		private int _role_id;
 		
+		private EntitySet<order> _orders;
+		
 		private EntityRef<role> _role;
 		
     #region Extensibility Method Definitions
@@ -1303,6 +1508,7 @@ namespace InternetCafe
 		
 		public user()
 		{
+			this._orders = new EntitySet<order>(new Action<order>(this.attach_orders), new Action<order>(this.detach_orders));
 			this._role = default(EntityRef<role>);
 			OnCreated();
 		}
@@ -1451,6 +1657,19 @@ namespace InternetCafe
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_order", Storage="_orders", ThisKey="entity_id", OtherKey="user_id")]
+		public EntitySet<order> orders
+		{
+			get
+			{
+				return this._orders;
+			}
+			set
+			{
+				this._orders.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_user", Storage="_role", ThisKey="role_id", OtherKey="entity_id", IsForeignKey=true)]
 		public role role
 		{
@@ -1503,6 +1722,18 @@ namespace InternetCafe
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_orders(order entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = this;
+		}
+		
+		private void detach_orders(order entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = null;
 		}
 	}
 	

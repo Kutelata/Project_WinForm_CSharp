@@ -34,6 +34,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -56,8 +65,14 @@
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Login.designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="myValidate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="myValidate.Designer.cs">
+      <DependentUpon>myValidate.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,30 +93,6 @@
     <Compile Include="UI\Manager\Area.Designer.cs">
       <DependentUpon>Area.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Manager\Bill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Manager\Bill.Designer.cs">
-      <DependentUpon>Bill.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Manager\Computer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Manager\Computer.Designer.cs">
-      <DependentUpon>Computer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Manager\Food.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Manager\Food.Designer.cs">
-      <DependentUpon>Food.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Manager\Food_Type.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Manager\Food_Type.Designer.cs">
-      <DependentUpon>Food_Type.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Manager\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,20 +105,11 @@
     <Compile Include="UI\Manager\Order.Designer.cs">
       <DependentUpon>Order.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Manager\Role.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Manager\Role.Designer.cs">
-      <DependentUpon>Role.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Manager\User.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Manager\User.Designer.cs">
-      <DependentUpon>User.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="myValidate.resx">
+      <DependentUpon>myValidate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,6 +133,7 @@
     <None Include="InternetCafe.dbml.layout">
       <DependentUpon>InternetCafe.dbml</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,9 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Admin.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Background_Login.gif" />
