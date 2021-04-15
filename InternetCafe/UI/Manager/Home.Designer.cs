@@ -216,6 +216,7 @@ namespace InternetCafe.UI.Manager
             this.btnSaveArea.Text = "    Save";
             this.btnSaveArea.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSaveArea.UseVisualStyleBackColor = false;
+            this.btnSaveArea.Click += new System.EventHandler(this.btnSaveArea_Click);
             // 
             // txtPriceArea
             // 
@@ -267,6 +268,7 @@ namespace InternetCafe.UI.Manager
             this.btnDeleteArea.Text = "    Delete";
             this.btnDeleteArea.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteArea.UseVisualStyleBackColor = false;
+            this.btnDeleteArea.Click += new System.EventHandler(this.btnDeleteArea_Click);
             // 
             // btnSearchArea
             // 
@@ -283,6 +285,7 @@ namespace InternetCafe.UI.Manager
             this.btnSearchArea.Text = "Search";
             this.btnSearchArea.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearchArea.UseVisualStyleBackColor = false;
+            this.btnSearchArea.Click += new System.EventHandler(this.btnSearchArea_Click);
             // 
             // dgvArea
             // 

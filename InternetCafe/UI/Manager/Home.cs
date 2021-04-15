@@ -25,6 +25,15 @@ namespace InternetCafe.UI.Manager
 
         private void btnAddArea_Click(object sender, EventArgs e)
         {
+            // Get infomation on form to creat new data
+            area a = new area();
+            a.name = txtNameArea.Text;
+            a.price = Convert.ToDouble(txtPriceArea.Text);
+            // Insert
+            DB.areas.InsertOnSubmit(a);
+            // Save
+            DB.SubmitChanges();
+            loadArea();
 
         }
 
@@ -47,6 +56,38 @@ namespace InternetCafe.UI.Manager
                 txtNameArea.Text = row.Cells["area_name"].Value.ToString();
                 txtPriceArea.Text = row.Cells["area_price"].Value.ToString();
             }
+        }
+
+        private void btnSaveArea_Click(object sender, EventArgs e)
+        {
+            // Find object to edit
+            var a = DB.areas.SingleOrDefault(x => x.entity_id == areaId);
+            // Get data
+            a.name = txtNameArea.Text;
+            a.price = Convert.ToDouble(txtPriceArea.Text);
+            // Save
+            DB.SubmitChanges();
+            loadArea();
+        }
+
+        private void btnDeleteArea_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure ?","Delete Area",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // Find object to edit
+                var a = DB.areas.SingleOrDefault(x => x.entity_id == areaId);
+                // Delete
+                DB.areas.DeleteOnSubmit(a);
+                // Save
+                DB.SubmitChanges();
+                loadArea();
+            }
+           
+        }
+
+        private void btnSearchArea_Click(object sender, EventArgs e)
+        {
+            dgvArea.DataSource = DB.searchArea(txtSearchArea.Text);
         }
     }
 }
