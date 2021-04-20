@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="InternetCafe" Class="InternetCafeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-4LEV3IV\SQLEXPRESS;Initial Catalog=InternetCafe;Persist Security Info=True;User ID=sa" SettingsObjectName="InternetCafe.Properties.Settings" SettingsPropertyName="InternetCafeConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-1F22D91\SQLEXPRESS;Initial Catalog=InternetCafe;Integrated Security=True" SettingsObjectName="InternetCafe.Properties.Settings" SettingsPropertyName="InternetCafeConnectionString3" Provider="System.Data.SqlClient" />
   <Table Name="dbo.area" Member="areas">
     <Type Name="area">
       <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -49,8 +49,8 @@
       <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="computer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="food_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="start_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="end_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="order_bill" Member="bills" ThisKey="entity_id" OtherKey="order_id" Type="bill" />
@@ -79,6 +79,13 @@
       <Association Name="role_user" Member="role" ThisKey="role_id" OtherKey="entity_id" Type="role" IsForeignKey="true" />
     </Type>
   </Table>
+  <Function Name="dbo.getAllArea" Method="getAllArea">
+    <ElementType Name="getAllAreaResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.getUser" Method="getUser">
     <Parameter Name="account" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="password" Type="System.String" DbType="VarChar(255)" />
@@ -92,13 +99,6 @@
       <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="entity_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.getAllArea" Method="getAllArea">
-    <ElementType Name="getAllAreaResult">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.searchArea" Method="searchArea">

@@ -44,5 +44,26 @@ namespace InternetCafe.Properties {
                 return ((string)(this["InternetCafeConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=InternetCafe;Integrated Security=True")]
+        public string InternetCafeConnectionString2 {
+            get {
+                return ((string)(this["InternetCafeConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-1F22D91\\SQLEXPRESS;Initial Catalog=InternetCafe;Integrated Se" +
+            "curity=True")]
+        public string InternetCafeConnectionString3 {
+            get {
+                return ((string)(this["InternetCafeConnectionString3"]));
+            }
+        }
     }
 }

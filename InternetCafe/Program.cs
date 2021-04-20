@@ -16,7 +16,7 @@ namespace InternetCafe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.Manager.frmHome());
+            Application.Run(new frmLogin());
         }
     }
 }

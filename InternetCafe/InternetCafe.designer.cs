@@ -57,7 +57,7 @@ namespace InternetCafe
     #endregion
 		
 		public InternetCafeDataContext() : 
-				base(global::InternetCafe.Properties.Settings.Default.InternetCafeConnectionString1, mappingSource)
+				base(global::InternetCafe.Properties.Settings.Default.InternetCafeConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -150,18 +150,18 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getUser")]
-		public ISingleResult<getUserResult> getUser([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string account, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string password)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), account, password);
-			return ((ISingleResult<getUserResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllArea")]
 		public ISingleResult<getAllAreaResult> getAllArea()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<getAllAreaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getUser")]
+		public ISingleResult<getUserResult> getUser([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string account, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), account, password);
+			return ((ISingleResult<getUserResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchArea")]
@@ -1017,9 +1017,9 @@ namespace InternetCafe
 		
 		private System.Nullable<int> _food_id;
 		
-		private System.Nullable<int> _user_id;
-		
 		private System.Nullable<int> _quantity;
+		
+		private System.Nullable<int> _user_id;
 		
 		private System.DateTime _start_time;
 		
@@ -1043,10 +1043,10 @@ namespace InternetCafe
     partial void Oncomputer_idChanged();
     partial void Onfood_idChanging(System.Nullable<int> value);
     partial void Onfood_idChanged();
-    partial void Onuser_idChanging(System.Nullable<int> value);
-    partial void Onuser_idChanged();
     partial void OnquantityChanging(System.Nullable<int> value);
     partial void OnquantityChanged();
+    partial void Onuser_idChanging(System.Nullable<int> value);
+    partial void Onuser_idChanged();
     partial void Onstart_timeChanging(System.DateTime value);
     partial void Onstart_timeChanged();
     partial void Onend_timeChanging(System.DateTime value);
@@ -1130,6 +1130,26 @@ namespace InternetCafe
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
+		public System.Nullable<int> quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this.OnquantityChanging(value);
+					this.SendPropertyChanging();
+					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_id", DbType="Int")]
 		public System.Nullable<int> user_id
 		{
@@ -1150,26 +1170,6 @@ namespace InternetCafe
 					this._user_id = value;
 					this.SendPropertyChanged("user_id");
 					this.Onuser_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
-		public System.Nullable<int> quantity
-		{
-			get
-			{
-				return this._quantity;
-			}
-			set
-			{
-				if ((this._quantity != value))
-				{
-					this.OnquantityChanging(value);
-					this.SendPropertyChanging();
-					this._quantity = value;
-					this.SendPropertyChanged("quantity");
-					this.OnquantityChanged();
 				}
 			}
 		}
@@ -1751,6 +1751,68 @@ namespace InternetCafe
 		}
 	}
 	
+	public partial class getAllAreaResult
+	{
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private double _price;
+		
+		public getAllAreaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
+		public double price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
+				}
+			}
+		}
+	}
+	
 	public partial class getUserResult
 	{
 		
@@ -1916,68 +1978,6 @@ namespace InternetCafe
 				if ((this._name != value))
 				{
 					this._name = value;
-				}
-			}
-		}
-	}
-	
-	public partial class getAllAreaResult
-	{
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		private double _price;
-		
-		public getAllAreaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this._entity_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
-		public double price
-		{
-			get
-			{
-				return this._price;
-			}
-			set
-			{
-				if ((this._price != value))
-				{
-					this._price = value;
 				}
 			}
 		}

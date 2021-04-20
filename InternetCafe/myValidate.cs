@@ -17,6 +17,7 @@ namespace InternetCafe
         public string FieldName { get; set; }
         public string Pattern { get; set; }
         public char changeCharacter { get; set; }
+
         public myValidate()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace InternetCafe
             }
             if (String.IsNullOrEmpty(Pattern))
             {
-                if (Regex.IsMatch(textBox1.Text,Pattern))
+                if (Regex.IsMatch(textBox1.Text, Pattern))
                 {
                     e.Cancel = true;
                     label1.Text = $"Trường {FieldName} không hợp lệ!";

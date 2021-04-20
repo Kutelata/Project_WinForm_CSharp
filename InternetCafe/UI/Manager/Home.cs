@@ -40,6 +40,7 @@ namespace InternetCafe.UI.Manager
         private void frmHome_Load(object sender, EventArgs e)
         {
             loadArea();
+            mainTabControl.SelectedTab = mainTabControl.TabPages["homeTabPage"];
         }
 
         private void btnExit_Click(object sender, EventArgs e)

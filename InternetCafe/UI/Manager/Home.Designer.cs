@@ -47,13 +47,13 @@ namespace InternetCafe.UI.Manager
             this.btnDeleteArea = new System.Windows.Forms.Button();
             this.btnSearchArea = new System.Windows.Forms.Button();
             this.dgvArea = new System.Windows.Forms.DataGridView();
-            this.txtSearchArea = new System.Windows.Forms.TextBox();
-            this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
-            this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
-            this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
             this.area_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.area_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.area_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchArea = new System.Windows.Forms.TextBox();
+            this.computerTabPage = new MetroFramework.Controls.MetroTabPage();
+            this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
+            this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
             this.mainTabControl.SuspendLayout();
@@ -114,13 +114,13 @@ namespace InternetCafe.UI.Manager
             // 
             this.mainTabControl.Controls.Add(this.homeTabPage);
             this.mainTabControl.Controls.Add(this.areaTabPage);
-            this.mainTabControl.Controls.Add(this.metroTabPage3);
+            this.mainTabControl.Controls.Add(this.computerTabPage);
             this.mainTabControl.Controls.Add(this.metroTabPage4);
             this.mainTabControl.Controls.Add(this.metroTabPage5);
             this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTabControl.Location = new System.Drawing.Point(0, 68);
             this.mainTabControl.Name = "mainTabControl";
-            this.mainTabControl.SelectedIndex = 1;
+            this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(1107, 579);
             this.mainTabControl.TabIndex = 1;
             this.mainTabControl.UseSelectable = true;
@@ -142,7 +142,7 @@ namespace InternetCafe.UI.Manager
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(89, 66);
+            this.button1.Location = new System.Drawing.Point(125, 149);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -304,6 +304,27 @@ namespace InternetCafe.UI.Manager
             this.dgvArea.TabIndex = 12;
             this.dgvArea.SelectionChanged += new System.EventHandler(this.dgvArea_SelectionChanged);
             // 
+            // area_id
+            // 
+            this.area_id.DataPropertyName = "Entity_id";
+            this.area_id.HeaderText = "Id";
+            this.area_id.Name = "area_id";
+            this.area_id.ReadOnly = true;
+            // 
+            // area_name
+            // 
+            this.area_name.DataPropertyName = "Name";
+            this.area_name.HeaderText = "Name";
+            this.area_name.Name = "area_name";
+            this.area_name.ReadOnly = true;
+            // 
+            // area_price
+            // 
+            this.area_price.DataPropertyName = "Price";
+            this.area_price.HeaderText = "Price";
+            this.area_price.Name = "area_price";
+            this.area_price.ReadOnly = true;
+            // 
             // txtSearchArea
             // 
             this.txtSearchArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -312,19 +333,19 @@ namespace InternetCafe.UI.Manager
             this.txtSearchArea.Size = new System.Drawing.Size(222, 29);
             this.txtSearchArea.TabIndex = 13;
             // 
-            // metroTabPage3
+            // computerTabPage
             // 
-            this.metroTabPage3.HorizontalScrollbarBarColor = true;
-            this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.HorizontalScrollbarSize = 10;
-            this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(1099, 537);
-            this.metroTabPage3.TabIndex = 2;
-            this.metroTabPage3.Text = "Computer";
-            this.metroTabPage3.VerticalScrollbarBarColor = true;
-            this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.VerticalScrollbarSize = 10;
+            this.computerTabPage.HorizontalScrollbarBarColor = true;
+            this.computerTabPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.computerTabPage.HorizontalScrollbarSize = 10;
+            this.computerTabPage.Location = new System.Drawing.Point(4, 38);
+            this.computerTabPage.Name = "computerTabPage";
+            this.computerTabPage.Size = new System.Drawing.Size(1099, 537);
+            this.computerTabPage.TabIndex = 2;
+            this.computerTabPage.Text = "Computer";
+            this.computerTabPage.VerticalScrollbarBarColor = true;
+            this.computerTabPage.VerticalScrollbarHighlightOnWheel = false;
+            this.computerTabPage.VerticalScrollbarSize = 10;
             // 
             // metroTabPage4
             // 
@@ -353,24 +374,6 @@ namespace InternetCafe.UI.Manager
             this.metroTabPage5.VerticalScrollbarBarColor = true;
             this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage5.VerticalScrollbarSize = 10;
-            // 
-            // area_id
-            // 
-            this.area_id.DataPropertyName = "Entity_id";
-            this.area_id.HeaderText = "Id";
-            this.area_id.Name = "area_id";
-            // 
-            // area_name
-            // 
-            this.area_name.DataPropertyName = "Name";
-            this.area_name.HeaderText = "Name";
-            this.area_name.Name = "area_name";
-            // 
-            // area_price
-            // 
-            this.area_price.DataPropertyName = "Price";
-            this.area_price.HeaderText = "Price";
-            this.area_price.Name = "area_price";
             // 
             // frmHome
             // 
@@ -405,7 +408,7 @@ namespace InternetCafe.UI.Manager
         private MetroFramework.Controls.MetroTabControl mainTabControl;
         private MetroFramework.Controls.MetroTabPage homeTabPage;
         private MetroFramework.Controls.MetroTabPage areaTabPage;
-        private MetroFramework.Controls.MetroTabPage metroTabPage3;
+        private MetroFramework.Controls.MetroTabPage computerTabPage;
         private MetroFramework.Controls.MetroTabPage metroTabPage4;
         private MetroFramework.Controls.MetroTabPage metroTabPage5;
         private System.Windows.Forms.Label txtAdminName;
