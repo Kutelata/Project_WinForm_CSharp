@@ -59,6 +59,7 @@ namespace InternetCafe
             this.Controls.Add(this.textBox1);
             this.Name = "myValidate";
             this.Size = new System.Drawing.Size(247, 43);
+            this.Load += new System.EventHandler(this.myValidate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

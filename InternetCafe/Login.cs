@@ -15,22 +15,10 @@ namespace InternetCafe
     {
         InternetCafeDataContext DB = new InternetCafeDataContext();
 
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (
-           int nLeftRect,     // x-coordinate of upper-left corner
-           int nTopRect,      // y-coordinate of upper-left corner
-           int nRightRect,    // x-coordinate of lower-right corner
-           int nBottomRect,   // y-coordinate of lower-right corner
-           int nWidthEllipse, // width of ellipse
-           int nHeightEllipse // height of ellipse
-        );
-
         public frmLogin()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -48,14 +36,18 @@ namespace InternetCafe
                     if (checkUser.name == "admin")
                     {
                         MessageBox.Show("Welcome Admin " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
-                        UI.Manager.frmHome adminHome = new UI.Manager.frmHome();
-                        adminHome.Show();
+                        this.Hide();
+                        UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                        adminHome.ShowDialog();
+                        this.Close();
                     }
                     else
                     {
                         MessageBox.Show("Welcome Vendor " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                        this.Hide();
                         UI.Employee.frmHome empHome = new UI.Employee.frmHome();
-                        empHome.Show();
+                        empHome.ShowDialog();
+                        this.Close();
                     }
                 }
                 else
@@ -73,14 +65,19 @@ namespace InternetCafe
                 if (checkUser.name == "admin")
                 {
                     MessageBox.Show("Welcome Admin " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
-                    UI.Manager.frmHome adminHome = new UI.Manager.frmHome();
-                    adminHome.Show();
+                    this.Hide();
+                    UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    adminHome.ShowDialog();
+                    this.Close();
+                    // adminHome.Closed += (s, args) => this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Welcome Vendor " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    this.Hide();
                     UI.Employee.frmHome empHome = new UI.Employee.frmHome();
-                    empHome.Show();
+                    empHome.ShowDialog();
+                    this.Close();
                 }
             }
             else
@@ -98,6 +95,5 @@ namespace InternetCafe
         {
             this.Dispose();
         }
-
     }
 }

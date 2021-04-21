@@ -131,7 +131,7 @@ namespace InternetCafe
             this.passValidate.changeCharacter = '*';
             this.passValidate.FieldName = "Password";
             this.passValidate.Location = new System.Drawing.Point(104, 283);
-            this.passValidate.myTextBox = null;
+            this.passValidate.myTextBox = "admin123";
             this.passValidate.Name = "passValidate";
             this.passValidate.Pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
             this.passValidate.Size = new System.Drawing.Size(233, 43);
@@ -143,7 +143,7 @@ namespace InternetCafe
             this.loginValidate.changeCharacter = '\0';
             this.loginValidate.FieldName = "UserName";
             this.loginValidate.Location = new System.Drawing.Point(104, 237);
-            this.loginValidate.myTextBox = null;
+            this.loginValidate.myTextBox = "admin";
             this.loginValidate.Name = "loginValidate";
             this.loginValidate.Pattern = "^[a-z]([-\']?[a-z]+)*( [a-z]([-\']?[a-z]+)*)+$";
             this.loginValidate.Size = new System.Drawing.Size(233, 43);

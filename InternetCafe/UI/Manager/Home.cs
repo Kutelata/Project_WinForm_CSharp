@@ -14,13 +14,22 @@ namespace InternetCafe.UI.Manager
     {
         InternetCafeDataContext DB = new InternetCafeDataContext();
         private int areaId;
-        public frmHome()
+
+        public frmHome(string myAdminName)
         {
             InitializeComponent();
+            txtAdminName.Text = myAdminName;
         }
+
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+            loadArea();
+            mainTabControl.SelectedTab = mainTabControl.TabPages["homeTabPage"];
+        }
+
         private void loadArea()
         {
-            dgvArea.DataSource = DB.getAllArea();
+            dgvArea.DataSource = DB.getAllArea().ToList();
         }
 
         private void btnAddArea_Click(object sender, EventArgs e)
@@ -37,28 +46,6 @@ namespace InternetCafe.UI.Manager
 
         }
 
-        private void frmHome_Load(object sender, EventArgs e)
-        {
-            loadArea();
-            mainTabControl.SelectedTab = mainTabControl.TabPages["homeTabPage"];
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void dgvArea_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvArea.CurrentRow != null)
-            {
-                var row = dgvArea.CurrentRow;
-                areaId = Convert.ToInt32(row.Cells["area_id"].Value);
-                txtNameArea.Text = row.Cells["area_name"].Value.ToString();
-                txtPriceArea.Text = row.Cells["area_price"].Value.ToString();
-            }
-        }
-
         private void btnSaveArea_Click(object sender, EventArgs e)
         {
             // Find object to edit
@@ -73,7 +60,7 @@ namespace InternetCafe.UI.Manager
 
         private void btnDeleteArea_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure ?","Delete Area",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure ?", "Delete Area", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // Find object to edit
                 var a = DB.areas.SingleOrDefault(x => x.entity_id == areaId);
@@ -83,12 +70,27 @@ namespace InternetCafe.UI.Manager
                 DB.SubmitChanges();
                 loadArea();
             }
-           
         }
 
         private void btnSearchArea_Click(object sender, EventArgs e)
         {
             dgvArea.DataSource = DB.searchArea(txtSearchArea.Text);
+        }
+
+        private void dgvArea_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvArea.CurrentRow != null)
+            {
+                var row = dgvArea.CurrentRow;
+                areaId = Convert.ToInt32(row.Cells["area_id"].Value);
+                txtNameArea.Text = row.Cells["area_name"].Value.ToString();
+                txtPriceArea.Text = row.Cells["area_price"].Value.ToString();
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

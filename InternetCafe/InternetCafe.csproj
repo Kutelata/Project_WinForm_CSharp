@@ -189,5 +189,14 @@
   <ItemGroup>
     <None Include="Resources\Export.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Graph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProgressBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CircleProgress.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

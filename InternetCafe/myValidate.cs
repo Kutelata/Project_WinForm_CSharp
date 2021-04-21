@@ -47,5 +47,10 @@ namespace InternetCafe
             myTextBox = textBox1.Text;
             textBox1.PasswordChar = changeCharacter;
         }
+
+        private void myValidate_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = myTextBox;
+        }
     }
 }
