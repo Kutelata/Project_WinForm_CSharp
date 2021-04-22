@@ -54,7 +54,7 @@ namespace InternetCafe
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(113, 329);
+            this.btnLogin.Location = new System.Drawing.Point(148, 393);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(120, 41);
             this.btnLogin.TabIndex = 2;
@@ -68,7 +68,7 @@ namespace InternetCafe
             this.linkFindPass.BackColor = System.Drawing.Color.Black;
             this.linkFindPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkFindPass.LinkColor = System.Drawing.Color.White;
-            this.linkFindPass.Location = new System.Drawing.Point(114, 373);
+            this.linkFindPass.Location = new System.Drawing.Point(149, 437);
             this.linkFindPass.Name = "linkFindPass";
             this.linkFindPass.Size = new System.Drawing.Size(119, 16);
             this.linkFindPass.TabIndex = 3;
@@ -80,9 +80,9 @@ namespace InternetCafe
             // 
             this.pbPassword.BackColor = System.Drawing.Color.Black;
             this.pbPassword.Image = global::InternetCafe.Properties.Resources.Password;
-            this.pbPassword.Location = new System.Drawing.Point(76, 283);
+            this.pbPassword.Location = new System.Drawing.Point(54, 323);
             this.pbPassword.Name = "pbPassword";
-            this.pbPassword.Size = new System.Drawing.Size(22, 18);
+            this.pbPassword.Size = new System.Drawing.Size(34, 27);
             this.pbPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPassword.TabIndex = 5;
             this.pbPassword.TabStop = false;
@@ -91,9 +91,9 @@ namespace InternetCafe
             // 
             this.pbUser.BackColor = System.Drawing.Color.Black;
             this.pbUser.Image = global::InternetCafe.Properties.Resources.User;
-            this.pbUser.Location = new System.Drawing.Point(76, 237);
+            this.pbUser.Location = new System.Drawing.Point(54, 261);
             this.pbUser.Name = "pbUser";
-            this.pbUser.Size = new System.Drawing.Size(22, 18);
+            this.pbUser.Size = new System.Drawing.Size(34, 25);
             this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbUser.TabIndex = 4;
             this.pbUser.TabStop = false;
@@ -104,7 +104,8 @@ namespace InternetCafe
             this.pbForm.Image = ((System.Drawing.Image)(resources.GetObject("pbForm.Image")));
             this.pbForm.Location = new System.Drawing.Point(0, 0);
             this.pbForm.Name = "pbForm";
-            this.pbForm.Size = new System.Drawing.Size(337, 599);
+            this.pbForm.Size = new System.Drawing.Size(405, 689);
+            this.pbForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbForm.TabIndex = 0;
             this.pbForm.TabStop = false;
             // 
@@ -115,11 +116,11 @@ namespace InternetCafe
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(294, 0);
+            this.btnExit.Location = new System.Drawing.Point(348, 0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(43, 26);
+            this.btnExit.Size = new System.Drawing.Size(57, 49);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -130,11 +131,12 @@ namespace InternetCafe
             this.passValidate.BackColor = System.Drawing.Color.Black;
             this.passValidate.changeCharacter = '*';
             this.passValidate.FieldName = "Password";
-            this.passValidate.Location = new System.Drawing.Point(104, 283);
+            this.passValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passValidate.Location = new System.Drawing.Point(94, 323);
             this.passValidate.myTextBox = "admin123";
             this.passValidate.Name = "passValidate";
             this.passValidate.Pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
-            this.passValidate.Size = new System.Drawing.Size(233, 43);
+            this.passValidate.Size = new System.Drawing.Size(311, 59);
             this.passValidate.TabIndex = 7;
             // 
             // loginValidate
@@ -142,11 +144,12 @@ namespace InternetCafe
             this.loginValidate.BackColor = System.Drawing.Color.Black;
             this.loginValidate.changeCharacter = '\0';
             this.loginValidate.FieldName = "UserName";
-            this.loginValidate.Location = new System.Drawing.Point(104, 237);
+            this.loginValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginValidate.Location = new System.Drawing.Point(94, 261);
             this.loginValidate.myTextBox = "admin";
             this.loginValidate.Name = "loginValidate";
             this.loginValidate.Pattern = "^[a-z]([-\']?[a-z]+)*( [a-z]([-\']?[a-z]+)*)+$";
-            this.loginValidate.Size = new System.Drawing.Size(233, 43);
+            this.loginValidate.Size = new System.Drawing.Size(311, 56);
             this.loginValidate.TabIndex = 6;
             // 
             // frmLogin
@@ -154,7 +157,7 @@ namespace InternetCafe
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(337, 599);
+            this.ClientSize = new System.Drawing.Size(405, 689);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.passValidate);
             this.Controls.Add(this.loginValidate);

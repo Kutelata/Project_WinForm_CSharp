@@ -105,7 +105,6 @@ E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\bin\Debug\InternetCafe.pdb
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\bin\Debug\MetroFramework.Design.dll
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\bin\Debug\MetroFramework.dll
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\bin\Debug\MetroFramework.Fonts.dll
-E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.csprojAssemblyReference.cache
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.frmLogin.resources
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.myValidate.resources
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.Properties.Resources.resources
