@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace InternetCafe
 {
-    public partial class ForgotPassword : Form
+    public partial class frmForgotPassword : Form
     {
-        public ForgotPassword()
+        public frmForgotPassword()
         {
             InitializeComponent();
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

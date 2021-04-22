@@ -100,7 +100,7 @@ namespace InternetCafe
 
         private void linkFindPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ForgotPassword fp = new ForgotPassword();
+            frmForgotPassword fp = new frmForgotPassword();
             fp.ShowDialog();
             fp.Focus();
         }
