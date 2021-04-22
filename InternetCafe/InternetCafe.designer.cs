@@ -33,12 +33,12 @@ namespace InternetCafe
     partial void Insertarea(area instance);
     partial void Updatearea(area instance);
     partial void Deletearea(area instance);
+    partial void Insertuser(user instance);
+    partial void Updateuser(user instance);
+    partial void Deleteuser(user instance);
     partial void Insertbill(bill instance);
     partial void Updatebill(bill instance);
     partial void Deletebill(bill instance);
-    partial void Insertcomputer(computer instance);
-    partial void Updatecomputer(computer instance);
-    partial void Deletecomputer(computer instance);
     partial void Insertfood(food instance);
     partial void Updatefood(food instance);
     partial void Deletefood(food instance);
@@ -51,9 +51,9 @@ namespace InternetCafe
     partial void Insertrole(role instance);
     partial void Updaterole(role instance);
     partial void Deleterole(role instance);
-    partial void Insertuser(user instance);
-    partial void Updateuser(user instance);
-    partial void Deleteuser(user instance);
+    partial void Insertcomputer(computer instance);
+    partial void Updatecomputer(computer instance);
+    partial void Deletecomputer(computer instance);
     #endregion
 		
 		public InternetCafeDataContext() : 
@@ -94,19 +94,19 @@ namespace InternetCafe
 			}
 		}
 		
+		public System.Data.Linq.Table<user> users
+		{
+			get
+			{
+				return this.GetTable<user>();
+			}
+		}
+		
 		public System.Data.Linq.Table<bill> bills
 		{
 			get
 			{
 				return this.GetTable<bill>();
-			}
-		}
-		
-		public System.Data.Linq.Table<computer> computers
-		{
-			get
-			{
-				return this.GetTable<computer>();
 			}
 		}
 		
@@ -142,19 +142,19 @@ namespace InternetCafe
 			}
 		}
 		
-		public System.Data.Linq.Table<user> users
+		public System.Data.Linq.Table<computer> computers
 		{
 			get
 			{
-				return this.GetTable<user>();
+				return this.GetTable<computer>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllArea")]
-		public ISingleResult<getAllAreaResult> getAllArea()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchArea")]
+		public ISingleResult<searchAreaResult> searchArea([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<getAllAreaResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<searchAreaResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getUser")]
@@ -164,11 +164,18 @@ namespace InternetCafe
 			return ((ISingleResult<getUserResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchArea")]
-		public ISingleResult<searchAreaResult> searchArea([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllArea")]
+		public ISingleResult<getAllAreaResult> getAllArea()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
-			return ((ISingleResult<searchAreaResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<getAllAreaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllComputer")]
+		public ISingleResult<getAllComputerResult> getAllComputer()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<getAllComputerResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -310,6 +317,281 @@ namespace InternetCafe
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[user]")]
+	public partial class user : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _entity_id;
+		
+		private string _account;
+		
+		private string _password;
+		
+		private string _firstName;
+		
+		private string _lastName;
+		
+		private string _image;
+		
+		private int _role_id;
+		
+		private EntitySet<order> _orders;
+		
+		private EntityRef<role> _role;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onentity_idChanging(int value);
+    partial void Onentity_idChanged();
+    partial void OnaccountChanging(string value);
+    partial void OnaccountChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OnfirstNameChanging(string value);
+    partial void OnfirstNameChanged();
+    partial void OnlastNameChanging(string value);
+    partial void OnlastNameChanged();
+    partial void OnimageChanging(string value);
+    partial void OnimageChanged();
+    partial void Onrole_idChanging(int value);
+    partial void Onrole_idChanged();
+    #endregion
+		
+		public user()
+		{
+			this._orders = new EntitySet<order>(new Action<order>(this.attach_orders), new Action<order>(this.detach_orders));
+			this._role = default(EntityRef<role>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this.Onentity_idChanging(value);
+					this.SendPropertyChanging();
+					this._entity_id = value;
+					this.SendPropertyChanged("entity_id");
+					this.Onentity_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_account", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string account
+		{
+			get
+			{
+				return this._account;
+			}
+			set
+			{
+				if ((this._account != value))
+				{
+					this.OnaccountChanging(value);
+					this.SendPropertyChanging();
+					this._account = value;
+					this.SendPropertyChanged("account");
+					this.OnaccountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="NVarChar(255)")]
+		public string firstName
+		{
+			get
+			{
+				return this._firstName;
+			}
+			set
+			{
+				if ((this._firstName != value))
+				{
+					this.OnfirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._firstName = value;
+					this.SendPropertyChanged("firstName");
+					this.OnfirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string lastName
+		{
+			get
+			{
+				return this._lastName;
+			}
+			set
+			{
+				if ((this._lastName != value))
+				{
+					this.OnlastNameChanging(value);
+					this.SendPropertyChanging();
+					this._lastName = value;
+					this.SendPropertyChanged("lastName");
+					this.OnlastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string image
+		{
+			get
+			{
+				return this._image;
+			}
+			set
+			{
+				if ((this._image != value))
+				{
+					this.OnimageChanging(value);
+					this.SendPropertyChanging();
+					this._image = value;
+					this.SendPropertyChanged("image");
+					this.OnimageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_id", DbType="Int NOT NULL")]
+		public int role_id
+		{
+			get
+			{
+				return this._role_id;
+			}
+			set
+			{
+				if ((this._role_id != value))
+				{
+					if (this._role.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onrole_idChanging(value);
+					this.SendPropertyChanging();
+					this._role_id = value;
+					this.SendPropertyChanged("role_id");
+					this.Onrole_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_order", Storage="_orders", ThisKey="entity_id", OtherKey="user_id")]
+		public EntitySet<order> orders
+		{
+			get
+			{
+				return this._orders;
+			}
+			set
+			{
+				this._orders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_user", Storage="_role", ThisKey="role_id", OtherKey="entity_id", IsForeignKey=true)]
+		public role role
+		{
+			get
+			{
+				return this._role.Entity;
+			}
+			set
+			{
+				role previousValue = this._role.Entity;
+				if (((previousValue != value) 
+							|| (this._role.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._role.Entity = null;
+						previousValue.users.Remove(this);
+					}
+					this._role.Entity = value;
+					if ((value != null))
+					{
+						value.users.Add(this);
+						this._role_id = value.entity_id;
+					}
+					else
+					{
+						this._role_id = default(int);
+					}
+					this.SendPropertyChanged("role");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_orders(order entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = this;
+		}
+		
+		private void detach_orders(order entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.bill")]
 	public partial class bill : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -434,209 +716,6 @@ namespace InternetCafe
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.computer")]
-	public partial class computer : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		private byte _status;
-		
-		private int _area_id;
-		
-		private EntitySet<order> _orders;
-		
-		private EntityRef<area> _area;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onentity_idChanging(int value);
-    partial void Onentity_idChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnstatusChanging(byte value);
-    partial void OnstatusChanged();
-    partial void Onarea_idChanging(int value);
-    partial void Onarea_idChanged();
-    #endregion
-		
-		public computer()
-		{
-			this._orders = new EntitySet<order>(new Action<order>(this.attach_orders), new Action<order>(this.detach_orders));
-			this._area = default(EntityRef<area>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this.Onentity_idChanging(value);
-					this.SendPropertyChanging();
-					this._entity_id = value;
-					this.SendPropertyChanged("entity_id");
-					this.Onentity_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="TinyInt NOT NULL")]
-		public byte status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this.OnstatusChanging(value);
-					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area_id", DbType="Int NOT NULL")]
-		public int area_id
-		{
-			get
-			{
-				return this._area_id;
-			}
-			set
-			{
-				if ((this._area_id != value))
-				{
-					if (this._area.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onarea_idChanging(value);
-					this.SendPropertyChanging();
-					this._area_id = value;
-					this.SendPropertyChanged("area_id");
-					this.Onarea_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="computer_order", Storage="_orders", ThisKey="entity_id", OtherKey="computer_id")]
-		public EntitySet<order> orders
-		{
-			get
-			{
-				return this._orders;
-			}
-			set
-			{
-				this._orders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="area_computer", Storage="_area", ThisKey="area_id", OtherKey="entity_id", IsForeignKey=true)]
-		public area area
-		{
-			get
-			{
-				return this._area.Entity;
-			}
-			set
-			{
-				area previousValue = this._area.Entity;
-				if (((previousValue != value) 
-							|| (this._area.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._area.Entity = null;
-						previousValue.computers.Remove(this);
-					}
-					this._area.Entity = value;
-					if ((value != null))
-					{
-						value.computers.Add(this);
-						this._area_id = value.entity_id;
-					}
-					else
-					{
-						this._area_id = default(int);
-					}
-					this.SendPropertyChanged("area");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_orders(order entity)
-		{
-			this.SendPropertyChanging();
-			entity.computer = this;
-		}
-		
-		private void detach_orders(order entity)
-		{
-			this.SendPropertyChanging();
-			entity.computer = null;
 		}
 	}
 	
@@ -1027,11 +1106,11 @@ namespace InternetCafe
 		
 		private EntitySet<bill> _bills;
 		
-		private EntityRef<computer> _computer;
-		
 		private EntityRef<food> _food;
 		
 		private EntityRef<user> _user;
+		
+		private EntityRef<computer> _computer;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1056,9 +1135,9 @@ namespace InternetCafe
 		public order()
 		{
 			this._bills = new EntitySet<bill>(new Action<bill>(this.attach_bills), new Action<bill>(this.detach_bills));
-			this._computer = default(EntityRef<computer>);
 			this._food = default(EntityRef<food>);
 			this._user = default(EntityRef<user>);
+			this._computer = default(EntityRef<computer>);
 			OnCreated();
 		}
 		
@@ -1227,40 +1306,6 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="computer_order", Storage="_computer", ThisKey="computer_id", OtherKey="entity_id", IsForeignKey=true)]
-		public computer computer
-		{
-			get
-			{
-				return this._computer.Entity;
-			}
-			set
-			{
-				computer previousValue = this._computer.Entity;
-				if (((previousValue != value) 
-							|| (this._computer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._computer.Entity = null;
-						previousValue.orders.Remove(this);
-					}
-					this._computer.Entity = value;
-					if ((value != null))
-					{
-						value.orders.Add(this);
-						this._computer_id = value.entity_id;
-					}
-					else
-					{
-						this._computer_id = default(int);
-					}
-					this.SendPropertyChanged("computer");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="food_order", Storage="_food", ThisKey="food_id", OtherKey="entity_id", IsForeignKey=true)]
 		public food food
 		{
@@ -1325,6 +1370,40 @@ namespace InternetCafe
 						this._user_id = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("user");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="computer_order", Storage="_computer", ThisKey="computer_id", OtherKey="entity_id", IsForeignKey=true)]
+		public computer computer
+		{
+			get
+			{
+				return this._computer.Entity;
+			}
+			set
+			{
+				computer previousValue = this._computer.Entity;
+				if (((previousValue != value) 
+							|| (this._computer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._computer.Entity = null;
+						previousValue.orders.Remove(this);
+					}
+					this._computer.Entity = value;
+					if ((value != null))
+					{
+						value.orders.Add(this);
+						this._computer_id = value.entity_id;
+					}
+					else
+					{
+						this._computer_id = default(int);
+					}
+					this.SendPropertyChanged("computer");
 				}
 			}
 		}
@@ -1476,29 +1555,23 @@ namespace InternetCafe
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[user]")]
-	public partial class user : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.computer")]
+	public partial class computer : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _entity_id;
 		
-		private string _account;
+		private string _name;
 		
-		private string _password;
+		private System.Nullable<bool> _status;
 		
-		private string _firstName;
-		
-		private string _lastName;
-		
-		private string _image;
-		
-		private int _role_id;
+		private int _area_id;
 		
 		private EntitySet<order> _orders;
 		
-		private EntityRef<role> _role;
+		private EntityRef<area> _area;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1506,24 +1579,18 @@ namespace InternetCafe
     partial void OnCreated();
     partial void Onentity_idChanging(int value);
     partial void Onentity_idChanged();
-    partial void OnaccountChanging(string value);
-    partial void OnaccountChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    partial void OnfirstNameChanging(string value);
-    partial void OnfirstNameChanged();
-    partial void OnlastNameChanging(string value);
-    partial void OnlastNameChanged();
-    partial void OnimageChanging(string value);
-    partial void OnimageChanged();
-    partial void Onrole_idChanging(int value);
-    partial void Onrole_idChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnstatusChanging(System.Nullable<bool> value);
+    partial void OnstatusChanged();
+    partial void Onarea_idChanging(int value);
+    partial void Onarea_idChanged();
     #endregion
 		
-		public user()
+		public computer()
 		{
 			this._orders = new EntitySet<order>(new Action<order>(this.attach_orders), new Action<order>(this.detach_orders));
-			this._role = default(EntityRef<role>);
+			this._area = default(EntityRef<area>);
 			OnCreated();
 		}
 		
@@ -1547,131 +1614,71 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_account", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string account
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
 		{
 			get
 			{
-				return this._account;
+				return this._name;
 			}
 			set
 			{
-				if ((this._account != value))
+				if ((this._name != value))
 				{
-					this.OnaccountChanging(value);
+					this.OnnameChanging(value);
 					this.SendPropertyChanging();
-					this._account = value;
-					this.SendPropertyChanged("account");
-					this.OnaccountChanged();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string password
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Bit")]
+		public System.Nullable<bool> status
 		{
 			get
 			{
-				return this._password;
+				return this._status;
 			}
 			set
 			{
-				if ((this._password != value))
+				if ((this._status != value))
 				{
-					this.OnpasswordChanging(value);
+					this.OnstatusChanging(value);
 					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="NVarChar(255)")]
-		public string firstName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area_id", DbType="Int NOT NULL")]
+		public int area_id
 		{
 			get
 			{
-				return this._firstName;
+				return this._area_id;
 			}
 			set
 			{
-				if ((this._firstName != value))
+				if ((this._area_id != value))
 				{
-					this.OnfirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._firstName = value;
-					this.SendPropertyChanged("firstName");
-					this.OnfirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string lastName
-		{
-			get
-			{
-				return this._lastName;
-			}
-			set
-			{
-				if ((this._lastName != value))
-				{
-					this.OnlastNameChanging(value);
-					this.SendPropertyChanging();
-					this._lastName = value;
-					this.SendPropertyChanged("lastName");
-					this.OnlastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string image
-		{
-			get
-			{
-				return this._image;
-			}
-			set
-			{
-				if ((this._image != value))
-				{
-					this.OnimageChanging(value);
-					this.SendPropertyChanging();
-					this._image = value;
-					this.SendPropertyChanged("image");
-					this.OnimageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_id", DbType="Int NOT NULL")]
-		public int role_id
-		{
-			get
-			{
-				return this._role_id;
-			}
-			set
-			{
-				if ((this._role_id != value))
-				{
-					if (this._role.HasLoadedOrAssignedValue)
+					if (this._area.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Onrole_idChanging(value);
+					this.Onarea_idChanging(value);
 					this.SendPropertyChanging();
-					this._role_id = value;
-					this.SendPropertyChanged("role_id");
-					this.Onrole_idChanged();
+					this._area_id = value;
+					this.SendPropertyChanged("area_id");
+					this.Onarea_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_order", Storage="_orders", ThisKey="entity_id", OtherKey="user_id")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="computer_order", Storage="_orders", ThisKey="entity_id", OtherKey="computer_id")]
 		public EntitySet<order> orders
 		{
 			get
@@ -1684,36 +1691,36 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_user", Storage="_role", ThisKey="role_id", OtherKey="entity_id", IsForeignKey=true)]
-		public role role
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="area_computer", Storage="_area", ThisKey="area_id", OtherKey="entity_id", IsForeignKey=true)]
+		public area area
 		{
 			get
 			{
-				return this._role.Entity;
+				return this._area.Entity;
 			}
 			set
 			{
-				role previousValue = this._role.Entity;
+				area previousValue = this._area.Entity;
 				if (((previousValue != value) 
-							|| (this._role.HasLoadedOrAssignedValue == false)))
+							|| (this._area.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._role.Entity = null;
-						previousValue.users.Remove(this);
+						this._area.Entity = null;
+						previousValue.computers.Remove(this);
 					}
-					this._role.Entity = value;
+					this._area.Entity = value;
 					if ((value != null))
 					{
-						value.users.Add(this);
-						this._role_id = value.entity_id;
+						value.computers.Add(this);
+						this._area_id = value.entity_id;
 					}
 					else
 					{
-						this._role_id = default(int);
+						this._area_id = default(int);
 					}
-					this.SendPropertyChanged("role");
+					this.SendPropertyChanged("area");
 				}
 			}
 		}
@@ -1741,17 +1748,17 @@ namespace InternetCafe
 		private void attach_orders(order entity)
 		{
 			this.SendPropertyChanging();
-			entity.user = this;
+			entity.computer = this;
 		}
 		
 		private void detach_orders(order entity)
 		{
 			this.SendPropertyChanging();
-			entity.user = null;
+			entity.computer = null;
 		}
 	}
 	
-	public partial class getAllAreaResult
+	public partial class searchAreaResult
 	{
 		
 		private int _entity_id;
@@ -1760,7 +1767,7 @@ namespace InternetCafe
 		
 		private double _price;
 		
-		public getAllAreaResult()
+		public searchAreaResult()
 		{
 		}
 		
@@ -1983,7 +1990,7 @@ namespace InternetCafe
 		}
 	}
 	
-	public partial class searchAreaResult
+	public partial class getAllAreaResult
 	{
 		
 		private int _entity_id;
@@ -1992,7 +1999,7 @@ namespace InternetCafe
 		
 		private double _price;
 		
-		public searchAreaResult()
+		public getAllAreaResult()
 		{
 		}
 		
@@ -2040,6 +2047,104 @@ namespace InternetCafe
 				if ((this._price != value))
 				{
 					this._price = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getAllComputerResult
+	{
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private string _status;
+		
+		private string _area;
+		
+		private int _area_id;
+		
+		public getAllComputerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string area
+		{
+			get
+			{
+				return this._area;
+			}
+			set
+			{
+				if ((this._area != value))
+				{
+					this._area = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area_id", DbType="Int NOT NULL")]
+		public int area_id
+		{
+			get
+			{
+				return this._area_id;
+			}
+			set
+			{
+				if ((this._area_id != value))
+				{
+					this._area_id = value;
 				}
 			}
 		}

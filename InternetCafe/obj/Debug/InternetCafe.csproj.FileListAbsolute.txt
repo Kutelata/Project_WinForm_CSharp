@@ -115,5 +115,5 @@ E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.csp
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.csproj.CopyComplete
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.exe
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.pdb
-E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.csprojAssemblyReference.cache
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.frmForgotPassword.resources
+C:\Users\ADMIN\Downloads\Project_Winform_CSharp-main\InternetCafe\obj\Debug\InternetCafe.frmForgotPassword.resources

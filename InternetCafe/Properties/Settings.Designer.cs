@@ -75,5 +75,15 @@ namespace InternetCafe.Properties {
                 return ((string)(this["InternetCafeConnectionString4"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAB2_PC14;Initial Catalog=InternetCafe;User ID=sa;Password=1234$")]
+        public string InternetCafeConnectionString5 {
+            get {
+                return ((string)(this["InternetCafeConnectionString5"]));
+            }
+        }
     }
 }
