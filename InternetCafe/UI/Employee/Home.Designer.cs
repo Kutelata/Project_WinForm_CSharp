@@ -135,6 +135,7 @@
             // pbAdmin
             // 
             this.pbAdmin.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbAdmin.Image = global::InternetCafe.Properties.Resources.Vendor;
             this.pbAdmin.Location = new System.Drawing.Point(0, 0);
             this.pbAdmin.Name = "pbAdmin";
             this.pbAdmin.Size = new System.Drawing.Size(68, 68);

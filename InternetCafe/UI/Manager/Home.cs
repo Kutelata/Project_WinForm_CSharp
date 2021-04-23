@@ -97,16 +97,26 @@ namespace InternetCafe.UI.Manager
 
         private void btnDeleteArea_Click(object sender, EventArgs e)
         {
+            var checkComputer = DB.deleteArea().FirstOrDefault(x => x.entity_id == areaId);
             if (MessageBox.Show("Are you sure ?", "Delete Area", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                // Find object to edit
-                var a = DB.areas.SingleOrDefault(x => x.entity_id == areaId);
-                // Delete
-                DB.areas.DeleteOnSubmit(a);
-                // Save
-                DB.SubmitChanges();
-                loadArea();
-                DisplayAreaCombobox();
+                if (checkComputer.count_computer == 0)
+                {
+                    // Find object to edit
+                    var a = DB.areas.SingleOrDefault(x => x.entity_id == checkComputer.entity_id);
+                    // Delete
+                    DB.areas.DeleteOnSubmit(a);
+                    // Save
+                    DB.SubmitChanges();
+                    loadArea();
+                    DisplayAreaCombobox();
+                    MessageBox.Show("Delete Success !");
+                }
+                else
+                {
+                    MessageBox.Show("Area is using");
+                }
+
             }
         }
 
@@ -241,6 +251,7 @@ namespace InternetCafe.UI.Manager
                     // Save
                     DB.SubmitChanges();
                     loadComputer();
+                    MessageBox.Show("Delete Success !");
                 }
                 else
                 {

@@ -184,6 +184,13 @@ namespace InternetCafe
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
 			return ((ISingleResult<searchComputerResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deleteArea")]
+		public ISingleResult<deleteAreaResult> deleteArea()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<deleteAreaResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.area")]
@@ -2250,6 +2257,68 @@ namespace InternetCafe
 				if ((this._area_id != value))
 				{
 					this._area_id = value;
+				}
+			}
+		}
+	}
+	
+	public partial class deleteAreaResult
+	{
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private System.Nullable<int> _count_computer;
+		
+		public deleteAreaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_computer", DbType="Int")]
+		public System.Nullable<int> count_computer
+		{
+			get
+			{
+				return this._count_computer;
+			}
+			set
+			{
+				if ((this._count_computer != value))
+				{
+					this._count_computer = value;
 				}
 			}
 		}

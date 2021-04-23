@@ -31,69 +31,97 @@ namespace InternetCafe.UI.Manager
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             this.panelTop = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.txtAdminName = new System.Windows.Forms.Label();
-            this.pbAdmin = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.mainTabControl = new MetroFramework.Controls.MetroTabControl();
             this.homeTabPage = new MetroFramework.Controls.MetroTabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.areaTabPage = new MetroFramework.Controls.MetroTabPage();
             this.gbArea = new System.Windows.Forms.GroupBox();
             this.txtNameArea = new System.Windows.Forms.TextBox();
             this.lbPriceArea = new System.Windows.Forms.Label();
-            this.btnSaveArea = new System.Windows.Forms.Button();
             this.txtPriceArea = new System.Windows.Forms.TextBox();
             this.lbNameArea = new System.Windows.Forms.Label();
-            this.btnAddArea = new System.Windows.Forms.Button();
             this.dgvArea = new System.Windows.Forms.DataGridView();
             this.area_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.area_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.area_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchArea = new System.Windows.Forms.TextBox();
-            this.btnDeleteArea = new System.Windows.Forms.Button();
-            this.btnSearchArea = new System.Windows.Forms.Button();
             this.computerTabPage = new MetroFramework.Controls.MetroTabPage();
-            this.gbComputer = new System.Windows.Forms.GroupBox();
-            this.lbAreaComputer = new System.Windows.Forms.Label();
-            this.cbAreaComputer = new System.Windows.Forms.ComboBox();
-            this.txtNameComputer = new System.Windows.Forms.TextBox();
-            this.btnSaveComputer = new System.Windows.Forms.Button();
-            this.lbNameComputer = new System.Windows.Forms.Label();
-            this.btnAddComputer = new System.Windows.Forms.Button();
-            this.dgvComputer = new System.Windows.Forms.DataGridView();
-            this.txtSearchComputer = new System.Windows.Forms.TextBox();
-            this.btnDeleteComputer = new System.Windows.Forms.Button();
-            this.btnSearchComputer = new System.Windows.Forms.Button();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
-            this.computer_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.computer_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.computer_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.computer_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.txtSearchComputer = new System.Windows.Forms.TextBox();
             this.computer_area_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvComputer = new System.Windows.Forms.DataGridView();
+            this.lbNameComputer = new System.Windows.Forms.Label();
+            this.txtNameComputer = new System.Windows.Forms.TextBox();
+            this.cbAreaComputer = new System.Windows.Forms.ComboBox();
+            this.lbAreaComputer = new System.Windows.Forms.Label();
+            this.gbComputer = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSaveArea = new System.Windows.Forms.Button();
+            this.btnAddArea = new System.Windows.Forms.Button();
+            this.btnDeleteArea = new System.Windows.Forms.Button();
+            this.btnSearchArea = new System.Windows.Forms.Button();
+            this.btnSaveComputer = new System.Windows.Forms.Button();
+            this.btnAddComputer = new System.Windows.Forms.Button();
+            this.btnDeleteComputer = new System.Windows.Forms.Button();
+            this.btnSearchComputer = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.pbAdmin = new System.Windows.Forms.PictureBox();
             this.panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
             this.mainTabControl.SuspendLayout();
             this.homeTabPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.areaTabPage.SuspendLayout();
             this.gbArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArea)).BeginInit();
             this.computerTabPage.SuspendLayout();
-            this.gbComputer.SuspendLayout();
+            this.metroTabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).BeginInit();
+            this.gbComputer.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -109,22 +137,6 @@ namespace InternetCafe.UI.Manager
             this.panelTop.Size = new System.Drawing.Size(1100, 68);
             this.panelTop.TabIndex = 0;
             // 
-            // btnLogout
-            // 
-            this.btnLogout.BackgroundImage = global::InternetCafe.Properties.Resources.Logout;
-            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(922, 0);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(89, 68);
-            this.btnLogout.TabIndex = 3;
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
             // txtAdminName
             // 
             this.txtAdminName.AutoSize = true;
@@ -135,17 +147,6 @@ namespace InternetCafe.UI.Manager
             this.txtAdminName.Size = new System.Drawing.Size(75, 25);
             this.txtAdminName.TabIndex = 2;
             this.txtAdminName.Text = "label1";
-            // 
-            // pbAdmin
-            // 
-            this.pbAdmin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbAdmin.Image = global::InternetCafe.Properties.Resources.HoangCaoLong;
-            this.pbAdmin.Location = new System.Drawing.Point(0, 0);
-            this.pbAdmin.Name = "pbAdmin";
-            this.pbAdmin.Size = new System.Drawing.Size(68, 68);
-            this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbAdmin.TabIndex = 1;
-            this.pbAdmin.TabStop = false;
             // 
             // btnExit
             // 
@@ -169,11 +170,13 @@ namespace InternetCafe.UI.Manager
             this.mainTabControl.Controls.Add(this.computerTabPage);
             this.mainTabControl.Controls.Add(this.metroTabPage4);
             this.mainTabControl.Controls.Add(this.metroTabPage5);
+            this.mainTabControl.Controls.Add(this.metroTabPage1);
+            this.mainTabControl.Controls.Add(this.metroTabPage2);
             this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTabControl.Location = new System.Drawing.Point(0, 68);
             this.mainTabControl.Multiline = true;
             this.mainTabControl.Name = "mainTabControl";
-            this.mainTabControl.SelectedIndex = 2;
+            this.mainTabControl.SelectedIndex = 3;
             this.mainTabControl.Size = new System.Drawing.Size(1100, 582);
             this.mainTabControl.TabIndex = 1;
             this.mainTabControl.UseSelectable = true;
@@ -209,26 +212,6 @@ namespace InternetCafe.UI.Manager
             this.groupBox1.Size = new System.Drawing.Size(1045, 464);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::InternetCafe.Properties.Resources.CircleProgress;
-            this.pictureBox3.Location = new System.Drawing.Point(644, 287);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(352, 145);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 18;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::InternetCafe.Properties.Resources.ProgressBar;
-            this.pictureBox2.Location = new System.Drawing.Point(644, 87);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(352, 194);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 17;
-            this.pictureBox2.TabStop = false;
             // 
             // label5
             // 
@@ -285,16 +268,6 @@ namespace InternetCafe.UI.Manager
             this.label1.TabIndex = 12;
             this.label1.Text = "Weekly Statistics";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(50, 110);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(483, 289);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
             // areaTabPage
             // 
             this.areaTabPage.Controls.Add(this.gbArea);
@@ -347,23 +320,6 @@ namespace InternetCafe.UI.Manager
             this.lbPriceArea.TabIndex = 21;
             this.lbPriceArea.Text = "Price :";
             // 
-            // btnSaveArea
-            // 
-            this.btnSaveArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnSaveArea.FlatAppearance.BorderSize = 0;
-            this.btnSaveArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveArea.ForeColor = System.Drawing.Color.White;
-            this.btnSaveArea.Image = global::InternetCafe.Properties.Resources.Edit;
-            this.btnSaveArea.Location = new System.Drawing.Point(222, 150);
-            this.btnSaveArea.Name = "btnSaveArea";
-            this.btnSaveArea.Size = new System.Drawing.Size(142, 51);
-            this.btnSaveArea.TabIndex = 16;
-            this.btnSaveArea.Text = "    Save";
-            this.btnSaveArea.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSaveArea.UseVisualStyleBackColor = false;
-            this.btnSaveArea.Click += new System.EventHandler(this.btnSaveArea_Click);
-            // 
             // txtPriceArea
             // 
             this.txtPriceArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -382,23 +338,6 @@ namespace InternetCafe.UI.Manager
             this.lbNameArea.Size = new System.Drawing.Size(51, 20);
             this.lbNameArea.TabIndex = 20;
             this.lbNameArea.Text = "Area :";
-            // 
-            // btnAddArea
-            // 
-            this.btnAddArea.BackColor = System.Drawing.Color.Green;
-            this.btnAddArea.FlatAppearance.BorderSize = 0;
-            this.btnAddArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddArea.ForeColor = System.Drawing.Color.White;
-            this.btnAddArea.Image = global::InternetCafe.Properties.Resources.Add;
-            this.btnAddArea.Location = new System.Drawing.Point(47, 150);
-            this.btnAddArea.Name = "btnAddArea";
-            this.btnAddArea.Size = new System.Drawing.Size(142, 51);
-            this.btnAddArea.TabIndex = 15;
-            this.btnAddArea.Text = "    Create New";
-            this.btnAddArea.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddArea.UseVisualStyleBackColor = false;
-            this.btnAddArea.Click += new System.EventHandler(this.btnAddArea_Click);
             // 
             // dgvArea
             // 
@@ -448,6 +387,446 @@ namespace InternetCafe.UI.Manager
             this.txtSearchArea.Size = new System.Drawing.Size(222, 29);
             this.txtSearchArea.TabIndex = 13;
             // 
+            // computerTabPage
+            // 
+            this.computerTabPage.Controls.Add(this.gbComputer);
+            this.computerTabPage.Controls.Add(this.dgvComputer);
+            this.computerTabPage.Controls.Add(this.txtSearchComputer);
+            this.computerTabPage.Controls.Add(this.btnDeleteComputer);
+            this.computerTabPage.Controls.Add(this.btnSearchComputer);
+            this.computerTabPage.HorizontalScrollbarBarColor = true;
+            this.computerTabPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.computerTabPage.HorizontalScrollbarSize = 10;
+            this.computerTabPage.Location = new System.Drawing.Point(4, 38);
+            this.computerTabPage.Name = "computerTabPage";
+            this.computerTabPage.Size = new System.Drawing.Size(1092, 540);
+            this.computerTabPage.TabIndex = 2;
+            this.computerTabPage.Text = " Computer";
+            this.computerTabPage.VerticalScrollbarBarColor = true;
+            this.computerTabPage.VerticalScrollbarHighlightOnWheel = false;
+            this.computerTabPage.VerticalScrollbarSize = 10;
+            // 
+            // metroTabPage4
+            // 
+            this.metroTabPage4.Controls.Add(this.groupBox2);
+            this.metroTabPage4.Controls.Add(this.dataGridView1);
+            this.metroTabPage4.Controls.Add(this.textBox2);
+            this.metroTabPage4.Controls.Add(this.button3);
+            this.metroTabPage4.Controls.Add(this.button4);
+            this.metroTabPage4.HorizontalScrollbarBarColor = true;
+            this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage4.HorizontalScrollbarSize = 10;
+            this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage4.Name = "metroTabPage4";
+            this.metroTabPage4.Size = new System.Drawing.Size(1092, 540);
+            this.metroTabPage4.TabIndex = 3;
+            this.metroTabPage4.Text = "  Food";
+            this.metroTabPage4.VerticalScrollbarBarColor = true;
+            this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage4.VerticalScrollbarSize = 10;
+            // 
+            // metroTabPage5
+            // 
+            this.metroTabPage5.HorizontalScrollbarBarColor = true;
+            this.metroTabPage5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage5.HorizontalScrollbarSize = 10;
+            this.metroTabPage5.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage5.Name = "metroTabPage5";
+            this.metroTabPage5.Size = new System.Drawing.Size(1092, 540);
+            this.metroTabPage5.TabIndex = 4;
+            this.metroTabPage5.Text = "  User";
+            this.metroTabPage5.VerticalScrollbarBarColor = true;
+            this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage5.VerticalScrollbarSize = 10;
+            // 
+            // metroTabPage1
+            // 
+            this.metroTabPage1.HorizontalScrollbarBarColor = true;
+            this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage1.HorizontalScrollbarSize = 10;
+            this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage1.Name = "metroTabPage1";
+            this.metroTabPage1.Size = new System.Drawing.Size(1092, 540);
+            this.metroTabPage1.TabIndex = 5;
+            this.metroTabPage1.Text = "metroTabPage1";
+            this.metroTabPage1.VerticalScrollbarBarColor = true;
+            this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // metroTabPage2
+            // 
+            this.metroTabPage2.HorizontalScrollbarBarColor = true;
+            this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage2.HorizontalScrollbarSize = 10;
+            this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage2.Name = "metroTabPage2";
+            this.metroTabPage2.Size = new System.Drawing.Size(1092, 540);
+            this.metroTabPage2.TabIndex = 6;
+            this.metroTabPage2.Text = "metroTabPage2";
+            this.metroTabPage2.VerticalScrollbarBarColor = true;
+            this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage2.VerticalScrollbarSize = 10;
+            // 
+            // txtSearchComputer
+            // 
+            this.txtSearchComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchComputer.Location = new System.Drawing.Point(693, 78);
+            this.txtSearchComputer.Name = "txtSearchComputer";
+            this.txtSearchComputer.Size = new System.Drawing.Size(222, 29);
+            this.txtSearchComputer.TabIndex = 24;
+            // 
+            // computer_area_id
+            // 
+            this.computer_area_id.DataPropertyName = "Area_Id";
+            this.computer_area_id.HeaderText = "Area_Id";
+            this.computer_area_id.Name = "computer_area_id";
+            this.computer_area_id.ReadOnly = true;
+            this.computer_area_id.Visible = false;
+            // 
+            // computer_area
+            // 
+            this.computer_area.DataPropertyName = "Area";
+            this.computer_area.HeaderText = "Area";
+            this.computer_area.Name = "computer_area";
+            this.computer_area.ReadOnly = true;
+            // 
+            // computer_status
+            // 
+            this.computer_status.DataPropertyName = "Status";
+            this.computer_status.HeaderText = "Status";
+            this.computer_status.Name = "computer_status";
+            this.computer_status.ReadOnly = true;
+            // 
+            // computer_name
+            // 
+            this.computer_name.DataPropertyName = "Name";
+            this.computer_name.HeaderText = "Computer ";
+            this.computer_name.Name = "computer_name";
+            this.computer_name.ReadOnly = true;
+            // 
+            // computer_id
+            // 
+            this.computer_id.DataPropertyName = "Entity_id";
+            this.computer_id.HeaderText = "Id";
+            this.computer_id.Name = "computer_id";
+            this.computer_id.ReadOnly = true;
+            // 
+            // dgvComputer
+            // 
+            this.dgvComputer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvComputer.BackgroundColor = System.Drawing.Color.White;
+            this.dgvComputer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComputer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.computer_id,
+            this.computer_name,
+            this.computer_status,
+            this.computer_area,
+            this.computer_area_id});
+            this.dgvComputer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvComputer.Location = new System.Drawing.Point(484, 129);
+            this.dgvComputer.MultiSelect = false;
+            this.dgvComputer.Name = "dgvComputer";
+            this.dgvComputer.ReadOnly = true;
+            this.dgvComputer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvComputer.Size = new System.Drawing.Size(552, 250);
+            this.dgvComputer.TabIndex = 23;
+            this.dgvComputer.SelectionChanged += new System.EventHandler(this.dgvComputer_SelectionChanged);
+            // 
+            // lbNameComputer
+            // 
+            this.lbNameComputer.AutoSize = true;
+            this.lbNameComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNameComputer.Location = new System.Drawing.Point(26, 54);
+            this.lbNameComputer.Name = "lbNameComputer";
+            this.lbNameComputer.Size = new System.Drawing.Size(87, 20);
+            this.lbNameComputer.TabIndex = 20;
+            this.lbNameComputer.Text = "Computer :";
+            // 
+            // txtNameComputer
+            // 
+            this.txtNameComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameComputer.Location = new System.Drawing.Point(130, 51);
+            this.txtNameComputer.Name = "txtNameComputer";
+            this.txtNameComputer.Size = new System.Drawing.Size(234, 26);
+            this.txtNameComputer.TabIndex = 18;
+            // 
+            // cbAreaComputer
+            // 
+            this.cbAreaComputer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAreaComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAreaComputer.FormattingEnabled = true;
+            this.cbAreaComputer.Location = new System.Drawing.Point(130, 111);
+            this.cbAreaComputer.Name = "cbAreaComputer";
+            this.cbAreaComputer.Size = new System.Drawing.Size(234, 28);
+            this.cbAreaComputer.TabIndex = 22;
+            // 
+            // lbAreaComputer
+            // 
+            this.lbAreaComputer.AutoSize = true;
+            this.lbAreaComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAreaComputer.Location = new System.Drawing.Point(26, 114);
+            this.lbAreaComputer.Name = "lbAreaComputer";
+            this.lbAreaComputer.Size = new System.Drawing.Size(51, 20);
+            this.lbAreaComputer.TabIndex = 23;
+            this.lbAreaComputer.Text = "Area :";
+            // 
+            // gbComputer
+            // 
+            this.gbComputer.BackColor = System.Drawing.Color.White;
+            this.gbComputer.Controls.Add(this.lbAreaComputer);
+            this.gbComputer.Controls.Add(this.cbAreaComputer);
+            this.gbComputer.Controls.Add(this.txtNameComputer);
+            this.gbComputer.Controls.Add(this.btnSaveComputer);
+            this.gbComputer.Controls.Add(this.lbNameComputer);
+            this.gbComputer.Controls.Add(this.btnAddComputer);
+            this.gbComputer.Location = new System.Drawing.Point(56, 129);
+            this.gbComputer.Name = "gbComputer";
+            this.gbComputer.Size = new System.Drawing.Size(392, 250);
+            this.gbComputer.TabIndex = 27;
+            this.gbComputer.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Location = new System.Drawing.Point(78, 17);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(953, 214);
+            this.groupBox2.TabIndex = 32;
+            this.groupBox2.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(337, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 20);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Type :";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(419, 100);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(192, 28);
+            this.comboBox1.TabIndex = 22;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(81, 33);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(192, 26);
+            this.textBox1.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(14, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 20);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Name :";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dataGridView1.Location = new System.Drawing.Point(8, 293);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1076, 190);
+            this.dataGridView1.TabIndex = 28;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Entity_id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Computer ";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Area";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Area";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Area_Id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Area_Id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(741, 255);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(222, 29);
+            this.textBox2.TabIndex = 29;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(337, 36);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 20);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Quantity :";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(81, 103);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(192, 26);
+            this.textBox4.TabIndex = 26;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(14, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 20);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Price :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(677, 36);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 20);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Image :";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(419, 33);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(192, 26);
+            this.textBox3.TabIndex = 30;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(745, 33);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(192, 26);
+            this.textBox5.TabIndex = 31;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::InternetCafe.Properties.Resources.CircleProgress;
+            this.pictureBox3.Location = new System.Drawing.Point(644, 287);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(352, 145);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 18;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::InternetCafe.Properties.Resources.ProgressBar;
+            this.pictureBox2.Location = new System.Drawing.Point(644, 87);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(352, 194);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 17;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(50, 110);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(483, 289);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSaveArea
+            // 
+            this.btnSaveArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSaveArea.FlatAppearance.BorderSize = 0;
+            this.btnSaveArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveArea.ForeColor = System.Drawing.Color.White;
+            this.btnSaveArea.Image = global::InternetCafe.Properties.Resources.Edit;
+            this.btnSaveArea.Location = new System.Drawing.Point(222, 150);
+            this.btnSaveArea.Name = "btnSaveArea";
+            this.btnSaveArea.Size = new System.Drawing.Size(142, 51);
+            this.btnSaveArea.TabIndex = 16;
+            this.btnSaveArea.Text = "    Save";
+            this.btnSaveArea.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSaveArea.UseVisualStyleBackColor = false;
+            this.btnSaveArea.Click += new System.EventHandler(this.btnSaveArea_Click);
+            // 
+            // btnAddArea
+            // 
+            this.btnAddArea.BackColor = System.Drawing.Color.Green;
+            this.btnAddArea.FlatAppearance.BorderSize = 0;
+            this.btnAddArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddArea.ForeColor = System.Drawing.Color.White;
+            this.btnAddArea.Image = global::InternetCafe.Properties.Resources.Add;
+            this.btnAddArea.Location = new System.Drawing.Point(47, 150);
+            this.btnAddArea.Name = "btnAddArea";
+            this.btnAddArea.Size = new System.Drawing.Size(142, 51);
+            this.btnAddArea.TabIndex = 15;
+            this.btnAddArea.Text = "    Create New";
+            this.btnAddArea.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddArea.UseVisualStyleBackColor = false;
+            this.btnAddArea.Click += new System.EventHandler(this.btnAddArea_Click);
+            // 
             // btnDeleteArea
             // 
             this.btnDeleteArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -482,68 +861,6 @@ namespace InternetCafe.UI.Manager
             this.btnSearchArea.UseVisualStyleBackColor = false;
             this.btnSearchArea.Click += new System.EventHandler(this.btnSearchArea_Click);
             // 
-            // computerTabPage
-            // 
-            this.computerTabPage.Controls.Add(this.gbComputer);
-            this.computerTabPage.Controls.Add(this.dgvComputer);
-            this.computerTabPage.Controls.Add(this.txtSearchComputer);
-            this.computerTabPage.Controls.Add(this.btnDeleteComputer);
-            this.computerTabPage.Controls.Add(this.btnSearchComputer);
-            this.computerTabPage.HorizontalScrollbarBarColor = true;
-            this.computerTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.computerTabPage.HorizontalScrollbarSize = 10;
-            this.computerTabPage.Location = new System.Drawing.Point(4, 38);
-            this.computerTabPage.Name = "computerTabPage";
-            this.computerTabPage.Size = new System.Drawing.Size(1092, 540);
-            this.computerTabPage.TabIndex = 2;
-            this.computerTabPage.Text = " Computer";
-            this.computerTabPage.VerticalScrollbarBarColor = true;
-            this.computerTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.computerTabPage.VerticalScrollbarSize = 10;
-            // 
-            // gbComputer
-            // 
-            this.gbComputer.BackColor = System.Drawing.Color.White;
-            this.gbComputer.Controls.Add(this.lbAreaComputer);
-            this.gbComputer.Controls.Add(this.cbAreaComputer);
-            this.gbComputer.Controls.Add(this.txtNameComputer);
-            this.gbComputer.Controls.Add(this.btnSaveComputer);
-            this.gbComputer.Controls.Add(this.lbNameComputer);
-            this.gbComputer.Controls.Add(this.btnAddComputer);
-            this.gbComputer.Location = new System.Drawing.Point(56, 129);
-            this.gbComputer.Name = "gbComputer";
-            this.gbComputer.Size = new System.Drawing.Size(392, 250);
-            this.gbComputer.TabIndex = 27;
-            this.gbComputer.TabStop = false;
-            // 
-            // lbAreaComputer
-            // 
-            this.lbAreaComputer.AutoSize = true;
-            this.lbAreaComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAreaComputer.Location = new System.Drawing.Point(26, 114);
-            this.lbAreaComputer.Name = "lbAreaComputer";
-            this.lbAreaComputer.Size = new System.Drawing.Size(51, 20);
-            this.lbAreaComputer.TabIndex = 23;
-            this.lbAreaComputer.Text = "Area :";
-            // 
-            // cbAreaComputer
-            // 
-            this.cbAreaComputer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAreaComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAreaComputer.FormattingEnabled = true;
-            this.cbAreaComputer.Location = new System.Drawing.Point(130, 111);
-            this.cbAreaComputer.Name = "cbAreaComputer";
-            this.cbAreaComputer.Size = new System.Drawing.Size(234, 28);
-            this.cbAreaComputer.TabIndex = 22;
-            // 
-            // txtNameComputer
-            // 
-            this.txtNameComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameComputer.Location = new System.Drawing.Point(130, 51);
-            this.txtNameComputer.Name = "txtNameComputer";
-            this.txtNameComputer.Size = new System.Drawing.Size(234, 26);
-            this.txtNameComputer.TabIndex = 18;
-            // 
             // btnSaveComputer
             // 
             this.btnSaveComputer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -561,16 +878,6 @@ namespace InternetCafe.UI.Manager
             this.btnSaveComputer.UseVisualStyleBackColor = false;
             this.btnSaveComputer.Click += new System.EventHandler(this.btnSaveComputer_Click);
             // 
-            // lbNameComputer
-            // 
-            this.lbNameComputer.AutoSize = true;
-            this.lbNameComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNameComputer.Location = new System.Drawing.Point(26, 54);
-            this.lbNameComputer.Name = "lbNameComputer";
-            this.lbNameComputer.Size = new System.Drawing.Size(87, 20);
-            this.lbNameComputer.TabIndex = 20;
-            this.lbNameComputer.Text = "Computer :";
-            // 
             // btnAddComputer
             // 
             this.btnAddComputer.BackColor = System.Drawing.Color.Green;
@@ -587,35 +894,6 @@ namespace InternetCafe.UI.Manager
             this.btnAddComputer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddComputer.UseVisualStyleBackColor = false;
             this.btnAddComputer.Click += new System.EventHandler(this.btnAddComputer_Click);
-            // 
-            // dgvComputer
-            // 
-            this.dgvComputer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvComputer.BackgroundColor = System.Drawing.Color.White;
-            this.dgvComputer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComputer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.computer_id,
-            this.computer_name,
-            this.computer_status,
-            this.computer_area,
-            this.computer_area_id});
-            this.dgvComputer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvComputer.Location = new System.Drawing.Point(484, 129);
-            this.dgvComputer.MultiSelect = false;
-            this.dgvComputer.Name = "dgvComputer";
-            this.dgvComputer.ReadOnly = true;
-            this.dgvComputer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComputer.Size = new System.Drawing.Size(552, 250);
-            this.dgvComputer.TabIndex = 23;
-            this.dgvComputer.SelectionChanged += new System.EventHandler(this.dgvComputer_SelectionChanged);
-            // 
-            // txtSearchComputer
-            // 
-            this.txtSearchComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchComputer.Location = new System.Drawing.Point(693, 78);
-            this.txtSearchComputer.Name = "txtSearchComputer";
-            this.txtSearchComputer.Size = new System.Drawing.Size(222, 29);
-            this.txtSearchComputer.TabIndex = 24;
             // 
             // btnDeleteComputer
             // 
@@ -651,69 +929,112 @@ namespace InternetCafe.UI.Manager
             this.btnSearchComputer.UseVisualStyleBackColor = false;
             this.btnSearchComputer.Click += new System.EventHandler(this.btnSearchComputer_Click);
             // 
-            // metroTabPage4
+            // button5
             // 
-            this.metroTabPage4.HorizontalScrollbarBarColor = true;
-            this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage4.HorizontalScrollbarSize = 10;
-            this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage4.Name = "metroTabPage4";
-            this.metroTabPage4.Size = new System.Drawing.Size(1092, 540);
-            this.metroTabPage4.TabIndex = 3;
-            this.metroTabPage4.Text = "  Food";
-            this.metroTabPage4.VerticalScrollbarBarColor = true;
-            this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage4.VerticalScrollbarSize = 10;
+            this.button5.BackColor = System.Drawing.Color.Gray;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Image = global::InternetCafe.Properties.Resources.Upload;
+            this.button5.Location = new System.Drawing.Point(786, 65);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(115, 29);
+            this.button5.TabIndex = 32;
+            this.button5.Text = "Upload";
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button5.UseVisualStyleBackColor = false;
             // 
-            // metroTabPage5
+            // button1
             // 
-            this.metroTabPage5.HorizontalScrollbarBarColor = true;
-            this.metroTabPage5.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage5.HorizontalScrollbarSize = 10;
-            this.metroTabPage5.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage5.Name = "metroTabPage5";
-            this.metroTabPage5.Size = new System.Drawing.Size(1092, 540);
-            this.metroTabPage5.TabIndex = 4;
-            this.metroTabPage5.Text = "  User";
-            this.metroTabPage5.VerticalScrollbarBarColor = true;
-            this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage5.VerticalScrollbarSize = 10;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::InternetCafe.Properties.Resources.Edit;
+            this.button1.Location = new System.Drawing.Point(552, 158);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 39);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "    Save";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // computer_id
+            // button2
             // 
-            this.computer_id.DataPropertyName = "Entity_id";
-            this.computer_id.HeaderText = "Id";
-            this.computer_id.Name = "computer_id";
-            this.computer_id.ReadOnly = true;
+            this.button2.BackColor = System.Drawing.Color.Green;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = global::InternetCafe.Properties.Resources.Add;
+            this.button2.Location = new System.Drawing.Point(306, 158);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(142, 39);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "    Create New";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // computer_name
+            // button3
             // 
-            this.computer_name.DataPropertyName = "Name";
-            this.computer_name.HeaderText = "Computer ";
-            this.computer_name.Name = "computer_name";
-            this.computer_name.ReadOnly = true;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Image = global::InternetCafe.Properties.Resources.Delete;
+            this.button3.Location = new System.Drawing.Point(942, 489);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(142, 39);
+            this.button3.TabIndex = 31;
+            this.button3.Text = "    Delete";
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button3.UseVisualStyleBackColor = false;
             // 
-            // computer_status
+            // button4
             // 
-            this.computer_status.DataPropertyName = "Status";
-            this.computer_status.HeaderText = "Status";
-            this.computer_status.Name = "computer_status";
-            this.computer_status.ReadOnly = true;
+            this.button4.BackColor = System.Drawing.Color.Gray;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = global::InternetCafe.Properties.Resources.Search;
+            this.button4.Location = new System.Drawing.Point(969, 255);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(115, 29);
+            this.button4.TabIndex = 30;
+            this.button4.Text = "Search";
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button4.UseVisualStyleBackColor = false;
             // 
-            // computer_area
+            // btnLogout
             // 
-            this.computer_area.DataPropertyName = "Area";
-            this.computer_area.HeaderText = "Area";
-            this.computer_area.Name = "computer_area";
-            this.computer_area.ReadOnly = true;
+            this.btnLogout.BackgroundImage = global::InternetCafe.Properties.Resources.Logout;
+            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(922, 0);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(89, 68);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // computer_area_id
+            // pbAdmin
             // 
-            this.computer_area_id.DataPropertyName = "Area_Id";
-            this.computer_area_id.HeaderText = "Area_Id";
-            this.computer_area_id.Name = "computer_area_id";
-            this.computer_area_id.ReadOnly = true;
-            this.computer_area_id.Visible = false;
+            this.pbAdmin.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbAdmin.Image = global::InternetCafe.Properties.Resources.HoangCaoLong;
+            this.pbAdmin.Location = new System.Drawing.Point(0, 0);
+            this.pbAdmin.Name = "pbAdmin";
+            this.pbAdmin.Size = new System.Drawing.Size(68, 68);
+            this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAdmin.TabIndex = 1;
+            this.pbAdmin.TabStop = false;
             // 
             // frmHome
             // 
@@ -729,14 +1050,10 @@ namespace InternetCafe.UI.Manager
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).EndInit();
             this.mainTabControl.ResumeLayout(false);
             this.homeTabPage.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.areaTabPage.ResumeLayout(false);
             this.areaTabPage.PerformLayout();
             this.gbArea.ResumeLayout(false);
@@ -744,9 +1061,18 @@ namespace InternetCafe.UI.Manager
             ((System.ComponentModel.ISupportInitialize)(this.dgvArea)).EndInit();
             this.computerTabPage.ResumeLayout(false);
             this.computerTabPage.PerformLayout();
+            this.metroTabPage4.ResumeLayout(false);
+            this.metroTabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).EndInit();
             this.gbComputer.ResumeLayout(false);
             this.gbComputer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -786,6 +1112,7 @@ namespace InternetCafe.UI.Manager
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.GroupBox gbComputer;
         private System.Windows.Forms.Label lbAreaComputer;
         private System.Windows.Forms.ComboBox cbAreaComputer;
@@ -794,14 +1121,38 @@ namespace InternetCafe.UI.Manager
         private System.Windows.Forms.Label lbNameComputer;
         private System.Windows.Forms.Button btnAddComputer;
         private System.Windows.Forms.DataGridView dgvComputer;
-        private System.Windows.Forms.TextBox txtSearchComputer;
-        private System.Windows.Forms.Button btnDeleteComputer;
-        private System.Windows.Forms.Button btnSearchComputer;
-        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.DataGridViewTextBoxColumn computer_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn computer_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn computer_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn computer_area;
         private System.Windows.Forms.DataGridViewTextBoxColumn computer_area_id;
+        private System.Windows.Forms.TextBox txtSearchComputer;
+        private System.Windows.Forms.Button btnDeleteComputer;
+        private System.Windows.Forms.Button btnSearchComputer;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private MetroFramework.Controls.MetroTabPage metroTabPage1;
+        private MetroFramework.Controls.MetroTabPage metroTabPage2;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button5;
     }
 }
