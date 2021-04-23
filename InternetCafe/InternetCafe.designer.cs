@@ -177,6 +177,13 @@ namespace InternetCafe
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<getAllComputerResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchComputer")]
+		public ISingleResult<searchComputerResult> searchComputer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<searchComputerResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.area")]
@@ -2066,6 +2073,104 @@ namespace InternetCafe
 		private int _area_id;
 		
 		public getAllComputerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string area
+		{
+			get
+			{
+				return this._area;
+			}
+			set
+			{
+				if ((this._area != value))
+				{
+					this._area = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area_id", DbType="Int NOT NULL")]
+		public int area_id
+		{
+			get
+			{
+				return this._area_id;
+			}
+			set
+			{
+				if ((this._area_id != value))
+				{
+					this._area_id = value;
+				}
+			}
+		}
+	}
+	
+	public partial class searchComputerResult
+	{
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private string _status;
+		
+		private string _area;
+		
+		private int _area_id;
+		
+		public searchComputerResult()
 		{
 		}
 		

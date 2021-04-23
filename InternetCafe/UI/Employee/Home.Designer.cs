@@ -109,7 +109,6 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.BackgroundImage = global::InternetCafe.Properties.Resources.Logout;
             this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnLogout.FlatAppearance.BorderSize = 0;
@@ -136,7 +135,6 @@
             // pbAdmin
             // 
             this.pbAdmin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbAdmin.Image = global::InternetCafe.Properties.Resources.Vendor;
             this.pbAdmin.Location = new System.Drawing.Point(0, 0);
             this.pbAdmin.Name = "pbAdmin";
             this.pbAdmin.Size = new System.Drawing.Size(68, 68);
@@ -169,7 +167,7 @@
             this.mainTabControl.Location = new System.Drawing.Point(0, 68);
             this.mainTabControl.Multiline = true;
             this.mainTabControl.Name = "mainTabControl";
-            this.mainTabControl.SelectedIndex = 0;
+            this.mainTabControl.SelectedIndex = 1;
             this.mainTabControl.Size = new System.Drawing.Size(1100, 582);
             this.mainTabControl.TabIndex = 2;
             this.mainTabControl.UseSelectable = true;
@@ -208,7 +206,6 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::InternetCafe.Properties.Resources.CircleProgress;
             this.pictureBox3.Location = new System.Drawing.Point(644, 287);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(352, 145);
@@ -218,7 +215,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::InternetCafe.Properties.Resources.ProgressBar;
             this.pictureBox2.Location = new System.Drawing.Point(644, 87);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(352, 194);
@@ -350,7 +346,6 @@
             this.btnSaveArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveArea.ForeColor = System.Drawing.Color.White;
-            this.btnSaveArea.Image = global::InternetCafe.Properties.Resources.Edit;
             this.btnSaveArea.Location = new System.Drawing.Point(222, 150);
             this.btnSaveArea.Name = "btnSaveArea";
             this.btnSaveArea.Size = new System.Drawing.Size(142, 51);
@@ -384,7 +379,6 @@
             this.btnAddArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddArea.ForeColor = System.Drawing.Color.White;
-            this.btnAddArea.Image = global::InternetCafe.Properties.Resources.Add;
             this.btnAddArea.Location = new System.Drawing.Point(47, 150);
             this.btnAddArea.Name = "btnAddArea";
             this.btnAddArea.Size = new System.Drawing.Size(142, 51);
@@ -447,7 +441,6 @@
             this.btnDeleteArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteArea.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteArea.Image = global::InternetCafe.Properties.Resources.Delete;
             this.btnDeleteArea.Location = new System.Drawing.Point(490, 386);
             this.btnDeleteArea.Name = "btnDeleteArea";
             this.btnDeleteArea.Size = new System.Drawing.Size(142, 51);
@@ -463,7 +456,6 @@
             this.btnSearchArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchArea.ForeColor = System.Drawing.Color.White;
-            this.btnSearchArea.Image = global::InternetCafe.Properties.Resources.Search;
             this.btnSearchArea.Location = new System.Drawing.Point(927, 79);
             this.btnSearchArea.Name = "btnSearchArea";
             this.btnSearchArea.Size = new System.Drawing.Size(115, 29);
@@ -541,7 +533,6 @@
             this.btnSaveComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveComputer.ForeColor = System.Drawing.Color.White;
-            this.btnSaveComputer.Image = global::InternetCafe.Properties.Resources.Edit;
             this.btnSaveComputer.Location = new System.Drawing.Point(222, 172);
             this.btnSaveComputer.Name = "btnSaveComputer";
             this.btnSaveComputer.Size = new System.Drawing.Size(142, 51);
@@ -567,7 +558,6 @@
             this.btnAddComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddComputer.ForeColor = System.Drawing.Color.White;
-            this.btnAddComputer.Image = global::InternetCafe.Properties.Resources.Add;
             this.btnAddComputer.Location = new System.Drawing.Point(30, 172);
             this.btnAddComputer.Name = "btnAddComputer";
             this.btnAddComputer.Size = new System.Drawing.Size(142, 51);
@@ -638,7 +628,6 @@
             this.btnDeleteComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteComputer.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteComputer.Image = global::InternetCafe.Properties.Resources.Delete;
             this.btnDeleteComputer.Location = new System.Drawing.Point(484, 385);
             this.btnDeleteComputer.Name = "btnDeleteComputer";
             this.btnDeleteComputer.Size = new System.Drawing.Size(142, 51);
@@ -654,7 +643,6 @@
             this.btnSearchComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchComputer.ForeColor = System.Drawing.Color.White;
-            this.btnSearchComputer.Image = global::InternetCafe.Properties.Resources.Search;
             this.btnSearchComputer.Location = new System.Drawing.Point(921, 78);
             this.btnSearchComputer.Name = "btnSearchComputer";
             this.btnSearchComputer.Size = new System.Drawing.Size(115, 29);

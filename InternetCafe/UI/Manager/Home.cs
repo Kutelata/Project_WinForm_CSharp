@@ -57,6 +57,7 @@ namespace InternetCafe.UI.Manager
                     // Save
                     DB.SubmitChanges();
                     loadArea();
+                    DisplayAreaCombobox();
                     MessageBox.Show("Create Success !");
                 }
                 else
@@ -84,6 +85,7 @@ namespace InternetCafe.UI.Manager
                     // Save
                     DB.SubmitChanges();
                     loadArea();
+                    DisplayAreaCombobox();
                     MessageBox.Show("Save Success !");
                 }
                 catch (SqlException)
@@ -104,6 +106,7 @@ namespace InternetCafe.UI.Manager
                 // Save
                 DB.SubmitChanges();
                 loadArea();
+                DisplayAreaCombobox();
             }
         }
 
@@ -159,23 +162,6 @@ namespace InternetCafe.UI.Manager
                 cbAreaComputer.Text = row.Cells["computer_area"].Value.ToString();
                 computerAreaId = Convert.ToInt32(row.Cells["computer_area_id"].Value);
             }
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure ?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.Hide();
-                frmLogin login = new frmLogin();
-                login.ShowDialog();
-                this.Close();
-            }
-
         }
 
         private void btnAddComputer_Click(object sender, EventArgs e)
@@ -244,11 +230,45 @@ namespace InternetCafe.UI.Manager
 
         private void btnDeleteComputer_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Are you sure ?", "Delete Computer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // Find object to edit
+                var c = DB.computers.SingleOrDefault(x => x.entity_id == computerId);
+                if (c.status == false)
+                {
+                    // Delete
+                    DB.computers.DeleteOnSubmit(c);
+                    // Save
+                    DB.SubmitChanges();
+                    loadComputer();
+                }
+                else
+                {
+                    MessageBox.Show("Computer is running !");
+                }
+                
+            }
         }
 
         private void btnSearchComputer_Click(object sender, EventArgs e)
         {
+            dgvComputer.DataSource = DB.searchComputer(txtSearchComputer.Text);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure ?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Hide();
+                frmLogin login = new frmLogin();
+                login.ShowDialog();
+                this.Close();
+            }
 
         }
     }
