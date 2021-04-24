@@ -45,17 +45,17 @@ namespace InternetCafe
                 var checkUser = DB.getUser(loginValidate.myTextBox, passValidate.myTextBox).FirstOrDefault();
                 if (checkUser != null)
                 {
-                    if (checkUser.name == "admin")
+                    if (checkUser.name == "admin" || checkUser.name == "inventory")
                     {
-                        MessageBox.Show("Welcome Admin " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                        MessageBox.Show("Welcome Admin : " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
                         this.Hide();
-                        UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                        UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.firstName.ToString() + " " + checkUser.lastName.ToString(),checkUser.role_id);
                         adminHome.ShowDialog();
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Welcome Vendor " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                        MessageBox.Show("Welcome Vendor : " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
                         this.Hide();
                         UI.Employee.frmHome empHome = new UI.Employee.frmHome();
                         empHome.ShowDialog();
@@ -74,18 +74,17 @@ namespace InternetCafe
             var checkUser = DB.getUser(loginValidate.myTextBox, passValidate.myTextBox).FirstOrDefault();
             if (checkUser != null)
             {
-                if (checkUser.name == "admin")
+                if (checkUser.name == "admin" || checkUser.name == "inventory")
                 {
-                    MessageBox.Show("Welcome Admin " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    MessageBox.Show("Welcome Admin : " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
                     this.Hide();
-                    UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.firstName.ToString() + " " + checkUser.lastName.ToString(),checkUser.role_id);
                     adminHome.ShowDialog();
                     this.Close();
-                    // adminHome.Closed += (s, args) => this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Welcome Vendor " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    MessageBox.Show("Welcome Vendor : " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
                     this.Hide();
                     UI.Employee.frmHome empHome = new UI.Employee.frmHome();
                     empHome.ShowDialog();

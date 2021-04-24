@@ -16,22 +16,27 @@ namespace InternetCafe.UI.Manager
         InternetCafeDataContext DB = new InternetCafeDataContext();
         private int areaId;
         private int computerId;
-        private int computerAreaId;
+        private int foodId;
+        private int myId;
 
-        public frmHome(string myAdminName)
+        public frmHome(string myAdminName, int myId)
         {
             InitializeComponent();
             txtAdminName.Text = myAdminName;
+            this.myId = myId;
         }
 
         private void frmHome_Load(object sender, EventArgs e)
         {
             loadArea();
             loadComputer();
+            loadFood();
             DisplayAreaCombobox();
+            DisplayFoodTypeCombobox();
             mainTabControl.SelectedTab = mainTabControl.TabPages["homeTabPage"];
         }
 
+        // AREA
         private void loadArea()
         {
             dgvArea.DataSource = DB.getAllArea().ToList();
@@ -122,7 +127,7 @@ namespace InternetCafe.UI.Manager
 
         private void btnSearchArea_Click(object sender, EventArgs e)
         {
-            dgvArea.DataSource = DB.searchArea(txtSearchArea.Text);
+            dgvArea.DataSource = DB.searchArea(txtSearchArea.Text).ToList();
         }
 
         private void dgvArea_SelectionChanged(object sender, EventArgs e)
@@ -150,6 +155,7 @@ namespace InternetCafe.UI.Manager
             }
         }
 
+        // COMPUTER
         private void loadComputer()
         {
             dgvComputer.DataSource = DB.getAllComputer().ToList();
@@ -170,7 +176,6 @@ namespace InternetCafe.UI.Manager
                 computerId = Convert.ToInt32(row.Cells["computer_id"].Value);
                 txtNameComputer.Text = row.Cells["computer_name"].Value.ToString();
                 cbAreaComputer.Text = row.Cells["computer_area"].Value.ToString();
-                computerAreaId = Convert.ToInt32(row.Cells["computer_area_id"].Value);
             }
         }
 
@@ -263,14 +268,146 @@ namespace InternetCafe.UI.Manager
 
         private void btnSearchComputer_Click(object sender, EventArgs e)
         {
-            dgvComputer.DataSource = DB.searchComputer(txtSearchComputer.Text);
+            dgvComputer.DataSource = DB.searchComputer(txtSearchComputer.Text).ToList();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        //FOOD
+        private void loadFood()
         {
-            this.Close();
+            dgvFood.DataSource = DB.getALLFood().ToList();
         }
 
+        private void DisplayFoodTypeCombobox()
+        {
+            cbTypeFood.DataSource = DB.getALLFoodType();
+            cbTypeFood.DisplayMember = "name";
+            cbTypeFood.ValueMember = "entity_id";
+        }
+
+        private void txtPriceFood_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtQuantityFood_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void dgvFood_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvFood.CurrentRow != null)
+            {
+                var row = dgvFood.CurrentRow;
+                foodId = Convert.ToInt32(row.Cells["food_id"].Value);
+                txtNameFood.Text = row.Cells["food_name"].Value.ToString();
+                txtPriceFood.Text = row.Cells["food_price"].Value.ToString();
+                txtQuantityFood.Text = row.Cells["food_quantity"].Value.ToString();
+                cbTypeFood.Text = row.Cells["food_type"].Value.ToString();
+            }
+        }
+
+        private void btnUploadFood_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.png; *.jpeg; *.gif; *.bmp;)|*.jpg; *.png; *.jpeg; *.gif; *.bmp;";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                txtUploadFood.Text = open.FileName;
+                pbUploadFood.Image = new Bitmap(open.FileName);
+            }
+        }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            if (txtNameFood.Text == "" || txtPriceFood.Text == "" || txtQuantityFood.Text == "")
+            {
+                MessageBox.Show("Fields not allow null !");
+            }
+            else
+            {
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = "Image Files(*.jpg; *.png; *.jpeg; *.gif; *.bmp;)|*.jpg; *.png; *.jpeg; *.gif; *.bmp;";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    pbUploadFood.Image = new Bitmap(open.FileName);
+
+                }
+                var checkFoodName = DB.foods.FirstOrDefault(x => x.name == txtNameFood.Text);
+                if (checkFoodName == null)
+                {
+                    // Get infomation on form to creat new data
+                    food f = new food();
+                    f.name = txtNameFood.Text;
+                    f.price = Convert.ToDouble(txtPriceFood.Text);
+                    f.quantity = Convert.ToInt32(txtQuantityFood.Text);
+                    f.image = txtUploadFood.Text;
+                    f.food_type_id = Convert.ToInt32(cbTypeFood.SelectedValue);
+                    // Insert
+                    DB.foods.InsertOnSubmit(f);
+                    // Save
+                    DB.SubmitChanges();
+                    loadComputer();
+                    MessageBox.Show("Create Success !");
+                }
+                else
+                {
+                    MessageBox.Show("Food's name must be unique!");
+                }
+            }
+        }
+
+        private void btnSaveFood_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteFood_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchFood_Click(object sender, EventArgs e)
+        {
+            dgvFood.DataSource = DB.searchFood(txtSearchFood.Text).ToList();
+        }
+
+
+        //USERS
+
+        // PERMISSION
+        private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var checkUser = DB.roles.FirstOrDefault(x => x.entity_id == myId);
+            if (checkUser.name == "inventory")
+            {
+                if (mainTabControl.SelectedTab == userTabPage)
+                {
+                    MessageBox.Show("You don''t have permision");
+                    mainTabControl.SelectedTab = homeTabPage;
+                }
+            }
+        }
+
+        //OTHERS
         private void btnLogout_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure ?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -281,6 +418,11 @@ namespace InternetCafe.UI.Manager
                 this.Close();
             }
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

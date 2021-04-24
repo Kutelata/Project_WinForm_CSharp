@@ -134,6 +134,7 @@ namespace InternetCafe
             this.btnSendMail.TabIndex = 35;
             this.btnSendMail.Text = "Send Mail";
             this.btnSendMail.UseVisualStyleBackColor = false;
+            this.btnSendMail.Click += new System.EventHandler(this.btnSendMail_Click);
             // 
             // btnSendMailAgain
             // 
@@ -149,6 +150,7 @@ namespace InternetCafe
             this.btnSendMailAgain.TabIndex = 36;
             this.btnSendMailAgain.Text = "Send Again";
             this.btnSendMailAgain.UseVisualStyleBackColor = false;
+            this.btnSendMailAgain.Click += new System.EventHandler(this.btnSendMailAgain_Click);
             // 
             // btnNextStep
             // 
@@ -164,6 +166,7 @@ namespace InternetCafe
             this.btnNextStep.TabIndex = 37;
             this.btnNextStep.Text = "Next Step";
             this.btnNextStep.UseVisualStyleBackColor = false;
+            this.btnNextStep.Click += new System.EventHandler(this.btnNextStep_Click);
             // 
             // btnChangePassword
             // 
