@@ -3186,7 +3186,11 @@ namespace InternetCafe
 		
 		private string _password;
 		
-		private string _user_name;
+		private string _replace_password;
+		
+		private string _firstName;
+		
+		private string _lastName;
 		
 		private string _email;
 		
@@ -3248,18 +3252,50 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_name", DbType="NVarChar(511)")]
-		public string user_name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_replace_password", DbType="VarChar(8000)")]
+		public string replace_password
 		{
 			get
 			{
-				return this._user_name;
+				return this._replace_password;
 			}
 			set
 			{
-				if ((this._user_name != value))
+				if ((this._replace_password != value))
 				{
-					this._user_name = value;
+					this._replace_password = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="NVarChar(255)")]
+		public string firstName
+		{
+			get
+			{
+				return this._firstName;
+			}
+			set
+			{
+				if ((this._firstName != value))
+				{
+					this._firstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string lastName
+		{
+			get
+			{
+				return this._lastName;
+			}
+			set
+			{
+				if ((this._lastName != value))
+				{
+					this._lastName = value;
 				}
 			}
 		}

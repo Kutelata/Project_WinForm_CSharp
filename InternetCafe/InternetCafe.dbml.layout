@@ -65,7 +65,7 @@
         <elementListCompartment Id="012c6b1b-951a-4ac7-b395-6113ca2b0c12" absoluteBounds="3.3899999999999997, 2.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.375 : 2.51524983723958); (5.38541666666667 : 2.51524983723958 : JumpStart); (5.55208333333333 : 2.51524983723958 : JumpEnd); (6.25 : 2.51524983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.375 : 2.51524983723958); (6.25 : 2.51524983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/InternetCafeDataContext/computer/computer_order" />
       <nodes>
         <classShapeMoniker Id="b3e269ef-8185-4eb7-8606-0647a5715c9c" />

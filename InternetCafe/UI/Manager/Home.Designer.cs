@@ -79,39 +79,18 @@ namespace InternetCafe.UI.Manager
             this.btnDeleteComputer = new System.Windows.Forms.Button();
             this.btnSearchComputer = new System.Windows.Forms.Button();
             this.foodTypeTabPage = new MetroFramework.Controls.MetroTabPage();
+            this.gbFoodType = new System.Windows.Forms.GroupBox();
+            this.txtNameFoodType = new System.Windows.Forms.TextBox();
+            this.btnSaveFoodType = new System.Windows.Forms.Button();
+            this.lbNameFoodType = new System.Windows.Forms.Label();
+            this.btnAddFoodType = new System.Windows.Forms.Button();
+            this.dgvFoodType = new System.Windows.Forms.DataGridView();
+            this.foodtype_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.foodtype_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchFoodType = new System.Windows.Forms.TextBox();
+            this.btnDeleteFoodType = new System.Windows.Forms.Button();
+            this.btnSearchFoodType = new System.Windows.Forms.Button();
             this.foodTabPage = new MetroFramework.Controls.MetroTabPage();
-            this.userTabPage = new MetroFramework.Controls.MetroTabPage();
-            this.gbUser = new System.Windows.Forms.GroupBox();
-            this.txtLastNameUser = new System.Windows.Forms.TextBox();
-            this.lbRoleUser = new System.Windows.Forms.Label();
-            this.txtFirstNameUser = new System.Windows.Forms.TextBox();
-            this.txtEmailUser = new System.Windows.Forms.TextBox();
-            this.lbEmail = new System.Windows.Forms.Label();
-            this.pbUploadUser = new System.Windows.Forms.PictureBox();
-            this.btnUploadUser = new System.Windows.Forms.Button();
-            this.txtUploadUser = new System.Windows.Forms.TextBox();
-            this.lbImageUser = new System.Windows.Forms.Label();
-            this.txtPasswordUser = new System.Windows.Forms.TextBox();
-            this.lbPasswordUser = new System.Windows.Forms.Label();
-            this.lbFirstName = new System.Windows.Forms.Label();
-            this.lbLastName = new System.Windows.Forms.Label();
-            this.cbRoleUser = new System.Windows.Forms.ComboBox();
-            this.txtAccountUser = new System.Windows.Forms.TextBox();
-            this.btnSaveUser = new System.Windows.Forms.Button();
-            this.lbAccountUser = new System.Windows.Forms.Label();
-            this.btnAddUser = new System.Windows.Forms.Button();
-            this.dgvUser = new System.Windows.Forms.DataGridView();
-            this.user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_account = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_image = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_role_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearchUser = new System.Windows.Forms.TextBox();
-            this.btnDeleteUser = new System.Windows.Forms.Button();
-            this.btnSearchUser = new System.Windows.Forms.Button();
             this.gbFood = new System.Windows.Forms.GroupBox();
             this.pbUploadFood = new System.Windows.Forms.PictureBox();
             this.btnUploadFood = new System.Windows.Forms.Button();
@@ -138,17 +117,40 @@ namespace InternetCafe.UI.Manager
             this.txtSearchFood = new System.Windows.Forms.TextBox();
             this.btnDeleteFood = new System.Windows.Forms.Button();
             this.btnSearchFood = new System.Windows.Forms.Button();
-            this.gbFoodType = new System.Windows.Forms.GroupBox();
-            this.txtNameFoodType = new System.Windows.Forms.TextBox();
-            this.btnSaveFoodType = new System.Windows.Forms.Button();
-            this.lbNameFoodType = new System.Windows.Forms.Label();
-            this.btnAddFoodType = new System.Windows.Forms.Button();
-            this.dgvFoodType = new System.Windows.Forms.DataGridView();
-            this.txtSearchFoodType = new System.Windows.Forms.TextBox();
-            this.btnDeleteFoodType = new System.Windows.Forms.Button();
-            this.btnSearchFoodType = new System.Windows.Forms.Button();
-            this.foodtype_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.foodtype_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userTabPage = new MetroFramework.Controls.MetroTabPage();
+            this.gbUser = new System.Windows.Forms.GroupBox();
+            this.txtLastNameUser = new System.Windows.Forms.TextBox();
+            this.lbRoleUser = new System.Windows.Forms.Label();
+            this.txtFirstNameUser = new System.Windows.Forms.TextBox();
+            this.txtEmailUser = new System.Windows.Forms.TextBox();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.pbUploadUser = new System.Windows.Forms.PictureBox();
+            this.btnUploadUser = new System.Windows.Forms.Button();
+            this.txtUploadUser = new System.Windows.Forms.TextBox();
+            this.lbImageUser = new System.Windows.Forms.Label();
+            this.txtPasswordUser = new System.Windows.Forms.TextBox();
+            this.lbPasswordUser = new System.Windows.Forms.Label();
+            this.lbFirstName = new System.Windows.Forms.Label();
+            this.lbLastName = new System.Windows.Forms.Label();
+            this.cbRoleUser = new System.Windows.Forms.ComboBox();
+            this.txtAccountUser = new System.Windows.Forms.TextBox();
+            this.btnSaveUser = new System.Windows.Forms.Button();
+            this.lbAccountUser = new System.Windows.Forms.Label();
+            this.btnAddUser = new System.Windows.Forms.Button();
+            this.dgvUser = new System.Windows.Forms.DataGridView();
+            this.txtSearchUser = new System.Windows.Forms.TextBox();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.btnSearchUser = new System.Windows.Forms.Button();
+            this.user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_account = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_replace_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_firstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_image = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_role_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
             this.mainTabControl.SuspendLayout();
@@ -164,16 +166,16 @@ namespace InternetCafe.UI.Manager
             this.gbComputer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).BeginInit();
             this.foodTypeTabPage.SuspendLayout();
+            this.gbFoodType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoodType)).BeginInit();
             this.foodTabPage.SuspendLayout();
+            this.gbFood.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUploadFood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.userTabPage.SuspendLayout();
             this.gbUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUploadUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
-            this.gbFood.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUploadFood)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
-            this.gbFoodType.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFoodType)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -254,7 +256,7 @@ namespace InternetCafe.UI.Manager
             this.mainTabControl.Location = new System.Drawing.Point(0, 68);
             this.mainTabControl.Multiline = true;
             this.mainTabControl.Name = "mainTabControl";
-            this.mainTabControl.SelectedIndex = 3;
+            this.mainTabControl.SelectedIndex = 5;
             this.mainTabControl.Size = new System.Drawing.Size(1100, 582);
             this.mainTabControl.TabIndex = 1;
             this.mainTabControl.UseSelectable = true;
@@ -792,6 +794,147 @@ namespace InternetCafe.UI.Manager
             this.foodTypeTabPage.VerticalScrollbarHighlightOnWheel = false;
             this.foodTypeTabPage.VerticalScrollbarSize = 10;
             // 
+            // gbFoodType
+            // 
+            this.gbFoodType.BackColor = System.Drawing.Color.White;
+            this.gbFoodType.Controls.Add(this.txtNameFoodType);
+            this.gbFoodType.Controls.Add(this.btnSaveFoodType);
+            this.gbFoodType.Controls.Add(this.lbNameFoodType);
+            this.gbFoodType.Controls.Add(this.btnAddFoodType);
+            this.gbFoodType.Location = new System.Drawing.Point(57, 168);
+            this.gbFoodType.Name = "gbFoodType";
+            this.gbFoodType.Size = new System.Drawing.Size(392, 153);
+            this.gbFoodType.TabIndex = 27;
+            this.gbFoodType.TabStop = false;
+            // 
+            // txtNameFoodType
+            // 
+            this.txtNameFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameFoodType.Location = new System.Drawing.Point(141, 33);
+            this.txtNameFoodType.Name = "txtNameFoodType";
+            this.txtNameFoodType.Size = new System.Drawing.Size(234, 26);
+            this.txtNameFoodType.TabIndex = 18;
+            // 
+            // btnSaveFoodType
+            // 
+            this.btnSaveFoodType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSaveFoodType.FlatAppearance.BorderSize = 0;
+            this.btnSaveFoodType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveFoodType.ForeColor = System.Drawing.Color.White;
+            this.btnSaveFoodType.Image = global::InternetCafe.Properties.Resources.Edit;
+            this.btnSaveFoodType.Location = new System.Drawing.Point(222, 86);
+            this.btnSaveFoodType.Name = "btnSaveFoodType";
+            this.btnSaveFoodType.Size = new System.Drawing.Size(142, 51);
+            this.btnSaveFoodType.TabIndex = 16;
+            this.btnSaveFoodType.Text = "    Save";
+            this.btnSaveFoodType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSaveFoodType.UseVisualStyleBackColor = false;
+            this.btnSaveFoodType.Click += new System.EventHandler(this.btnSaveFoodType_Click);
+            // 
+            // lbNameFoodType
+            // 
+            this.lbNameFoodType.AutoSize = true;
+            this.lbNameFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNameFoodType.Location = new System.Drawing.Point(43, 36);
+            this.lbNameFoodType.Name = "lbNameFoodType";
+            this.lbNameFoodType.Size = new System.Drawing.Size(92, 20);
+            this.lbNameFoodType.TabIndex = 20;
+            this.lbNameFoodType.Text = "Food Type :";
+            // 
+            // btnAddFoodType
+            // 
+            this.btnAddFoodType.BackColor = System.Drawing.Color.Green;
+            this.btnAddFoodType.FlatAppearance.BorderSize = 0;
+            this.btnAddFoodType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFoodType.ForeColor = System.Drawing.Color.White;
+            this.btnAddFoodType.Image = global::InternetCafe.Properties.Resources.Add;
+            this.btnAddFoodType.Location = new System.Drawing.Point(47, 86);
+            this.btnAddFoodType.Name = "btnAddFoodType";
+            this.btnAddFoodType.Size = new System.Drawing.Size(142, 51);
+            this.btnAddFoodType.TabIndex = 15;
+            this.btnAddFoodType.Text = "    Create New";
+            this.btnAddFoodType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddFoodType.UseVisualStyleBackColor = false;
+            this.btnAddFoodType.Click += new System.EventHandler(this.btnAddFoodType_Click);
+            // 
+            // dgvFoodType
+            // 
+            this.dgvFoodType.AllowUserToAddRows = false;
+            this.dgvFoodType.AllowUserToDeleteRows = false;
+            this.dgvFoodType.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFoodType.BackgroundColor = System.Drawing.Color.White;
+            this.dgvFoodType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFoodType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.foodtype_id,
+            this.foodtype_name});
+            this.dgvFoodType.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvFoodType.Location = new System.Drawing.Point(483, 142);
+            this.dgvFoodType.MultiSelect = false;
+            this.dgvFoodType.Name = "dgvFoodType";
+            this.dgvFoodType.ReadOnly = true;
+            this.dgvFoodType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFoodType.Size = new System.Drawing.Size(552, 250);
+            this.dgvFoodType.TabIndex = 23;
+            this.dgvFoodType.SelectionChanged += new System.EventHandler(this.dgvFoodType_SelectionChanged);
+            // 
+            // foodtype_id
+            // 
+            this.foodtype_id.DataPropertyName = "Entity_id";
+            this.foodtype_id.HeaderText = "Id";
+            this.foodtype_id.Name = "foodtype_id";
+            this.foodtype_id.ReadOnly = true;
+            // 
+            // foodtype_name
+            // 
+            this.foodtype_name.DataPropertyName = "Name";
+            this.foodtype_name.HeaderText = "Name";
+            this.foodtype_name.Name = "foodtype_name";
+            this.foodtype_name.ReadOnly = true;
+            // 
+            // txtSearchFoodType
+            // 
+            this.txtSearchFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchFoodType.Location = new System.Drawing.Point(692, 91);
+            this.txtSearchFoodType.Name = "txtSearchFoodType";
+            this.txtSearchFoodType.Size = new System.Drawing.Size(222, 29);
+            this.txtSearchFoodType.TabIndex = 24;
+            // 
+            // btnDeleteFoodType
+            // 
+            this.btnDeleteFoodType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteFoodType.FlatAppearance.BorderSize = 0;
+            this.btnDeleteFoodType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteFoodType.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteFoodType.Image = global::InternetCafe.Properties.Resources.Delete;
+            this.btnDeleteFoodType.Location = new System.Drawing.Point(483, 398);
+            this.btnDeleteFoodType.Name = "btnDeleteFoodType";
+            this.btnDeleteFoodType.Size = new System.Drawing.Size(142, 51);
+            this.btnDeleteFoodType.TabIndex = 26;
+            this.btnDeleteFoodType.Text = "    Delete";
+            this.btnDeleteFoodType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteFoodType.UseVisualStyleBackColor = false;
+            this.btnDeleteFoodType.Click += new System.EventHandler(this.btnDeleteFoodType_Click);
+            // 
+            // btnSearchFoodType
+            // 
+            this.btnSearchFoodType.BackColor = System.Drawing.Color.Gray;
+            this.btnSearchFoodType.FlatAppearance.BorderSize = 0;
+            this.btnSearchFoodType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFoodType.ForeColor = System.Drawing.Color.White;
+            this.btnSearchFoodType.Image = global::InternetCafe.Properties.Resources.Search;
+            this.btnSearchFoodType.Location = new System.Drawing.Point(920, 91);
+            this.btnSearchFoodType.Name = "btnSearchFoodType";
+            this.btnSearchFoodType.Size = new System.Drawing.Size(115, 29);
+            this.btnSearchFoodType.TabIndex = 25;
+            this.btnSearchFoodType.Text = "Search";
+            this.btnSearchFoodType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearchFoodType.UseVisualStyleBackColor = false;
+            this.btnSearchFoodType.Click += new System.EventHandler(this.btnSearchFoodType_Click);
+            // 
             // foodTabPage
             // 
             this.foodTabPage.Controls.Add(this.gbFood);
@@ -810,364 +953,6 @@ namespace InternetCafe.UI.Manager
             this.foodTabPage.VerticalScrollbarBarColor = true;
             this.foodTabPage.VerticalScrollbarHighlightOnWheel = false;
             this.foodTabPage.VerticalScrollbarSize = 10;
-            // 
-            // userTabPage
-            // 
-            this.userTabPage.Controls.Add(this.gbUser);
-            this.userTabPage.Controls.Add(this.dgvUser);
-            this.userTabPage.Controls.Add(this.txtSearchUser);
-            this.userTabPage.Controls.Add(this.btnDeleteUser);
-            this.userTabPage.Controls.Add(this.btnSearchUser);
-            this.userTabPage.HorizontalScrollbarBarColor = true;
-            this.userTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.userTabPage.HorizontalScrollbarSize = 10;
-            this.userTabPage.Location = new System.Drawing.Point(4, 38);
-            this.userTabPage.Name = "userTabPage";
-            this.userTabPage.Size = new System.Drawing.Size(1092, 540);
-            this.userTabPage.TabIndex = 5;
-            this.userTabPage.Text = "  User";
-            this.userTabPage.VerticalScrollbarBarColor = true;
-            this.userTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.userTabPage.VerticalScrollbarSize = 10;
-            // 
-            // gbUser
-            // 
-            this.gbUser.BackColor = System.Drawing.Color.White;
-            this.gbUser.Controls.Add(this.txtLastNameUser);
-            this.gbUser.Controls.Add(this.lbRoleUser);
-            this.gbUser.Controls.Add(this.txtFirstNameUser);
-            this.gbUser.Controls.Add(this.txtEmailUser);
-            this.gbUser.Controls.Add(this.lbEmail);
-            this.gbUser.Controls.Add(this.pbUploadUser);
-            this.gbUser.Controls.Add(this.btnUploadUser);
-            this.gbUser.Controls.Add(this.txtUploadUser);
-            this.gbUser.Controls.Add(this.lbImageUser);
-            this.gbUser.Controls.Add(this.txtPasswordUser);
-            this.gbUser.Controls.Add(this.lbPasswordUser);
-            this.gbUser.Controls.Add(this.lbFirstName);
-            this.gbUser.Controls.Add(this.lbLastName);
-            this.gbUser.Controls.Add(this.cbRoleUser);
-            this.gbUser.Controls.Add(this.txtAccountUser);
-            this.gbUser.Controls.Add(this.btnSaveUser);
-            this.gbUser.Controls.Add(this.lbAccountUser);
-            this.gbUser.Controls.Add(this.btnAddUser);
-            this.gbUser.Location = new System.Drawing.Point(166, 14);
-            this.gbUser.Name = "gbUser";
-            this.gbUser.Size = new System.Drawing.Size(797, 214);
-            this.gbUser.TabIndex = 42;
-            this.gbUser.TabStop = false;
-            // 
-            // txtLastNameUser
-            // 
-            this.txtLastNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastNameUser.Location = new System.Drawing.Point(405, 71);
-            this.txtLastNameUser.Name = "txtLastNameUser";
-            this.txtLastNameUser.Size = new System.Drawing.Size(147, 26);
-            this.txtLastNameUser.TabIndex = 38;
-            // 
-            // lbRoleUser
-            // 
-            this.lbRoleUser.AutoSize = true;
-            this.lbRoleUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRoleUser.Location = new System.Drawing.Point(305, 110);
-            this.lbRoleUser.Name = "lbRoleUser";
-            this.lbRoleUser.Size = new System.Drawing.Size(50, 20);
-            this.lbRoleUser.TabIndex = 37;
-            this.lbRoleUser.Text = "Role :";
-            // 
-            // txtFirstNameUser
-            // 
-            this.txtFirstNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstNameUser.Location = new System.Drawing.Point(405, 33);
-            this.txtFirstNameUser.Name = "txtFirstNameUser";
-            this.txtFirstNameUser.Size = new System.Drawing.Size(147, 26);
-            this.txtFirstNameUser.TabIndex = 36;
-            // 
-            // txtEmailUser
-            // 
-            this.txtEmailUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailUser.Location = new System.Drawing.Point(106, 107);
-            this.txtEmailUser.Name = "txtEmailUser";
-            this.txtEmailUser.Size = new System.Drawing.Size(147, 26);
-            this.txtEmailUser.TabIndex = 35;
-            // 
-            // lbEmail
-            // 
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEmail.Location = new System.Drawing.Point(14, 110);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(56, 20);
-            this.lbEmail.TabIndex = 34;
-            this.lbEmail.Text = "Email :";
-            // 
-            // pbUploadUser
-            // 
-            this.pbUploadUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbUploadUser.Location = new System.Drawing.Point(683, 33);
-            this.pbUploadUser.Name = "pbUploadUser";
-            this.pbUploadUser.Size = new System.Drawing.Size(100, 100);
-            this.pbUploadUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbUploadUser.TabIndex = 33;
-            this.pbUploadUser.TabStop = false;
-            // 
-            // btnUploadUser
-            // 
-            this.btnUploadUser.BackColor = System.Drawing.Color.Gray;
-            this.btnUploadUser.FlatAppearance.BorderSize = 0;
-            this.btnUploadUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUploadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUploadUser.ForeColor = System.Drawing.Color.White;
-            this.btnUploadUser.Image = global::InternetCafe.Properties.Resources.Upload;
-            this.btnUploadUser.Location = new System.Drawing.Point(683, 171);
-            this.btnUploadUser.Name = "btnUploadUser";
-            this.btnUploadUser.Size = new System.Drawing.Size(100, 29);
-            this.btnUploadUser.TabIndex = 32;
-            this.btnUploadUser.Text = "Upload";
-            this.btnUploadUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUploadUser.UseVisualStyleBackColor = false;
-            // 
-            // txtUploadUser
-            // 
-            this.txtUploadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUploadUser.Location = new System.Drawing.Point(683, 139);
-            this.txtUploadUser.Name = "txtUploadUser";
-            this.txtUploadUser.ReadOnly = true;
-            this.txtUploadUser.Size = new System.Drawing.Size(100, 26);
-            this.txtUploadUser.TabIndex = 31;
-            // 
-            // lbImageUser
-            // 
-            this.lbImageUser.AutoSize = true;
-            this.lbImageUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbImageUser.Location = new System.Drawing.Point(614, 36);
-            this.lbImageUser.Name = "lbImageUser";
-            this.lbImageUser.Size = new System.Drawing.Size(62, 20);
-            this.lbImageUser.TabIndex = 28;
-            this.lbImageUser.Text = "Image :";
-            // 
-            // txtPasswordUser
-            // 
-            this.txtPasswordUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPasswordUser.Location = new System.Drawing.Point(106, 71);
-            this.txtPasswordUser.Name = "txtPasswordUser";
-            this.txtPasswordUser.PasswordChar = '*';
-            this.txtPasswordUser.Size = new System.Drawing.Size(147, 26);
-            this.txtPasswordUser.TabIndex = 26;
-            // 
-            // lbPasswordUser
-            // 
-            this.lbPasswordUser.AutoSize = true;
-            this.lbPasswordUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPasswordUser.Location = new System.Drawing.Point(14, 74);
-            this.lbPasswordUser.Name = "lbPasswordUser";
-            this.lbPasswordUser.Size = new System.Drawing.Size(86, 20);
-            this.lbPasswordUser.TabIndex = 27;
-            this.lbPasswordUser.Text = "Password :";
-            // 
-            // lbFirstName
-            // 
-            this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFirstName.Location = new System.Drawing.Point(305, 36);
-            this.lbFirstName.Name = "lbFirstName";
-            this.lbFirstName.Size = new System.Drawing.Size(94, 20);
-            this.lbFirstName.TabIndex = 25;
-            this.lbFirstName.Text = "First Name :";
-            // 
-            // lbLastName
-            // 
-            this.lbLastName.AutoSize = true;
-            this.lbLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLastName.Location = new System.Drawing.Point(305, 74);
-            this.lbLastName.Name = "lbLastName";
-            this.lbLastName.Size = new System.Drawing.Size(94, 20);
-            this.lbLastName.TabIndex = 23;
-            this.lbLastName.Text = "Last Name :";
-            // 
-            // cbRoleUser
-            // 
-            this.cbRoleUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRoleUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRoleUser.FormattingEnabled = true;
-            this.cbRoleUser.Location = new System.Drawing.Point(405, 107);
-            this.cbRoleUser.Name = "cbRoleUser";
-            this.cbRoleUser.Size = new System.Drawing.Size(147, 28);
-            this.cbRoleUser.TabIndex = 22;
-            // 
-            // txtAccountUser
-            // 
-            this.txtAccountUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccountUser.Location = new System.Drawing.Point(106, 33);
-            this.txtAccountUser.Name = "txtAccountUser";
-            this.txtAccountUser.Size = new System.Drawing.Size(147, 26);
-            this.txtAccountUser.TabIndex = 18;
-            // 
-            // btnSaveUser
-            // 
-            this.btnSaveUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnSaveUser.FlatAppearance.BorderSize = 0;
-            this.btnSaveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveUser.ForeColor = System.Drawing.Color.White;
-            this.btnSaveUser.Image = global::InternetCafe.Properties.Resources.Edit;
-            this.btnSaveUser.Location = new System.Drawing.Point(166, 158);
-            this.btnSaveUser.Name = "btnSaveUser";
-            this.btnSaveUser.Size = new System.Drawing.Size(142, 39);
-            this.btnSaveUser.TabIndex = 16;
-            this.btnSaveUser.Text = "    Save";
-            this.btnSaveUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSaveUser.UseVisualStyleBackColor = false;
-            // 
-            // lbAccountUser
-            // 
-            this.lbAccountUser.AutoSize = true;
-            this.lbAccountUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAccountUser.Location = new System.Drawing.Point(14, 36);
-            this.lbAccountUser.Name = "lbAccountUser";
-            this.lbAccountUser.Size = new System.Drawing.Size(76, 20);
-            this.lbAccountUser.TabIndex = 20;
-            this.lbAccountUser.Text = "Account :";
-            // 
-            // btnAddUser
-            // 
-            this.btnAddUser.BackColor = System.Drawing.Color.Green;
-            this.btnAddUser.FlatAppearance.BorderSize = 0;
-            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddUser.ForeColor = System.Drawing.Color.White;
-            this.btnAddUser.Image = global::InternetCafe.Properties.Resources.Add;
-            this.btnAddUser.Location = new System.Drawing.Point(18, 158);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(142, 39);
-            this.btnAddUser.TabIndex = 15;
-            this.btnAddUser.Text = "    Create New";
-            this.btnAddUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddUser.UseVisualStyleBackColor = false;
-            // 
-            // dgvUser
-            // 
-            this.dgvUser.AllowUserToAddRows = false;
-            this.dgvUser.AllowUserToDeleteRows = false;
-            this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUser.BackgroundColor = System.Drawing.Color.White;
-            this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.user_id,
-            this.user_account,
-            this.user_password,
-            this.user_name,
-            this.user_email,
-            this.user_image,
-            this.user_role,
-            this.user_role_id});
-            this.dgvUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvUser.Location = new System.Drawing.Point(8, 291);
-            this.dgvUser.MultiSelect = false;
-            this.dgvUser.Name = "dgvUser";
-            this.dgvUser.ReadOnly = true;
-            this.dgvUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUser.Size = new System.Drawing.Size(1076, 190);
-            this.dgvUser.TabIndex = 38;
-            this.dgvUser.SelectionChanged += new System.EventHandler(this.dgvUser_SelectionChanged);
-            // 
-            // user_id
-            // 
-            this.user_id.DataPropertyName = "Entity_id";
-            this.user_id.HeaderText = "Id";
-            this.user_id.Name = "user_id";
-            this.user_id.ReadOnly = true;
-            // 
-            // user_account
-            // 
-            this.user_account.DataPropertyName = "Account";
-            this.user_account.HeaderText = "Account";
-            this.user_account.Name = "user_account";
-            this.user_account.ReadOnly = true;
-            // 
-            // user_password
-            // 
-            this.user_password.DataPropertyName = "Password";
-            this.user_password.HeaderText = "Password";
-            this.user_password.Name = "user_password";
-            this.user_password.ReadOnly = true;
-            // 
-            // user_name
-            // 
-            this.user_name.DataPropertyName = "User_Name";
-            this.user_name.HeaderText = "Name";
-            this.user_name.Name = "user_name";
-            this.user_name.ReadOnly = true;
-            // 
-            // user_email
-            // 
-            this.user_email.DataPropertyName = "Email";
-            this.user_email.HeaderText = "Email";
-            this.user_email.Name = "user_email";
-            this.user_email.ReadOnly = true;
-            // 
-            // user_image
-            // 
-            this.user_image.DataPropertyName = "Image";
-            this.user_image.HeaderText = "Image";
-            this.user_image.Name = "user_image";
-            this.user_image.ReadOnly = true;
-            // 
-            // user_role
-            // 
-            this.user_role.DataPropertyName = "Role";
-            this.user_role.HeaderText = "Role";
-            this.user_role.Name = "user_role";
-            this.user_role.ReadOnly = true;
-            // 
-            // user_role_id
-            // 
-            this.user_role_id.DataPropertyName = "Role_Id";
-            this.user_role_id.HeaderText = "Role_Id";
-            this.user_role_id.Name = "user_role_id";
-            this.user_role_id.ReadOnly = true;
-            this.user_role_id.Visible = false;
-            // 
-            // txtSearchUser
-            // 
-            this.txtSearchUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchUser.Location = new System.Drawing.Point(741, 253);
-            this.txtSearchUser.Name = "txtSearchUser";
-            this.txtSearchUser.Size = new System.Drawing.Size(222, 29);
-            this.txtSearchUser.TabIndex = 39;
-            // 
-            // btnDeleteUser
-            // 
-            this.btnDeleteUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnDeleteUser.FlatAppearance.BorderSize = 0;
-            this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteUser.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteUser.Image = global::InternetCafe.Properties.Resources.Delete;
-            this.btnDeleteUser.Location = new System.Drawing.Point(942, 487);
-            this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(142, 39);
-            this.btnDeleteUser.TabIndex = 41;
-            this.btnDeleteUser.Text = "    Delete";
-            this.btnDeleteUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteUser.UseVisualStyleBackColor = false;
-            // 
-            // btnSearchUser
-            // 
-            this.btnSearchUser.BackColor = System.Drawing.Color.Gray;
-            this.btnSearchUser.FlatAppearance.BorderSize = 0;
-            this.btnSearchUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchUser.ForeColor = System.Drawing.Color.White;
-            this.btnSearchUser.Image = global::InternetCafe.Properties.Resources.Search;
-            this.btnSearchUser.Location = new System.Drawing.Point(969, 253);
-            this.btnSearchUser.Name = "btnSearchUser";
-            this.btnSearchUser.Size = new System.Drawing.Size(115, 29);
-            this.btnSearchUser.TabIndex = 40;
-            this.btnSearchUser.Text = "Search";
-            this.btnSearchUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearchUser.UseVisualStyleBackColor = false;
-            this.btnSearchUser.Click += new System.EventHandler(this.btnSearchUser_Click);
             // 
             // gbFood
             // 
@@ -1465,146 +1250,384 @@ namespace InternetCafe.UI.Manager
             this.btnSearchFood.UseVisualStyleBackColor = false;
             this.btnSearchFood.Click += new System.EventHandler(this.btnSearchFood_Click);
             // 
-            // gbFoodType
+            // userTabPage
             // 
-            this.gbFoodType.BackColor = System.Drawing.Color.White;
-            this.gbFoodType.Controls.Add(this.txtNameFoodType);
-            this.gbFoodType.Controls.Add(this.btnSaveFoodType);
-            this.gbFoodType.Controls.Add(this.lbNameFoodType);
-            this.gbFoodType.Controls.Add(this.btnAddFoodType);
-            this.gbFoodType.Location = new System.Drawing.Point(57, 168);
-            this.gbFoodType.Name = "gbFoodType";
-            this.gbFoodType.Size = new System.Drawing.Size(392, 153);
-            this.gbFoodType.TabIndex = 27;
-            this.gbFoodType.TabStop = false;
+            this.userTabPage.Controls.Add(this.gbUser);
+            this.userTabPage.Controls.Add(this.dgvUser);
+            this.userTabPage.Controls.Add(this.txtSearchUser);
+            this.userTabPage.Controls.Add(this.btnDeleteUser);
+            this.userTabPage.Controls.Add(this.btnSearchUser);
+            this.userTabPage.HorizontalScrollbarBarColor = true;
+            this.userTabPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.userTabPage.HorizontalScrollbarSize = 10;
+            this.userTabPage.Location = new System.Drawing.Point(4, 38);
+            this.userTabPage.Name = "userTabPage";
+            this.userTabPage.Size = new System.Drawing.Size(1092, 540);
+            this.userTabPage.TabIndex = 5;
+            this.userTabPage.Text = "  User";
+            this.userTabPage.VerticalScrollbarBarColor = true;
+            this.userTabPage.VerticalScrollbarHighlightOnWheel = false;
+            this.userTabPage.VerticalScrollbarSize = 10;
             // 
-            // txtNameFoodType
+            // gbUser
             // 
-            this.txtNameFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameFoodType.Location = new System.Drawing.Point(141, 33);
-            this.txtNameFoodType.Name = "txtNameFoodType";
-            this.txtNameFoodType.Size = new System.Drawing.Size(234, 26);
-            this.txtNameFoodType.TabIndex = 18;
+            this.gbUser.BackColor = System.Drawing.Color.White;
+            this.gbUser.Controls.Add(this.txtLastNameUser);
+            this.gbUser.Controls.Add(this.lbRoleUser);
+            this.gbUser.Controls.Add(this.txtFirstNameUser);
+            this.gbUser.Controls.Add(this.txtEmailUser);
+            this.gbUser.Controls.Add(this.lbEmail);
+            this.gbUser.Controls.Add(this.pbUploadUser);
+            this.gbUser.Controls.Add(this.btnUploadUser);
+            this.gbUser.Controls.Add(this.txtUploadUser);
+            this.gbUser.Controls.Add(this.lbImageUser);
+            this.gbUser.Controls.Add(this.txtPasswordUser);
+            this.gbUser.Controls.Add(this.lbPasswordUser);
+            this.gbUser.Controls.Add(this.lbFirstName);
+            this.gbUser.Controls.Add(this.lbLastName);
+            this.gbUser.Controls.Add(this.cbRoleUser);
+            this.gbUser.Controls.Add(this.txtAccountUser);
+            this.gbUser.Controls.Add(this.btnSaveUser);
+            this.gbUser.Controls.Add(this.lbAccountUser);
+            this.gbUser.Controls.Add(this.btnAddUser);
+            this.gbUser.Location = new System.Drawing.Point(99, 14);
+            this.gbUser.Name = "gbUser";
+            this.gbUser.Size = new System.Drawing.Size(898, 214);
+            this.gbUser.TabIndex = 42;
+            this.gbUser.TabStop = false;
             // 
-            // btnSaveFoodType
+            // txtLastNameUser
             // 
-            this.btnSaveFoodType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnSaveFoodType.FlatAppearance.BorderSize = 0;
-            this.btnSaveFoodType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveFoodType.ForeColor = System.Drawing.Color.White;
-            this.btnSaveFoodType.Image = global::InternetCafe.Properties.Resources.Edit;
-            this.btnSaveFoodType.Location = new System.Drawing.Point(222, 86);
-            this.btnSaveFoodType.Name = "btnSaveFoodType";
-            this.btnSaveFoodType.Size = new System.Drawing.Size(142, 51);
-            this.btnSaveFoodType.TabIndex = 16;
-            this.btnSaveFoodType.Text = "    Save";
-            this.btnSaveFoodType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSaveFoodType.UseVisualStyleBackColor = false;
-            this.btnSaveFoodType.Click += new System.EventHandler(this.btnSaveFoodType_Click);
+            this.txtLastNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastNameUser.Location = new System.Drawing.Point(452, 71);
+            this.txtLastNameUser.Name = "txtLastNameUser";
+            this.txtLastNameUser.Size = new System.Drawing.Size(193, 26);
+            this.txtLastNameUser.TabIndex = 38;
             // 
-            // lbNameFoodType
+            // lbRoleUser
             // 
-            this.lbNameFoodType.AutoSize = true;
-            this.lbNameFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNameFoodType.Location = new System.Drawing.Point(43, 36);
-            this.lbNameFoodType.Name = "lbNameFoodType";
-            this.lbNameFoodType.Size = new System.Drawing.Size(92, 20);
-            this.lbNameFoodType.TabIndex = 20;
-            this.lbNameFoodType.Text = "Food Type :";
+            this.lbRoleUser.AutoSize = true;
+            this.lbRoleUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRoleUser.Location = new System.Drawing.Point(352, 110);
+            this.lbRoleUser.Name = "lbRoleUser";
+            this.lbRoleUser.Size = new System.Drawing.Size(50, 20);
+            this.lbRoleUser.TabIndex = 37;
+            this.lbRoleUser.Text = "Role :";
             // 
-            // btnAddFoodType
+            // txtFirstNameUser
             // 
-            this.btnAddFoodType.BackColor = System.Drawing.Color.Green;
-            this.btnAddFoodType.FlatAppearance.BorderSize = 0;
-            this.btnAddFoodType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFoodType.ForeColor = System.Drawing.Color.White;
-            this.btnAddFoodType.Image = global::InternetCafe.Properties.Resources.Add;
-            this.btnAddFoodType.Location = new System.Drawing.Point(47, 86);
-            this.btnAddFoodType.Name = "btnAddFoodType";
-            this.btnAddFoodType.Size = new System.Drawing.Size(142, 51);
-            this.btnAddFoodType.TabIndex = 15;
-            this.btnAddFoodType.Text = "    Create New";
-            this.btnAddFoodType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddFoodType.UseVisualStyleBackColor = false;
-            this.btnAddFoodType.Click += new System.EventHandler(this.btnAddFoodType_Click);
+            this.txtFirstNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstNameUser.Location = new System.Drawing.Point(452, 33);
+            this.txtFirstNameUser.Name = "txtFirstNameUser";
+            this.txtFirstNameUser.Size = new System.Drawing.Size(193, 26);
+            this.txtFirstNameUser.TabIndex = 36;
             // 
-            // dgvFoodType
+            // txtEmailUser
             // 
-            this.dgvFoodType.AllowUserToAddRows = false;
-            this.dgvFoodType.AllowUserToDeleteRows = false;
-            this.dgvFoodType.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvFoodType.BackgroundColor = System.Drawing.Color.White;
-            this.dgvFoodType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFoodType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.foodtype_id,
-            this.foodtype_name});
-            this.dgvFoodType.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvFoodType.Location = new System.Drawing.Point(483, 142);
-            this.dgvFoodType.MultiSelect = false;
-            this.dgvFoodType.Name = "dgvFoodType";
-            this.dgvFoodType.ReadOnly = true;
-            this.dgvFoodType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFoodType.Size = new System.Drawing.Size(552, 250);
-            this.dgvFoodType.TabIndex = 23;
-            this.dgvFoodType.SelectionChanged += new System.EventHandler(this.dgvFoodType_SelectionChanged);
+            this.txtEmailUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailUser.Location = new System.Drawing.Point(106, 107);
+            this.txtEmailUser.Name = "txtEmailUser";
+            this.txtEmailUser.Size = new System.Drawing.Size(193, 26);
+            this.txtEmailUser.TabIndex = 35;
             // 
-            // txtSearchFoodType
+            // lbEmail
             // 
-            this.txtSearchFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchFoodType.Location = new System.Drawing.Point(692, 91);
-            this.txtSearchFoodType.Name = "txtSearchFoodType";
-            this.txtSearchFoodType.Size = new System.Drawing.Size(222, 29);
-            this.txtSearchFoodType.TabIndex = 24;
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEmail.Location = new System.Drawing.Point(14, 110);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(56, 20);
+            this.lbEmail.TabIndex = 34;
+            this.lbEmail.Text = "Email :";
             // 
-            // btnDeleteFoodType
+            // pbUploadUser
             // 
-            this.btnDeleteFoodType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnDeleteFoodType.FlatAppearance.BorderSize = 0;
-            this.btnDeleteFoodType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteFoodType.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteFoodType.Image = global::InternetCafe.Properties.Resources.Delete;
-            this.btnDeleteFoodType.Location = new System.Drawing.Point(483, 398);
-            this.btnDeleteFoodType.Name = "btnDeleteFoodType";
-            this.btnDeleteFoodType.Size = new System.Drawing.Size(142, 51);
-            this.btnDeleteFoodType.TabIndex = 26;
-            this.btnDeleteFoodType.Text = "    Delete";
-            this.btnDeleteFoodType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteFoodType.UseVisualStyleBackColor = false;
-            this.btnDeleteFoodType.Click += new System.EventHandler(this.btnDeleteFoodType_Click);
+            this.pbUploadUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbUploadUser.Location = new System.Drawing.Point(778, 33);
+            this.pbUploadUser.Name = "pbUploadUser";
+            this.pbUploadUser.Size = new System.Drawing.Size(100, 100);
+            this.pbUploadUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUploadUser.TabIndex = 33;
+            this.pbUploadUser.TabStop = false;
             // 
-            // btnSearchFoodType
+            // btnUploadUser
             // 
-            this.btnSearchFoodType.BackColor = System.Drawing.Color.Gray;
-            this.btnSearchFoodType.FlatAppearance.BorderSize = 0;
-            this.btnSearchFoodType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFoodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFoodType.ForeColor = System.Drawing.Color.White;
-            this.btnSearchFoodType.Image = global::InternetCafe.Properties.Resources.Search;
-            this.btnSearchFoodType.Location = new System.Drawing.Point(920, 91);
-            this.btnSearchFoodType.Name = "btnSearchFoodType";
-            this.btnSearchFoodType.Size = new System.Drawing.Size(115, 29);
-            this.btnSearchFoodType.TabIndex = 25;
-            this.btnSearchFoodType.Text = "Search";
-            this.btnSearchFoodType.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearchFoodType.UseVisualStyleBackColor = false;
-            this.btnSearchFoodType.Click += new System.EventHandler(this.btnSearchFoodType_Click);
+            this.btnUploadUser.BackColor = System.Drawing.Color.Gray;
+            this.btnUploadUser.FlatAppearance.BorderSize = 0;
+            this.btnUploadUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUploadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUploadUser.ForeColor = System.Drawing.Color.White;
+            this.btnUploadUser.Image = global::InternetCafe.Properties.Resources.Upload;
+            this.btnUploadUser.Location = new System.Drawing.Point(778, 171);
+            this.btnUploadUser.Name = "btnUploadUser";
+            this.btnUploadUser.Size = new System.Drawing.Size(100, 29);
+            this.btnUploadUser.TabIndex = 32;
+            this.btnUploadUser.Text = "Upload";
+            this.btnUploadUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUploadUser.UseVisualStyleBackColor = false;
             // 
-            // foodtype_id
+            // txtUploadUser
             // 
-            this.foodtype_id.DataPropertyName = "Entity_id";
-            this.foodtype_id.HeaderText = "Id";
-            this.foodtype_id.Name = "foodtype_id";
-            this.foodtype_id.ReadOnly = true;
+            this.txtUploadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUploadUser.Location = new System.Drawing.Point(778, 139);
+            this.txtUploadUser.Name = "txtUploadUser";
+            this.txtUploadUser.ReadOnly = true;
+            this.txtUploadUser.Size = new System.Drawing.Size(100, 26);
+            this.txtUploadUser.TabIndex = 31;
             // 
-            // foodtype_name
+            // lbImageUser
             // 
-            this.foodtype_name.DataPropertyName = "Name";
-            this.foodtype_name.HeaderText = "Name";
-            this.foodtype_name.Name = "foodtype_name";
-            this.foodtype_name.ReadOnly = true;
+            this.lbImageUser.AutoSize = true;
+            this.lbImageUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbImageUser.Location = new System.Drawing.Point(708, 36);
+            this.lbImageUser.Name = "lbImageUser";
+            this.lbImageUser.Size = new System.Drawing.Size(62, 20);
+            this.lbImageUser.TabIndex = 28;
+            this.lbImageUser.Text = "Image :";
+            // 
+            // txtPasswordUser
+            // 
+            this.txtPasswordUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPasswordUser.Location = new System.Drawing.Point(106, 71);
+            this.txtPasswordUser.Name = "txtPasswordUser";
+            this.txtPasswordUser.PasswordChar = '*';
+            this.txtPasswordUser.ReadOnly = true;
+            this.txtPasswordUser.Size = new System.Drawing.Size(193, 26);
+            this.txtPasswordUser.TabIndex = 26;
+            // 
+            // lbPasswordUser
+            // 
+            this.lbPasswordUser.AutoSize = true;
+            this.lbPasswordUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPasswordUser.Location = new System.Drawing.Point(14, 74);
+            this.lbPasswordUser.Name = "lbPasswordUser";
+            this.lbPasswordUser.Size = new System.Drawing.Size(86, 20);
+            this.lbPasswordUser.TabIndex = 27;
+            this.lbPasswordUser.Text = "Password :";
+            // 
+            // lbFirstName
+            // 
+            this.lbFirstName.AutoSize = true;
+            this.lbFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFirstName.Location = new System.Drawing.Point(352, 36);
+            this.lbFirstName.Name = "lbFirstName";
+            this.lbFirstName.Size = new System.Drawing.Size(94, 20);
+            this.lbFirstName.TabIndex = 25;
+            this.lbFirstName.Text = "First Name :";
+            // 
+            // lbLastName
+            // 
+            this.lbLastName.AutoSize = true;
+            this.lbLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLastName.Location = new System.Drawing.Point(352, 74);
+            this.lbLastName.Name = "lbLastName";
+            this.lbLastName.Size = new System.Drawing.Size(94, 20);
+            this.lbLastName.TabIndex = 23;
+            this.lbLastName.Text = "Last Name :";
+            // 
+            // cbRoleUser
+            // 
+            this.cbRoleUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRoleUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRoleUser.FormattingEnabled = true;
+            this.cbRoleUser.Location = new System.Drawing.Point(452, 107);
+            this.cbRoleUser.Name = "cbRoleUser";
+            this.cbRoleUser.Size = new System.Drawing.Size(193, 28);
+            this.cbRoleUser.TabIndex = 22;
+            // 
+            // txtAccountUser
+            // 
+            this.txtAccountUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccountUser.Location = new System.Drawing.Point(106, 33);
+            this.txtAccountUser.Name = "txtAccountUser";
+            this.txtAccountUser.Size = new System.Drawing.Size(193, 26);
+            this.txtAccountUser.TabIndex = 18;
+            // 
+            // btnSaveUser
+            // 
+            this.btnSaveUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSaveUser.FlatAppearance.BorderSize = 0;
+            this.btnSaveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveUser.ForeColor = System.Drawing.Color.White;
+            this.btnSaveUser.Image = global::InternetCafe.Properties.Resources.Edit;
+            this.btnSaveUser.Location = new System.Drawing.Point(166, 158);
+            this.btnSaveUser.Name = "btnSaveUser";
+            this.btnSaveUser.Size = new System.Drawing.Size(142, 39);
+            this.btnSaveUser.TabIndex = 16;
+            this.btnSaveUser.Text = "    Save";
+            this.btnSaveUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSaveUser.UseVisualStyleBackColor = false;
+            this.btnSaveUser.Click += new System.EventHandler(this.btnSaveUser_Click);
+            // 
+            // lbAccountUser
+            // 
+            this.lbAccountUser.AutoSize = true;
+            this.lbAccountUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAccountUser.Location = new System.Drawing.Point(14, 36);
+            this.lbAccountUser.Name = "lbAccountUser";
+            this.lbAccountUser.Size = new System.Drawing.Size(76, 20);
+            this.lbAccountUser.TabIndex = 20;
+            this.lbAccountUser.Text = "Account :";
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.BackColor = System.Drawing.Color.Green;
+            this.btnAddUser.FlatAppearance.BorderSize = 0;
+            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.ForeColor = System.Drawing.Color.White;
+            this.btnAddUser.Image = global::InternetCafe.Properties.Resources.Add;
+            this.btnAddUser.Location = new System.Drawing.Point(18, 158);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(142, 39);
+            this.btnAddUser.TabIndex = 15;
+            this.btnAddUser.Text = "    Create New";
+            this.btnAddUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddUser.UseVisualStyleBackColor = false;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // dgvUser
+            // 
+            this.dgvUser.AllowUserToAddRows = false;
+            this.dgvUser.AllowUserToDeleteRows = false;
+            this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUser.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.user_id,
+            this.user_account,
+            this.user_replace_password,
+            this.user_password,
+            this.user_firstname,
+            this.user_lastname,
+            this.user_email,
+            this.user_image,
+            this.user_role,
+            this.user_role_id});
+            this.dgvUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvUser.Location = new System.Drawing.Point(8, 291);
+            this.dgvUser.MultiSelect = false;
+            this.dgvUser.Name = "dgvUser";
+            this.dgvUser.ReadOnly = true;
+            this.dgvUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUser.Size = new System.Drawing.Size(1076, 190);
+            this.dgvUser.TabIndex = 38;
+            this.dgvUser.SelectionChanged += new System.EventHandler(this.dgvUser_SelectionChanged);
+            // 
+            // txtSearchUser
+            // 
+            this.txtSearchUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchUser.Location = new System.Drawing.Point(741, 253);
+            this.txtSearchUser.Name = "txtSearchUser";
+            this.txtSearchUser.Size = new System.Drawing.Size(222, 29);
+            this.txtSearchUser.TabIndex = 39;
+            // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteUser.FlatAppearance.BorderSize = 0;
+            this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteUser.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteUser.Image = global::InternetCafe.Properties.Resources.Delete;
+            this.btnDeleteUser.Location = new System.Drawing.Point(942, 487);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(142, 39);
+            this.btnDeleteUser.TabIndex = 41;
+            this.btnDeleteUser.Text = "    Delete";
+            this.btnDeleteUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteUser.UseVisualStyleBackColor = false;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
+            // 
+            // btnSearchUser
+            // 
+            this.btnSearchUser.BackColor = System.Drawing.Color.Gray;
+            this.btnSearchUser.FlatAppearance.BorderSize = 0;
+            this.btnSearchUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchUser.ForeColor = System.Drawing.Color.White;
+            this.btnSearchUser.Image = global::InternetCafe.Properties.Resources.Search;
+            this.btnSearchUser.Location = new System.Drawing.Point(969, 253);
+            this.btnSearchUser.Name = "btnSearchUser";
+            this.btnSearchUser.Size = new System.Drawing.Size(115, 29);
+            this.btnSearchUser.TabIndex = 40;
+            this.btnSearchUser.Text = "Search";
+            this.btnSearchUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearchUser.UseVisualStyleBackColor = false;
+            this.btnSearchUser.Click += new System.EventHandler(this.btnSearchUser_Click);
+            // 
+            // user_id
+            // 
+            this.user_id.DataPropertyName = "Entity_id";
+            this.user_id.HeaderText = "Id";
+            this.user_id.Name = "user_id";
+            this.user_id.ReadOnly = true;
+            // 
+            // user_account
+            // 
+            this.user_account.DataPropertyName = "Account";
+            this.user_account.HeaderText = "Account";
+            this.user_account.Name = "user_account";
+            this.user_account.ReadOnly = true;
+            // 
+            // user_replace_password
+            // 
+            this.user_replace_password.DataPropertyName = "Replace_Password";
+            this.user_replace_password.HeaderText = "Password";
+            this.user_replace_password.Name = "user_replace_password";
+            this.user_replace_password.ReadOnly = true;
+            // 
+            // user_password
+            // 
+            this.user_password.DataPropertyName = "Password";
+            this.user_password.HeaderText = "Password Real";
+            this.user_password.Name = "user_password";
+            this.user_password.ReadOnly = true;
+            this.user_password.Visible = false;
+            // 
+            // user_firstname
+            // 
+            this.user_firstname.DataPropertyName = "FirstName";
+            this.user_firstname.HeaderText = "First Name";
+            this.user_firstname.Name = "user_firstname";
+            this.user_firstname.ReadOnly = true;
+            // 
+            // user_lastname
+            // 
+            this.user_lastname.DataPropertyName = "LastName";
+            this.user_lastname.HeaderText = "Last Name";
+            this.user_lastname.Name = "user_lastname";
+            this.user_lastname.ReadOnly = true;
+            // 
+            // user_email
+            // 
+            this.user_email.DataPropertyName = "Email";
+            this.user_email.HeaderText = "Email";
+            this.user_email.Name = "user_email";
+            this.user_email.ReadOnly = true;
+            // 
+            // user_image
+            // 
+            this.user_image.DataPropertyName = "Image";
+            this.user_image.HeaderText = "Image";
+            this.user_image.Name = "user_image";
+            this.user_image.ReadOnly = true;
+            // 
+            // user_role
+            // 
+            this.user_role.DataPropertyName = "Role";
+            this.user_role.HeaderText = "Role";
+            this.user_role.Name = "user_role";
+            this.user_role.ReadOnly = true;
+            // 
+            // user_role_id
+            // 
+            this.user_role_id.DataPropertyName = "Role_Id";
+            this.user_role_id.HeaderText = "Role_Id";
+            this.user_role_id.Name = "user_role_id";
+            this.user_role_id.ReadOnly = true;
+            this.user_role_id.Visible = false;
             // 
             // frmHome
             // 
@@ -1640,21 +1663,21 @@ namespace InternetCafe.UI.Manager
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputer)).EndInit();
             this.foodTypeTabPage.ResumeLayout(false);
             this.foodTypeTabPage.PerformLayout();
+            this.gbFoodType.ResumeLayout(false);
+            this.gbFoodType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoodType)).EndInit();
             this.foodTabPage.ResumeLayout(false);
             this.foodTabPage.PerformLayout();
+            this.gbFood.ResumeLayout(false);
+            this.gbFood.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUploadFood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
             this.userTabPage.ResumeLayout(false);
             this.userTabPage.PerformLayout();
             this.gbUser.ResumeLayout(false);
             this.gbUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUploadUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
-            this.gbFood.ResumeLayout(false);
-            this.gbFood.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUploadFood)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
-            this.gbFoodType.ResumeLayout(false);
-            this.gbFoodType.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFoodType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1732,14 +1755,6 @@ namespace InternetCafe.UI.Manager
         private System.Windows.Forms.Label lbAccountUser;
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.DataGridView dgvUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_account;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_password;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_image;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_role;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_role_id;
         private System.Windows.Forms.TextBox txtSearchUser;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnSearchUser;
@@ -1780,5 +1795,15 @@ namespace InternetCafe.UI.Manager
         private System.Windows.Forms.Button btnSearchFoodType;
         private System.Windows.Forms.DataGridViewTextBoxColumn foodtype_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn foodtype_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_account;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_replace_password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_firstname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_lastname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_image;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_role;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_role_id;
     }
 }

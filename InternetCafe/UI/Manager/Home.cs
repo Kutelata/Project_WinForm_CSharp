@@ -407,13 +407,7 @@ namespace InternetCafe.UI.Manager
 
         private void txtQuantityFood_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '-'))
-            {
-                e.Handled = true;
-            }
-
-            // only allow one decimal point
-            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -428,6 +422,7 @@ namespace InternetCafe.UI.Manager
                 txtNameFood.Text = row.Cells["food_name"].Value.ToString();
                 txtPriceFood.Text = row.Cells["food_price"].Value.ToString();
                 txtQuantityFood.Text = row.Cells["food_quantity"].Value.ToString();
+                txtUploadFood.Text = row.Cells["food_image"].Value.ToString();
                 cbTypeFood.Text = row.Cells["food_type"].Value.ToString();
             }
         }
@@ -445,7 +440,7 @@ namespace InternetCafe.UI.Manager
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
-            if (txtNameFood.Text == "" || txtPriceFood.Text == "" || txtQuantityFood.Text == "")
+            if (txtNameFood.Text == "" || txtPriceFood.Text == "" || txtQuantityFood.Text == "" || txtUploadFood.Text == "")
             {
                 MessageBox.Show("Fields not allow null !");
             }
@@ -470,19 +465,54 @@ namespace InternetCafe.UI.Manager
                 }
                 else
                 {
-                    MessageBox.Show("Food's name must be unique!");
+                    MessageBox.Show("Food's name must be unique !");
                 }
             }
         }
 
         private void btnSaveFood_Click(object sender, EventArgs e)
         {
-
+            if (txtNameFood.Text == "" || txtPriceFood.Text == "" || txtQuantityFood.Text == "" || txtUploadFood.Text == "")
+            {
+                MessageBox.Show("Fields not allow null !");
+            }
+            else
+            {
+                try
+                {
+                    // Find object to edit
+                    var f = DB.foods.SingleOrDefault(x => x.entity_id == foodId);
+                    // Get data
+                    f.name = txtNameFood.Text;
+                    f.price = Convert.ToDouble(txtPriceFood.Text);
+                    f.quantity = Convert.ToInt32(txtQuantityFood.Text);
+                    f.image = txtUploadFood.Text;
+                    f.food_type_id = Convert.ToInt32(cbTypeFood.SelectedValue);
+                    // Save
+                    DB.SubmitChanges();
+                    loadFood();
+                    MessageBox.Show("Save Success !");
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Food's name must be unique !");
+                }
+            }
         }
 
         private void btnDeleteFood_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Are you sure ?", "Delete Food", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // Find object to edit
+                var f = DB.foods.SingleOrDefault(x => x.entity_id == foodId);
+                // Delete
+                DB.foods.DeleteOnSubmit(f);
+                // Save
+                DB.SubmitChanges();
+                loadFood();
+                MessageBox.Show("Delete Success !");
+            }
         }
 
         private void btnSearchFood_Click(object sender, EventArgs e)
@@ -509,6 +539,102 @@ namespace InternetCafe.UI.Manager
             dgvUser.DataSource = DB.searchUser(txtSearchUser.Text);
         }
 
+        private void dgvUser_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvUser.CurrentRow != null)
+            {
+                var row = dgvUser.CurrentRow;
+                userId = Convert.ToInt32(row.Cells["user_id"].Value);
+                txtAccountUser.Text = row.Cells["user_account"].Value.ToString();
+                txtPasswordUser.Text = row.Cells["user_password"].Value.ToString();
+                txtFirstNameUser.Text = row.Cells["user_firstname"].Value.ToString();
+                txtLastNameUser.Text = row.Cells["user_lastname"].Value.ToString();
+                txtEmailUser.Text = row.Cells["user_email"].Value.ToString();
+                txtUploadUser.Text = row.Cells["user_image"].Value.ToString();
+                cbRoleUser.Text = row.Cells["user_role"].Value.ToString();
+            }
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            if (txtAccountUser.Text == "" || txtEmailUser.Text == "" || txtUploadUser.Text == "" || txtFirstNameUser.Text == "" || txtLastNameUser.Text == "")
+            {
+                MessageBox.Show("Fields not allow null !");
+            }
+            else
+            {
+                var checkAccountUser = DB.users.FirstOrDefault(x => x.account == txtAccountUser.Text);
+                var checkEmailUser = DB.users.FirstOrDefault(x => x.email == txtEmailUser.Text);
+                if (checkAccountUser == null && checkEmailUser == null)
+                {
+                    // Get infomation on form to creat new data
+                    user u = new user();
+                    u.account = txtAccountUser.Text;
+                    u.password = "1";
+                    u.firstName = txtFirstNameUser.Text;
+                    u.lastName = txtLastNameUser.Text;
+                    u.email = txtEmailUser.Text;
+                    u.image = txtUploadUser.Text;
+                    u.role_id = Convert.ToInt32(cbRoleUser.SelectedValue);
+                    // Insert
+                    DB.users.InsertOnSubmit(u);
+                    // Save
+                    DB.SubmitChanges();
+                    loadUser();
+                    MessageBox.Show("Create Success !");
+                }
+                else
+                {
+                    MessageBox.Show("User's account and email must be unique !");
+                }
+            }
+        }
+
+        private void btnSaveUser_Click(object sender, EventArgs e)
+        {
+            if (txtAccountUser.Text == "" || txtEmailUser.Text == "" || txtUploadUser.Text == "" || txtFirstNameUser.Text == "" || txtLastNameUser.Text == "")
+            {
+                MessageBox.Show("Fields not allow null !");
+            }
+            else
+            {
+                try
+                {
+                    // Find object to edit
+                    var u = DB.users.SingleOrDefault(x => x.entity_id == userId);
+                    // Get data
+                    u.account = txtAccountUser.Text;
+                    u.firstName = txtFirstNameUser.Text;
+                    u.lastName = txtLastNameUser.Text;
+                    u.email = txtEmailUser.Text;
+                    u.image = txtUploadUser.Text;
+                    u.role_id = Convert.ToInt32(cbRoleUser.SelectedValue);
+                    // Save
+                    DB.SubmitChanges();
+                    loadUser();
+                    MessageBox.Show("Save Success !");
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("User's account and email must be unique !");
+                }
+            }
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure ?", "Delete User", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // Find object to edit
+                var u = DB.users.SingleOrDefault(x => x.entity_id == userId);
+                // Delete
+                DB.users.DeleteOnSubmit(u);
+                // Save
+                DB.SubmitChanges();
+                loadUser();
+                MessageBox.Show("Delete Success !");
+            }
+        }
 
         // PERMISSION
         private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -544,18 +670,5 @@ namespace InternetCafe.UI.Manager
                 this.Close();
             }
         }
-
-        private void dgvUser_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvUser.CurrentRow != null)
-            {
-                var row = dgvUser.CurrentRow;
-                userId = Convert.ToInt32(row.Cells["user_id"].Value);
-                txtAccountUser.Text = row.Cells["user_account"].Value.ToString();
-                txtPasswordUser.Text = row.Cells["user_password"].Value.ToString();
-                //  txt.Text = row.Cells["food_quantity"].Value.ToString();
-            }
-        }
-
     }
 }

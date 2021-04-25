@@ -47,17 +47,17 @@ namespace InternetCafe
                 {
                     if (checkUser.role == "admin" || checkUser.role == "inventory")
                     {
-                        MessageBox.Show("Welcome Admin : " + checkUser.user_name);
+                        MessageBox.Show("Welcome Admin : " + checkUser.firstName + " " + checkUser.lastName);
                         this.Hide();
-                        UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.user_name, checkUser.role_id);
+                        UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.firstName + " " + checkUser.lastName, checkUser.role_id);
                         adminHome.ShowDialog();
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Welcome Vendor : " + checkUser.user_name);
+                        MessageBox.Show("Welcome Vendor : " + checkUser.firstName + " " + checkUser.lastName);
                         this.Hide();
-                        UI.Employee.frmHome empHome = new UI.Employee.frmHome(checkUser.user_name);
+                        UI.Employee.frmHome empHome = new UI.Employee.frmHome(checkUser.firstName + " " + checkUser.lastName);
                         empHome.ShowDialog();
                         this.Close();
                     }
@@ -76,17 +76,17 @@ namespace InternetCafe
             {
                 if (checkUser.role == "admin" || checkUser.role == "inventory")
                 {
-                    MessageBox.Show("Welcome Admin : " + checkUser.user_name);
+                    MessageBox.Show("Welcome Admin : " + checkUser.firstName + " " + checkUser.lastName);
                     this.Hide();
-                    UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.user_name, checkUser.role_id);
+                    UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.firstName + " " + checkUser.lastName, checkUser.role_id);
                     adminHome.ShowDialog();
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Welcome Vendor : " + checkUser.user_name);
+                    MessageBox.Show("Welcome Vendor : " + checkUser.firstName + " " + checkUser.lastName);
                     this.Hide();
-                    UI.Employee.frmHome empHome = new UI.Employee.frmHome(checkUser.user_name);
+                    UI.Employee.frmHome empHome = new UI.Employee.frmHome(checkUser.firstName + " " + checkUser.lastName);
                     empHome.ShowDialog();
                     this.Close();
                 }
