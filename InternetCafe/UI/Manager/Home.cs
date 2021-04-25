@@ -31,8 +31,10 @@ namespace InternetCafe.UI.Manager
             loadArea();
             loadComputer();
             loadFood();
+            loadUser();
             DisplayAreaCombobox();
             DisplayFoodTypeCombobox();
+            DisplayRoleCombobox();
             mainTabControl.SelectedTab = mainTabControl.TabPages["homeTabPage"];
         }
 
@@ -392,6 +394,23 @@ namespace InternetCafe.UI.Manager
 
 
         //USERS
+        private void loadUser()
+        {
+            dgvUser.DataSource = DB.getAllUser().ToList();
+        }
+
+        private void DisplayRoleCombobox()
+        {
+            cbRoleUser.DataSource = DB.getAllRole();
+            cbRoleUser.DisplayMember = "name";
+            cbRoleUser.ValueMember = "entity_id";
+        }
+
+        private void btnSearchUser_Click(object sender, EventArgs e)
+        {
+            dgvUser.DataSource = DB.searchUser(txtSearchUser.Text).ToList();
+        }
+
 
         // PERMISSION
         private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -424,5 +443,6 @@ namespace InternetCafe.UI.Manager
         {
             this.Close();
         }
+
     }
 }

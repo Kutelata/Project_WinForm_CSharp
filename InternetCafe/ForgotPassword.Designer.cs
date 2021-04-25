@@ -187,33 +187,38 @@ namespace InternetCafe
             // txtDigitCode
             // 
             this.txtDigitCode.Enabled = false;
-            this.txtDigitCode.Location = new System.Drawing.Point(185, 234);
+            this.txtDigitCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDigitCode.Location = new System.Drawing.Point(185, 229);
             this.txtDigitCode.Name = "txtDigitCode";
-            this.txtDigitCode.Size = new System.Drawing.Size(244, 20);
+            this.txtDigitCode.Size = new System.Drawing.Size(244, 26);
             this.txtDigitCode.TabIndex = 31;
             // 
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Enabled = false;
-            this.txtConfirmPassword.Location = new System.Drawing.Point(185, 454);
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.Location = new System.Drawing.Point(185, 449);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(244, 20);
+            this.txtConfirmPassword.PasswordChar = '*';
+            this.txtConfirmPassword.Size = new System.Drawing.Size(244, 26);
             this.txtConfirmPassword.TabIndex = 30;
             // 
             // txtNewPassword
             // 
             this.txtNewPassword.Enabled = false;
-            this.txtNewPassword.Location = new System.Drawing.Point(185, 412);
+            this.txtNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPassword.Location = new System.Drawing.Point(185, 407);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
-            this.txtNewPassword.Size = new System.Drawing.Size(244, 20);
+            this.txtNewPassword.Size = new System.Drawing.Size(244, 26);
             this.txtNewPassword.TabIndex = 33;
             // 
             // txtEnterEmail
             // 
-            this.txtEnterEmail.Location = new System.Drawing.Point(185, 64);
+            this.txtEnterEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnterEmail.Location = new System.Drawing.Point(185, 59);
             this.txtEnterEmail.Name = "txtEnterEmail";
-            this.txtEnterEmail.Size = new System.Drawing.Size(244, 20);
+            this.txtEnterEmail.Size = new System.Drawing.Size(244, 26);
             this.txtEnterEmail.TabIndex = 32;
             // 
             // label6

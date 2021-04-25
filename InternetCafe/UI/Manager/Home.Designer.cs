@@ -106,6 +106,37 @@ namespace InternetCafe.UI.Manager
             this.btnDeleteFood = new System.Windows.Forms.Button();
             this.btnSearchFood = new System.Windows.Forms.Button();
             this.userTabPage = new MetroFramework.Controls.MetroTabPage();
+            this.gbUser = new System.Windows.Forms.GroupBox();
+            this.pbUploadUser = new System.Windows.Forms.PictureBox();
+            this.btnUploadUser = new System.Windows.Forms.Button();
+            this.txtUploadUser = new System.Windows.Forms.TextBox();
+            this.lbImageUser = new System.Windows.Forms.Label();
+            this.txtPasswordUser = new System.Windows.Forms.TextBox();
+            this.lbPasswordUser = new System.Windows.Forms.Label();
+            this.lbFirstName = new System.Windows.Forms.Label();
+            this.lbLastName = new System.Windows.Forms.Label();
+            this.cbRoleUser = new System.Windows.Forms.ComboBox();
+            this.txtAccountUser = new System.Windows.Forms.TextBox();
+            this.btnSaveUser = new System.Windows.Forms.Button();
+            this.lbAccountUser = new System.Windows.Forms.Label();
+            this.btnAddUser = new System.Windows.Forms.Button();
+            this.dgvUser = new System.Windows.Forms.DataGridView();
+            this.txtSearchUser = new System.Windows.Forms.TextBox();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.btnSearchUser = new System.Windows.Forms.Button();
+            this.txtEmailUser = new System.Windows.Forms.TextBox();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.txtFirstNameUser = new System.Windows.Forms.TextBox();
+            this.txtLastNameUser = new System.Windows.Forms.TextBox();
+            this.lbRoleUser = new System.Windows.Forms.Label();
+            this.user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_account = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_image = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_role_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
             this.mainTabControl.SuspendLayout();
@@ -124,6 +155,10 @@ namespace InternetCafe.UI.Manager
             this.gbFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUploadFood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
+            this.userTabPage.SuspendLayout();
+            this.gbUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUploadUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -754,16 +789,16 @@ namespace InternetCafe.UI.Manager
             this.gbFood.Controls.Add(this.btnSaveFood);
             this.gbFood.Controls.Add(this.lbNameFood);
             this.gbFood.Controls.Add(this.btnAddFood);
-            this.gbFood.Location = new System.Drawing.Point(154, 15);
+            this.gbFood.Location = new System.Drawing.Point(165, 15);
             this.gbFood.Name = "gbFood";
-            this.gbFood.Size = new System.Drawing.Size(809, 214);
+            this.gbFood.Size = new System.Drawing.Size(798, 214);
             this.gbFood.TabIndex = 32;
             this.gbFood.TabStop = false;
             // 
             // pbUploadFood
             // 
             this.pbUploadFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbUploadFood.Location = new System.Drawing.Point(683, 33);
+            this.pbUploadFood.Location = new System.Drawing.Point(681, 31);
             this.pbUploadFood.Name = "pbUploadFood";
             this.pbUploadFood.Size = new System.Drawing.Size(100, 100);
             this.pbUploadFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -778,7 +813,7 @@ namespace InternetCafe.UI.Manager
             this.btnUploadFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUploadFood.ForeColor = System.Drawing.Color.White;
             this.btnUploadFood.Image = global::InternetCafe.Properties.Resources.Upload;
-            this.btnUploadFood.Location = new System.Drawing.Point(683, 171);
+            this.btnUploadFood.Location = new System.Drawing.Point(681, 169);
             this.btnUploadFood.Name = "btnUploadFood";
             this.btnUploadFood.Size = new System.Drawing.Size(100, 29);
             this.btnUploadFood.TabIndex = 32;
@@ -790,7 +825,7 @@ namespace InternetCafe.UI.Manager
             // txtUploadFood
             // 
             this.txtUploadFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUploadFood.Location = new System.Drawing.Point(683, 139);
+            this.txtUploadFood.Location = new System.Drawing.Point(681, 137);
             this.txtUploadFood.Name = "txtUploadFood";
             this.txtUploadFood.ReadOnly = true;
             this.txtUploadFood.Size = new System.Drawing.Size(100, 26);
@@ -799,7 +834,7 @@ namespace InternetCafe.UI.Manager
             // txtQuantityFood
             // 
             this.txtQuantityFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantityFood.Location = new System.Drawing.Point(388, 33);
+            this.txtQuantityFood.Location = new System.Drawing.Point(386, 31);
             this.txtQuantityFood.Name = "txtQuantityFood";
             this.txtQuantityFood.Size = new System.Drawing.Size(192, 26);
             this.txtQuantityFood.TabIndex = 30;
@@ -809,7 +844,7 @@ namespace InternetCafe.UI.Manager
             // 
             this.lbImageFood.AutoSize = true;
             this.lbImageFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbImageFood.Location = new System.Drawing.Point(615, 36);
+            this.lbImageFood.Location = new System.Drawing.Point(613, 34);
             this.lbImageFood.Name = "lbImageFood";
             this.lbImageFood.Size = new System.Drawing.Size(62, 20);
             this.lbImageFood.TabIndex = 28;
@@ -818,7 +853,7 @@ namespace InternetCafe.UI.Manager
             // txtPriceFood
             // 
             this.txtPriceFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPriceFood.Location = new System.Drawing.Point(81, 103);
+            this.txtPriceFood.Location = new System.Drawing.Point(79, 101);
             this.txtPriceFood.Name = "txtPriceFood";
             this.txtPriceFood.Size = new System.Drawing.Size(192, 26);
             this.txtPriceFood.TabIndex = 26;
@@ -828,7 +863,7 @@ namespace InternetCafe.UI.Manager
             // 
             this.lbPriceFood.AutoSize = true;
             this.lbPriceFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPriceFood.Location = new System.Drawing.Point(14, 106);
+            this.lbPriceFood.Location = new System.Drawing.Point(12, 104);
             this.lbPriceFood.Name = "lbPriceFood";
             this.lbPriceFood.Size = new System.Drawing.Size(52, 20);
             this.lbPriceFood.TabIndex = 27;
@@ -838,7 +873,7 @@ namespace InternetCafe.UI.Manager
             // 
             this.lbQuantityFood.AutoSize = true;
             this.lbQuantityFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQuantityFood.Location = new System.Drawing.Point(306, 36);
+            this.lbQuantityFood.Location = new System.Drawing.Point(304, 34);
             this.lbQuantityFood.Name = "lbQuantityFood";
             this.lbQuantityFood.Size = new System.Drawing.Size(76, 20);
             this.lbQuantityFood.TabIndex = 25;
@@ -848,7 +883,7 @@ namespace InternetCafe.UI.Manager
             // 
             this.lbTypeFood.AutoSize = true;
             this.lbTypeFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTypeFood.Location = new System.Drawing.Point(306, 103);
+            this.lbTypeFood.Location = new System.Drawing.Point(304, 101);
             this.lbTypeFood.Name = "lbTypeFood";
             this.lbTypeFood.Size = new System.Drawing.Size(51, 20);
             this.lbTypeFood.TabIndex = 23;
@@ -859,7 +894,7 @@ namespace InternetCafe.UI.Manager
             this.cbTypeFood.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTypeFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTypeFood.FormattingEnabled = true;
-            this.cbTypeFood.Location = new System.Drawing.Point(388, 100);
+            this.cbTypeFood.Location = new System.Drawing.Point(386, 98);
             this.cbTypeFood.Name = "cbTypeFood";
             this.cbTypeFood.Size = new System.Drawing.Size(192, 28);
             this.cbTypeFood.TabIndex = 22;
@@ -867,7 +902,7 @@ namespace InternetCafe.UI.Manager
             // txtNameFood
             // 
             this.txtNameFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameFood.Location = new System.Drawing.Point(81, 33);
+            this.txtNameFood.Location = new System.Drawing.Point(79, 31);
             this.txtNameFood.Name = "txtNameFood";
             this.txtNameFood.Size = new System.Drawing.Size(192, 26);
             this.txtNameFood.TabIndex = 18;
@@ -880,7 +915,7 @@ namespace InternetCafe.UI.Manager
             this.btnSaveFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveFood.ForeColor = System.Drawing.Color.White;
             this.btnSaveFood.Image = global::InternetCafe.Properties.Resources.Edit;
-            this.btnSaveFood.Location = new System.Drawing.Point(166, 158);
+            this.btnSaveFood.Location = new System.Drawing.Point(164, 156);
             this.btnSaveFood.Name = "btnSaveFood";
             this.btnSaveFood.Size = new System.Drawing.Size(142, 39);
             this.btnSaveFood.TabIndex = 16;
@@ -893,7 +928,7 @@ namespace InternetCafe.UI.Manager
             // 
             this.lbNameFood.AutoSize = true;
             this.lbNameFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNameFood.Location = new System.Drawing.Point(14, 36);
+            this.lbNameFood.Location = new System.Drawing.Point(12, 34);
             this.lbNameFood.Name = "lbNameFood";
             this.lbNameFood.Size = new System.Drawing.Size(59, 20);
             this.lbNameFood.TabIndex = 20;
@@ -907,7 +942,7 @@ namespace InternetCafe.UI.Manager
             this.btnAddFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFood.ForeColor = System.Drawing.Color.White;
             this.btnAddFood.Image = global::InternetCafe.Properties.Resources.Add;
-            this.btnAddFood.Location = new System.Drawing.Point(18, 158);
+            this.btnAddFood.Location = new System.Drawing.Point(16, 156);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(142, 39);
             this.btnAddFood.TabIndex = 15;
@@ -1033,6 +1068,11 @@ namespace InternetCafe.UI.Manager
             // 
             // userTabPage
             // 
+            this.userTabPage.Controls.Add(this.gbUser);
+            this.userTabPage.Controls.Add(this.dgvUser);
+            this.userTabPage.Controls.Add(this.txtSearchUser);
+            this.userTabPage.Controls.Add(this.btnDeleteUser);
+            this.userTabPage.Controls.Add(this.btnSearchUser);
             this.userTabPage.HorizontalScrollbarBarColor = true;
             this.userTabPage.HorizontalScrollbarHighlightOnWheel = false;
             this.userTabPage.HorizontalScrollbarSize = 10;
@@ -1044,6 +1084,341 @@ namespace InternetCafe.UI.Manager
             this.userTabPage.VerticalScrollbarBarColor = true;
             this.userTabPage.VerticalScrollbarHighlightOnWheel = false;
             this.userTabPage.VerticalScrollbarSize = 10;
+            // 
+            // gbUser
+            // 
+            this.gbUser.BackColor = System.Drawing.Color.White;
+            this.gbUser.Controls.Add(this.txtLastNameUser);
+            this.gbUser.Controls.Add(this.lbRoleUser);
+            this.gbUser.Controls.Add(this.txtFirstNameUser);
+            this.gbUser.Controls.Add(this.txtEmailUser);
+            this.gbUser.Controls.Add(this.lbEmail);
+            this.gbUser.Controls.Add(this.pbUploadUser);
+            this.gbUser.Controls.Add(this.btnUploadUser);
+            this.gbUser.Controls.Add(this.txtUploadUser);
+            this.gbUser.Controls.Add(this.lbImageUser);
+            this.gbUser.Controls.Add(this.txtPasswordUser);
+            this.gbUser.Controls.Add(this.lbPasswordUser);
+            this.gbUser.Controls.Add(this.lbFirstName);
+            this.gbUser.Controls.Add(this.lbLastName);
+            this.gbUser.Controls.Add(this.cbRoleUser);
+            this.gbUser.Controls.Add(this.txtAccountUser);
+            this.gbUser.Controls.Add(this.btnSaveUser);
+            this.gbUser.Controls.Add(this.lbAccountUser);
+            this.gbUser.Controls.Add(this.btnAddUser);
+            this.gbUser.Location = new System.Drawing.Point(166, 15);
+            this.gbUser.Name = "gbUser";
+            this.gbUser.Size = new System.Drawing.Size(797, 214);
+            this.gbUser.TabIndex = 37;
+            this.gbUser.TabStop = false;
+            // 
+            // pbUploadUser
+            // 
+            this.pbUploadUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbUploadUser.Location = new System.Drawing.Point(683, 33);
+            this.pbUploadUser.Name = "pbUploadUser";
+            this.pbUploadUser.Size = new System.Drawing.Size(100, 100);
+            this.pbUploadUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUploadUser.TabIndex = 33;
+            this.pbUploadUser.TabStop = false;
+            // 
+            // btnUploadUser
+            // 
+            this.btnUploadUser.BackColor = System.Drawing.Color.Gray;
+            this.btnUploadUser.FlatAppearance.BorderSize = 0;
+            this.btnUploadUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUploadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUploadUser.ForeColor = System.Drawing.Color.White;
+            this.btnUploadUser.Image = global::InternetCafe.Properties.Resources.Upload;
+            this.btnUploadUser.Location = new System.Drawing.Point(683, 171);
+            this.btnUploadUser.Name = "btnUploadUser";
+            this.btnUploadUser.Size = new System.Drawing.Size(100, 29);
+            this.btnUploadUser.TabIndex = 32;
+            this.btnUploadUser.Text = "Upload";
+            this.btnUploadUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUploadUser.UseVisualStyleBackColor = false;
+            // 
+            // txtUploadUser
+            // 
+            this.txtUploadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUploadUser.Location = new System.Drawing.Point(683, 139);
+            this.txtUploadUser.Name = "txtUploadUser";
+            this.txtUploadUser.ReadOnly = true;
+            this.txtUploadUser.Size = new System.Drawing.Size(100, 26);
+            this.txtUploadUser.TabIndex = 31;
+            // 
+            // lbImageUser
+            // 
+            this.lbImageUser.AutoSize = true;
+            this.lbImageUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbImageUser.Location = new System.Drawing.Point(614, 36);
+            this.lbImageUser.Name = "lbImageUser";
+            this.lbImageUser.Size = new System.Drawing.Size(62, 20);
+            this.lbImageUser.TabIndex = 28;
+            this.lbImageUser.Text = "Image :";
+            // 
+            // txtPasswordUser
+            // 
+            this.txtPasswordUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPasswordUser.Location = new System.Drawing.Point(106, 71);
+            this.txtPasswordUser.Name = "txtPasswordUser";
+            this.txtPasswordUser.PasswordChar = '*';
+            this.txtPasswordUser.Size = new System.Drawing.Size(147, 26);
+            this.txtPasswordUser.TabIndex = 26;
+            // 
+            // lbPasswordUser
+            // 
+            this.lbPasswordUser.AutoSize = true;
+            this.lbPasswordUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPasswordUser.Location = new System.Drawing.Point(14, 74);
+            this.lbPasswordUser.Name = "lbPasswordUser";
+            this.lbPasswordUser.Size = new System.Drawing.Size(86, 20);
+            this.lbPasswordUser.TabIndex = 27;
+            this.lbPasswordUser.Text = "Password :";
+            // 
+            // lbFirstName
+            // 
+            this.lbFirstName.AutoSize = true;
+            this.lbFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFirstName.Location = new System.Drawing.Point(305, 36);
+            this.lbFirstName.Name = "lbFirstName";
+            this.lbFirstName.Size = new System.Drawing.Size(94, 20);
+            this.lbFirstName.TabIndex = 25;
+            this.lbFirstName.Text = "First Name :";
+            // 
+            // lbLastName
+            // 
+            this.lbLastName.AutoSize = true;
+            this.lbLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLastName.Location = new System.Drawing.Point(305, 74);
+            this.lbLastName.Name = "lbLastName";
+            this.lbLastName.Size = new System.Drawing.Size(94, 20);
+            this.lbLastName.TabIndex = 23;
+            this.lbLastName.Text = "Last Name :";
+            // 
+            // cbRoleUser
+            // 
+            this.cbRoleUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRoleUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRoleUser.FormattingEnabled = true;
+            this.cbRoleUser.Location = new System.Drawing.Point(405, 107);
+            this.cbRoleUser.Name = "cbRoleUser";
+            this.cbRoleUser.Size = new System.Drawing.Size(147, 28);
+            this.cbRoleUser.TabIndex = 22;
+            // 
+            // txtAccountUser
+            // 
+            this.txtAccountUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccountUser.Location = new System.Drawing.Point(106, 33);
+            this.txtAccountUser.Name = "txtAccountUser";
+            this.txtAccountUser.Size = new System.Drawing.Size(147, 26);
+            this.txtAccountUser.TabIndex = 18;
+            // 
+            // btnSaveUser
+            // 
+            this.btnSaveUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSaveUser.FlatAppearance.BorderSize = 0;
+            this.btnSaveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveUser.ForeColor = System.Drawing.Color.White;
+            this.btnSaveUser.Image = global::InternetCafe.Properties.Resources.Edit;
+            this.btnSaveUser.Location = new System.Drawing.Point(166, 158);
+            this.btnSaveUser.Name = "btnSaveUser";
+            this.btnSaveUser.Size = new System.Drawing.Size(142, 39);
+            this.btnSaveUser.TabIndex = 16;
+            this.btnSaveUser.Text = "    Save";
+            this.btnSaveUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSaveUser.UseVisualStyleBackColor = false;
+            // 
+            // lbAccountUser
+            // 
+            this.lbAccountUser.AutoSize = true;
+            this.lbAccountUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAccountUser.Location = new System.Drawing.Point(14, 36);
+            this.lbAccountUser.Name = "lbAccountUser";
+            this.lbAccountUser.Size = new System.Drawing.Size(76, 20);
+            this.lbAccountUser.TabIndex = 20;
+            this.lbAccountUser.Text = "Account :";
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.BackColor = System.Drawing.Color.Green;
+            this.btnAddUser.FlatAppearance.BorderSize = 0;
+            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.ForeColor = System.Drawing.Color.White;
+            this.btnAddUser.Image = global::InternetCafe.Properties.Resources.Add;
+            this.btnAddUser.Location = new System.Drawing.Point(18, 158);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(142, 39);
+            this.btnAddUser.TabIndex = 15;
+            this.btnAddUser.Text = "    Create New";
+            this.btnAddUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddUser.UseVisualStyleBackColor = false;
+            // 
+            // dgvUser
+            // 
+            this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUser.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.user_id,
+            this.user_account,
+            this.user_password,
+            this.user_name,
+            this.user_email,
+            this.user_image,
+            this.user_role,
+            this.user_role_id});
+            this.dgvUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvUser.Location = new System.Drawing.Point(8, 292);
+            this.dgvUser.MultiSelect = false;
+            this.dgvUser.Name = "dgvUser";
+            this.dgvUser.ReadOnly = true;
+            this.dgvUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUser.Size = new System.Drawing.Size(1076, 190);
+            this.dgvUser.TabIndex = 33;
+            // 
+            // txtSearchUser
+            // 
+            this.txtSearchUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchUser.Location = new System.Drawing.Point(741, 254);
+            this.txtSearchUser.Name = "txtSearchUser";
+            this.txtSearchUser.Size = new System.Drawing.Size(222, 29);
+            this.txtSearchUser.TabIndex = 34;
+            // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteUser.FlatAppearance.BorderSize = 0;
+            this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteUser.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteUser.Image = global::InternetCafe.Properties.Resources.Delete;
+            this.btnDeleteUser.Location = new System.Drawing.Point(942, 488);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(142, 39);
+            this.btnDeleteUser.TabIndex = 36;
+            this.btnDeleteUser.Text = "    Delete";
+            this.btnDeleteUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteUser.UseVisualStyleBackColor = false;
+            // 
+            // btnSearchUser
+            // 
+            this.btnSearchUser.BackColor = System.Drawing.Color.Gray;
+            this.btnSearchUser.FlatAppearance.BorderSize = 0;
+            this.btnSearchUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchUser.ForeColor = System.Drawing.Color.White;
+            this.btnSearchUser.Image = global::InternetCafe.Properties.Resources.Search;
+            this.btnSearchUser.Location = new System.Drawing.Point(969, 254);
+            this.btnSearchUser.Name = "btnSearchUser";
+            this.btnSearchUser.Size = new System.Drawing.Size(115, 29);
+            this.btnSearchUser.TabIndex = 35;
+            this.btnSearchUser.Text = "Search";
+            this.btnSearchUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearchUser.UseVisualStyleBackColor = false;
+            this.btnSearchUser.Click += new System.EventHandler(this.btnSearchUser_Click);
+            // 
+            // txtEmailUser
+            // 
+            this.txtEmailUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailUser.Location = new System.Drawing.Point(106, 107);
+            this.txtEmailUser.Name = "txtEmailUser";
+            this.txtEmailUser.Size = new System.Drawing.Size(147, 26);
+            this.txtEmailUser.TabIndex = 35;
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEmail.Location = new System.Drawing.Point(14, 110);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(56, 20);
+            this.lbEmail.TabIndex = 34;
+            this.lbEmail.Text = "Email :";
+            // 
+            // txtFirstNameUser
+            // 
+            this.txtFirstNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstNameUser.Location = new System.Drawing.Point(405, 33);
+            this.txtFirstNameUser.Name = "txtFirstNameUser";
+            this.txtFirstNameUser.Size = new System.Drawing.Size(147, 26);
+            this.txtFirstNameUser.TabIndex = 36;
+            // 
+            // txtLastNameUser
+            // 
+            this.txtLastNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastNameUser.Location = new System.Drawing.Point(405, 71);
+            this.txtLastNameUser.Name = "txtLastNameUser";
+            this.txtLastNameUser.Size = new System.Drawing.Size(147, 26);
+            this.txtLastNameUser.TabIndex = 38;
+            // 
+            // lbRoleUser
+            // 
+            this.lbRoleUser.AutoSize = true;
+            this.lbRoleUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRoleUser.Location = new System.Drawing.Point(305, 110);
+            this.lbRoleUser.Name = "lbRoleUser";
+            this.lbRoleUser.Size = new System.Drawing.Size(50, 20);
+            this.lbRoleUser.TabIndex = 37;
+            this.lbRoleUser.Text = "Role :";
+            // 
+            // user_id
+            // 
+            this.user_id.DataPropertyName = "Entity_id";
+            this.user_id.HeaderText = "Id";
+            this.user_id.Name = "user_id";
+            this.user_id.ReadOnly = true;
+            // 
+            // user_account
+            // 
+            this.user_account.DataPropertyName = "Account";
+            this.user_account.HeaderText = "Account";
+            this.user_account.Name = "user_account";
+            this.user_account.ReadOnly = true;
+            // 
+            // user_password
+            // 
+            this.user_password.DataPropertyName = "Password";
+            this.user_password.HeaderText = "Password";
+            this.user_password.Name = "user_password";
+            this.user_password.ReadOnly = true;
+            // 
+            // user_name
+            // 
+            this.user_name.DataPropertyName = "User_Name";
+            this.user_name.HeaderText = "Name";
+            this.user_name.Name = "user_name";
+            this.user_name.ReadOnly = true;
+            // 
+            // user_email
+            // 
+            this.user_email.DataPropertyName = "Email";
+            this.user_email.HeaderText = "Email";
+            this.user_email.Name = "user_email";
+            this.user_email.ReadOnly = true;
+            // 
+            // user_image
+            // 
+            this.user_image.DataPropertyName = "Image";
+            this.user_image.HeaderText = "Image";
+            this.user_image.Name = "user_image";
+            this.user_image.ReadOnly = true;
+            // 
+            // user_role
+            // 
+            this.user_role.DataPropertyName = "Role";
+            this.user_role.HeaderText = "Role";
+            this.user_role.Name = "user_role";
+            this.user_role.ReadOnly = true;
+            // 
+            // user_role_id
+            // 
+            this.user_role_id.DataPropertyName = "Role_Id";
+            this.user_role_id.HeaderText = "Role_Id";
+            this.user_role_id.Name = "user_role_id";
+            this.user_role_id.ReadOnly = true;
             // 
             // frmHome
             // 
@@ -1083,6 +1458,12 @@ namespace InternetCafe.UI.Manager
             this.gbFood.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUploadFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
+            this.userTabPage.ResumeLayout(false);
+            this.userTabPage.PerformLayout();
+            this.gbUser.ResumeLayout(false);
+            this.gbUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUploadUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1165,5 +1546,36 @@ namespace InternetCafe.UI.Manager
         private System.Windows.Forms.DataGridViewTextBoxColumn food_image;
         private System.Windows.Forms.DataGridViewTextBoxColumn food_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn food_type_id;
+        private System.Windows.Forms.GroupBox gbUser;
+        private System.Windows.Forms.TextBox txtEmailUser;
+        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.PictureBox pbUploadUser;
+        private System.Windows.Forms.Button btnUploadUser;
+        private System.Windows.Forms.TextBox txtUploadUser;
+        private System.Windows.Forms.Label lbImageUser;
+        private System.Windows.Forms.TextBox txtPasswordUser;
+        private System.Windows.Forms.Label lbPasswordUser;
+        private System.Windows.Forms.Label lbFirstName;
+        private System.Windows.Forms.Label lbLastName;
+        private System.Windows.Forms.ComboBox cbRoleUser;
+        private System.Windows.Forms.TextBox txtAccountUser;
+        private System.Windows.Forms.Button btnSaveUser;
+        private System.Windows.Forms.Label lbAccountUser;
+        private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.DataGridView dgvUser;
+        private System.Windows.Forms.TextBox txtSearchUser;
+        private System.Windows.Forms.Button btnDeleteUser;
+        private System.Windows.Forms.Button btnSearchUser;
+        private System.Windows.Forms.TextBox txtFirstNameUser;
+        private System.Windows.Forms.TextBox txtLastNameUser;
+        private System.Windows.Forms.Label lbRoleUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_account;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_image;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_role;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_role_id;
     }
 }
