@@ -16,7 +16,9 @@ namespace InternetCafe.UI.Manager
         InternetCafeDataContext DB = new InternetCafeDataContext();
         private int areaId;
         private int computerId;
+        private int foodTypeId;
         private int foodId;
+        private int userId;
         private int myId;
 
         public frmHome(string myAdminName, int myId)
@@ -30,6 +32,7 @@ namespace InternetCafe.UI.Manager
         {
             loadArea();
             loadComputer();
+            loadFoodType();
             loadFood();
             loadUser();
             DisplayAreaCombobox();
@@ -41,7 +44,7 @@ namespace InternetCafe.UI.Manager
         // AREA
         private void loadArea()
         {
-            dgvArea.DataSource = DB.getAllArea().ToList();
+            dgvArea.DataSource = DB.getAllArea();
         }
 
         private void btnAddArea_Click(object sender, EventArgs e)
@@ -129,7 +132,7 @@ namespace InternetCafe.UI.Manager
 
         private void btnSearchArea_Click(object sender, EventArgs e)
         {
-            dgvArea.DataSource = DB.searchArea(txtSearchArea.Text).ToList();
+            dgvArea.DataSource = DB.searchArea(txtSearchArea.Text);
         }
 
         private void dgvArea_SelectionChanged(object sender, EventArgs e)
@@ -160,7 +163,7 @@ namespace InternetCafe.UI.Manager
         // COMPUTER
         private void loadComputer()
         {
-            dgvComputer.DataSource = DB.getAllComputer().ToList();
+            dgvComputer.DataSource = DB.getAllComputer();
         }
 
         private void DisplayAreaCombobox()
@@ -264,19 +267,121 @@ namespace InternetCafe.UI.Manager
                 {
                     MessageBox.Show("Computer is running !");
                 }
-                
+
             }
         }
 
         private void btnSearchComputer_Click(object sender, EventArgs e)
         {
-            dgvComputer.DataSource = DB.searchComputer(txtSearchComputer.Text).ToList();
+            dgvComputer.DataSource = DB.searchComputer(txtSearchComputer.Text);
+        }
+
+        // FOOD TYPE
+        private void loadFoodType()
+        {
+            dgvFoodType.DataSource = DB.getALLFoodType();
+        }
+
+        private void btnAddFoodType_Click(object sender, EventArgs e)
+        {
+            if (txtNameFoodType.Text == "")
+            {
+                MessageBox.Show("Fields not allow null !");
+            }
+            else
+            {
+                var checkFoodTypeName = DB.food_types.FirstOrDefault(x => x.name == txtNameFoodType.Text);
+                if (checkFoodTypeName == null)
+                {
+                    // Get infomation on form to creat new data
+                    food_type ft = new food_type();
+                    ft.name = txtNameFoodType.Text;
+                    // Insert
+                    DB.food_types.InsertOnSubmit(ft);
+                    // Save
+                    DB.SubmitChanges();
+                    loadFoodType();
+                    DisplayFoodTypeCombobox();
+                    MessageBox.Show("Create Success !");
+                }
+                else
+                {
+                    MessageBox.Show("Food Type's name must be unique!");
+                }
+            }
+        }
+
+        private void btnSaveFoodType_Click(object sender, EventArgs e)
+        {
+            if (txtNameFoodType.Text == "")
+            {
+                MessageBox.Show("Fields not allow null !");
+            }
+            else
+            {
+                try
+                {
+                    // Find object to edit
+                    var ft = DB.food_types.SingleOrDefault(x => x.entity_id == foodTypeId);
+                    // Get data
+                    ft.name = txtNameFoodType.Text;
+                    // Save
+                    DB.SubmitChanges();
+                    loadFoodType();
+                    DisplayFoodTypeCombobox();
+                    MessageBox.Show("Save Success !");
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Food Type's name must be unique!");
+                }
+            }
+        }
+
+        private void btnDeleteFoodType_Click(object sender, EventArgs e)
+        {
+            var checkFood = DB.deleteFoodType().FirstOrDefault(x => x.entity_id == foodTypeId);
+            if (MessageBox.Show("Are you sure ?", "Delete Food Type", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (checkFood.count_food == 0)
+                {
+                    // Find object to edit
+                    var ft = DB.food_types.SingleOrDefault(x => x.entity_id == checkFood.entity_id);
+                    // Delete
+                    DB.food_types.DeleteOnSubmit(ft);
+                    // Save
+                    DB.SubmitChanges();
+                    loadFoodType();
+                    DisplayFoodTypeCombobox();
+                    MessageBox.Show("Delete Success !");
+                }
+                else
+                {
+                    MessageBox.Show("Food Type is stilling have food !");
+                }
+
+            }
+        }
+
+        private void btnSearchFoodType_Click(object sender, EventArgs e)
+        {
+            dgvFoodType.DataSource = DB.SearchFoodType(txtSearchFoodType.Text);
+        }
+
+        private void dgvFoodType_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvFoodType.CurrentRow != null)
+            {
+                var row = dgvFoodType.CurrentRow;
+                foodTypeId = Convert.ToInt32(row.Cells["foodtype_id"].Value);
+                txtNameFoodType.Text = row.Cells["foodtype_name"].Value.ToString();
+            }
         }
 
         //FOOD
         private void loadFood()
         {
-            dgvFood.DataSource = DB.getALLFood().ToList();
+            dgvFood.DataSource = DB.getALLFood();
         }
 
         private void DisplayFoodTypeCombobox()
@@ -346,13 +451,6 @@ namespace InternetCafe.UI.Manager
             }
             else
             {
-                OpenFileDialog open = new OpenFileDialog();
-                open.Filter = "Image Files(*.jpg; *.png; *.jpeg; *.gif; *.bmp;)|*.jpg; *.png; *.jpeg; *.gif; *.bmp;";
-                if (open.ShowDialog() == DialogResult.OK)
-                {
-                    pbUploadFood.Image = new Bitmap(open.FileName);
-
-                }
                 var checkFoodName = DB.foods.FirstOrDefault(x => x.name == txtNameFood.Text);
                 if (checkFoodName == null)
                 {
@@ -367,7 +465,7 @@ namespace InternetCafe.UI.Manager
                     DB.foods.InsertOnSubmit(f);
                     // Save
                     DB.SubmitChanges();
-                    loadComputer();
+                    loadFood();
                     MessageBox.Show("Create Success !");
                 }
                 else
@@ -389,14 +487,14 @@ namespace InternetCafe.UI.Manager
 
         private void btnSearchFood_Click(object sender, EventArgs e)
         {
-            dgvFood.DataSource = DB.searchFood(txtSearchFood.Text).ToList();
+            dgvFood.DataSource = DB.searchFood(txtSearchFood.Text);
         }
 
 
         //USERS
         private void loadUser()
         {
-            dgvUser.DataSource = DB.getAllUser().ToList();
+            dgvUser.DataSource = DB.getAllUser();
         }
 
         private void DisplayRoleCombobox()
@@ -408,7 +506,7 @@ namespace InternetCafe.UI.Manager
 
         private void btnSearchUser_Click(object sender, EventArgs e)
         {
-            dgvUser.DataSource = DB.searchUser(txtSearchUser.Text).ToList();
+            dgvUser.DataSource = DB.searchUser(txtSearchUser.Text);
         }
 
 
@@ -429,7 +527,7 @@ namespace InternetCafe.UI.Manager
         //OTHERS
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure ?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure ?", "Log out", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Hide();
                 frmLogin login = new frmLogin();
@@ -441,7 +539,22 @@ namespace InternetCafe.UI.Manager
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Are you sure ?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void dgvUser_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvUser.CurrentRow != null)
+            {
+                var row = dgvUser.CurrentRow;
+                userId = Convert.ToInt32(row.Cells["user_id"].Value);
+                txtAccountUser.Text = row.Cells["user_account"].Value.ToString();
+                txtPasswordUser.Text = row.Cells["user_password"].Value.ToString();
+                //  txt.Text = row.Cells["food_quantity"].Value.ToString();
+            }
         }
 
     }

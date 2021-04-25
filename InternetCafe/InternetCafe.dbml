@@ -165,18 +165,6 @@
       <Column Name="food_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.getAllUser" Method="getAllUser">
-    <ElementType Name="getAllUserResult">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="account" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="password" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="user_name" Type="System.String" DbType="NVarChar(510)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="role" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.getAllRole" Method="getAllRole">
     <ElementType Name="getAllRoleResult">
       <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -203,6 +191,32 @@
       <Column Name="account" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="password" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="user_name" Type="System.String" DbType="NVarChar(510)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="role" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SearchFoodType" Method="SearchFoodType">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="SearchFoodTypeResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.deleteFoodType" Method="deleteFoodType">
+    <ElementType Name="deleteFoodTypeResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="count_food" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getAllUser" Method="getAllUser">
+    <ElementType Name="getAllUserResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="account" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(511)" CanBeNull="true" />
       <Column Name="email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="role" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />

@@ -42,22 +42,22 @@ namespace InternetCafe
         {
             if (e.KeyCode == Keys.Enter)
             {
-                var checkUser = DB.getUser(loginValidate.myTextBox, passValidate.myTextBox).FirstOrDefault();
+                var checkUser = DB.getAllUser().FirstOrDefault(x => x.account == loginValidate.myTextBox && x.password == passValidate.myTextBox);
                 if (checkUser != null)
                 {
-                    if (checkUser.name == "admin" || checkUser.name == "inventory")
+                    if (checkUser.role == "admin" || checkUser.role == "inventory")
                     {
-                        MessageBox.Show("Welcome Admin : " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                        MessageBox.Show("Welcome Admin : " + checkUser.user_name);
                         this.Hide();
-                        UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.firstName.ToString() + " " + checkUser.lastName.ToString(),checkUser.role_id);
+                        UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.user_name, checkUser.role_id);
                         adminHome.ShowDialog();
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Welcome Vendor : " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                        MessageBox.Show("Welcome Vendor : " + checkUser.user_name);
                         this.Hide();
-                        UI.Employee.frmHome empHome = new UI.Employee.frmHome();
+                        UI.Employee.frmHome empHome = new UI.Employee.frmHome(checkUser.user_name);
                         empHome.ShowDialog();
                         this.Close();
                     }
@@ -71,22 +71,22 @@ namespace InternetCafe
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            var checkUser = DB.getUser(loginValidate.myTextBox, passValidate.myTextBox).FirstOrDefault();
+            var checkUser = DB.getAllUser().FirstOrDefault(x => x.account == loginValidate.myTextBox && x.password == passValidate.myTextBox);
             if (checkUser != null)
             {
-                if (checkUser.name == "admin" || checkUser.name == "inventory")
+                if (checkUser.role == "admin" || checkUser.role == "inventory")
                 {
-                    MessageBox.Show("Welcome Admin : " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    MessageBox.Show("Welcome Admin : " + checkUser.user_name);
                     this.Hide();
-                    UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.firstName.ToString() + " " + checkUser.lastName.ToString(),checkUser.role_id);
+                    UI.Manager.frmHome adminHome = new UI.Manager.frmHome(checkUser.user_name, checkUser.role_id);
                     adminHome.ShowDialog();
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Welcome Vendor : " + checkUser.firstName.ToString() + " " + checkUser.lastName.ToString());
+                    MessageBox.Show("Welcome Vendor : " + checkUser.user_name);
                     this.Hide();
-                    UI.Employee.frmHome empHome = new UI.Employee.frmHome();
+                    UI.Employee.frmHome empHome = new UI.Employee.frmHome(checkUser.user_name);
                     empHome.ShowDialog();
                     this.Close();
                 }
