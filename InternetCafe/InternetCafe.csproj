@@ -93,6 +93,18 @@
     <Compile Include="UI\Employee\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Employee\OrderFoodByComputer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Employee\OrderFoodByComputer.Designer.cs">
+      <DependentUpon>OrderFoodByComputer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Employee\Pay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Employee\Pay.Designer.cs">
+      <DependentUpon>Pay.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Manager\Home.cs">
       <SubType>Form</SubType>
     </Compile>

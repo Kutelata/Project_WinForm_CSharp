@@ -33,11 +33,18 @@
             this.txtVendorName = new System.Windows.Forms.Label();
             this.pbVendor = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.cbRoleUser = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cbArea = new System.Windows.Forms.ComboBox();
+            this.dgvComputerByArea = new System.Windows.Forms.DataGridView();
+            this.computer_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_area_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchComputer = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVendor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComputerByArea)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -106,28 +113,89 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // cbRoleUser
+            // cbArea
             // 
-            this.cbRoleUser.BackColor = System.Drawing.Color.White;
-            this.cbRoleUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRoleUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRoleUser.FormattingEnabled = true;
-            this.cbRoleUser.Location = new System.Drawing.Point(12, 85);
-            this.cbRoleUser.Name = "cbRoleUser";
-            this.cbRoleUser.Size = new System.Drawing.Size(343, 28);
-            this.cbRoleUser.TabIndex = 23;
+            this.cbArea.BackColor = System.Drawing.Color.White;
+            this.cbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbArea.FormattingEnabled = true;
+            this.cbArea.Location = new System.Drawing.Point(12, 85);
+            this.cbArea.Name = "cbArea";
+            this.cbArea.Size = new System.Drawing.Size(273, 28);
+            this.cbArea.TabIndex = 23;
+            this.cbArea.SelectedIndexChanged += new System.EventHandler(this.cbArea_SelectedIndexChanged);
             // 
-            // dataGridView1
+            // dgvComputerByArea
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 119);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1076, 519);
-            this.dataGridView1.TabIndex = 24;
+            this.dgvComputerByArea.AllowUserToAddRows = false;
+            this.dgvComputerByArea.AllowUserToDeleteRows = false;
+            this.dgvComputerByArea.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvComputerByArea.BackgroundColor = System.Drawing.Color.White;
+            this.dgvComputerByArea.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComputerByArea.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.computer_id,
+            this.computer_name,
+            this.computer_status,
+            this.computer_order,
+            this.computer_area,
+            this.computer_area_id});
+            this.dgvComputerByArea.Location = new System.Drawing.Point(12, 119);
+            this.dgvComputerByArea.Name = "dgvComputerByArea";
+            this.dgvComputerByArea.ReadOnly = true;
+            this.dgvComputerByArea.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvComputerByArea.Size = new System.Drawing.Size(1076, 519);
+            this.dgvComputerByArea.TabIndex = 24;
+            this.dgvComputerByArea.SelectionChanged += new System.EventHandler(this.dgvComputerinArea_SelectionChanged);
+            // 
+            // computer_id
+            // 
+            this.computer_id.DataPropertyName = "Entity_Id";
+            this.computer_id.HeaderText = "Id";
+            this.computer_id.Name = "computer_id";
+            this.computer_id.ReadOnly = true;
+            // 
+            // computer_name
+            // 
+            this.computer_name.DataPropertyName = "Name";
+            this.computer_name.HeaderText = "Computer";
+            this.computer_name.Name = "computer_name";
+            this.computer_name.ReadOnly = true;
+            // 
+            // computer_status
+            // 
+            this.computer_status.DataPropertyName = "Status";
+            this.computer_status.HeaderText = "Status";
+            this.computer_status.Name = "computer_status";
+            this.computer_status.ReadOnly = true;
+            // 
+            // computer_order
+            // 
+            this.computer_order.DataPropertyName = "Order";
+            this.computer_order.HeaderText = "Order";
+            this.computer_order.Name = "computer_order";
+            this.computer_order.ReadOnly = true;
+            // 
+            // computer_area
+            // 
+            this.computer_area.DataPropertyName = "Area";
+            this.computer_area.HeaderText = "Area";
+            this.computer_area.Name = "computer_area";
+            this.computer_area.ReadOnly = true;
+            // 
+            // computer_area_id
+            // 
+            this.computer_area_id.DataPropertyName = "Area_Id";
+            this.computer_area_id.HeaderText = "Area_Id";
+            this.computer_area_id.Name = "computer_area_id";
+            this.computer_area_id.ReadOnly = true;
+            // 
+            // txtSearchComputer
+            // 
+            this.txtSearchComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchComputer.Location = new System.Drawing.Point(815, 84);
+            this.txtSearchComputer.Name = "txtSearchComputer";
+            this.txtSearchComputer.Size = new System.Drawing.Size(273, 29);
+            this.txtSearchComputer.TabIndex = 40;
             // 
             // frmHome
             // 
@@ -135,8 +203,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 650);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.cbRoleUser);
+            this.Controls.Add(this.txtSearchComputer);
+            this.Controls.Add(this.dgvComputerByArea);
+            this.Controls.Add(this.cbArea);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmHome";
@@ -146,8 +215,9 @@
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVendor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComputerByArea)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -158,7 +228,14 @@
         private System.Windows.Forms.Label txtVendorName;
         private System.Windows.Forms.PictureBox pbVendor;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.ComboBox cbRoleUser;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cbArea;
+        private System.Windows.Forms.DataGridView dgvComputerByArea;
+        private System.Windows.Forms.TextBox txtSearchComputer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn computer_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn computer_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn computer_status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn computer_order;
+        private System.Windows.Forms.DataGridViewTextBoxColumn computer_area;
+        private System.Windows.Forms.DataGridViewTextBoxColumn computer_area_id;
     }
 }

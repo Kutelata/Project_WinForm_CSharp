@@ -12,6 +12,7 @@ namespace InternetCafe.UI.Employee
 {
     public partial class frmHome : Form
     {
+        InternetCafeDataContext DB = new InternetCafeDataContext();
 
         public frmHome(string myVendorName)
         {
@@ -21,7 +22,21 @@ namespace InternetCafe.UI.Employee
 
         private void Home_Load(object sender, EventArgs e)
         {
+            DisplayAreaCombobox();
+            cbArea.SelectedValue = 2;
+            loadComputerByArea();
+        }
 
+        private void loadComputerByArea()
+        {
+            dgvComputerByArea.DataSource = DB.searchComputerByArea(1);
+        }
+
+        private void DisplayAreaCombobox()
+        {
+            cbArea.DataSource = DB.getAllArea();
+            cbArea.DisplayMember = "name";
+            cbArea.ValueMember = "entity_id";
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -41,6 +56,15 @@ namespace InternetCafe.UI.Employee
             {
                 this.Close();
             }
+        }
+
+        private void dgvComputerinArea_SelectionChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void cbArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello");
         }
     }
 }
