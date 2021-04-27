@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.txtVendorName = new System.Windows.Forms.Label();
@@ -35,16 +36,30 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.dgvComputerByArea = new System.Windows.Forms.DataGridView();
+            this.contextData = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmTurnOn = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmOrderFood = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPay = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtSearchComputer = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.computer_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.computer_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.computer_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.computer_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.computer_area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computer_end_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.computer_area_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearchComputer = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVendor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputerByArea)).BeginInit();
+            this.contextData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -136,16 +151,130 @@
             this.computer_id,
             this.computer_name,
             this.computer_status,
-            this.computer_order,
-            this.computer_area,
+            this.computer_start_time,
+            this.computer_end_time,
             this.computer_area_id});
+            this.dgvComputerByArea.ContextMenuStrip = this.contextData;
             this.dgvComputerByArea.Location = new System.Drawing.Point(12, 119);
             this.dgvComputerByArea.Name = "dgvComputerByArea";
             this.dgvComputerByArea.ReadOnly = true;
             this.dgvComputerByArea.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComputerByArea.Size = new System.Drawing.Size(1076, 519);
+            this.dgvComputerByArea.Size = new System.Drawing.Size(1076, 255);
             this.dgvComputerByArea.TabIndex = 24;
             this.dgvComputerByArea.SelectionChanged += new System.EventHandler(this.dgvComputerinArea_SelectionChanged);
+            // 
+            // contextData
+            // 
+            this.contextData.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmTurnOn,
+            this.tsmOrderFood,
+            this.tsmPay});
+            this.contextData.Name = "contextData";
+            this.contextData.Size = new System.Drawing.Size(135, 70);
+            // 
+            // tsmTurnOn
+            // 
+            this.tsmTurnOn.Name = "tsmTurnOn";
+            this.tsmTurnOn.Size = new System.Drawing.Size(134, 22);
+            this.tsmTurnOn.Text = "Bật máy";
+            this.tsmTurnOn.Click += new System.EventHandler(this.tsmTurnOn_Click);
+            // 
+            // tsmOrderFood
+            // 
+            this.tsmOrderFood.Name = "tsmOrderFood";
+            this.tsmOrderFood.Size = new System.Drawing.Size(134, 22);
+            this.tsmOrderFood.Text = "Đặt đồ ăn";
+            this.tsmOrderFood.Click += new System.EventHandler(this.tsmOrderFood_Click);
+            // 
+            // tsmPay
+            // 
+            this.tsmPay.Name = "tsmPay";
+            this.tsmPay.Size = new System.Drawing.Size(134, 22);
+            this.tsmPay.Text = "Thanh toán";
+            this.tsmPay.Click += new System.EventHandler(this.tsmPay_Click);
+            // 
+            // txtSearchComputer
+            // 
+            this.txtSearchComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchComputer.Location = new System.Drawing.Point(815, 84);
+            this.txtSearchComputer.Name = "txtSearchComputer";
+            this.txtSearchComputer.Size = new System.Drawing.Size(273, 29);
+            this.txtSearchComputer.TabIndex = 40;
+            this.txtSearchComputer.TextChanged += new System.EventHandler(this.txtSearchComputer_TextChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.dataGridView1.ContextMenuStrip = this.contextData;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 423);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1076, 215);
+            this.dataGridView1.TabIndex = 41;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Entity_Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Máy tính";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Food";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Món ăn";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Order";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Số lượng";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Area";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Thời gian bắt đầu";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Area_Id";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Thời gian kết thúc";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 400);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 20);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Thông tin đặt món :";
             // 
             // computer_id
             // 
@@ -157,30 +286,30 @@
             // computer_name
             // 
             this.computer_name.DataPropertyName = "Name";
-            this.computer_name.HeaderText = "Computer";
+            this.computer_name.HeaderText = "Máy tính";
             this.computer_name.Name = "computer_name";
             this.computer_name.ReadOnly = true;
             // 
             // computer_status
             // 
             this.computer_status.DataPropertyName = "Status";
-            this.computer_status.HeaderText = "Status";
+            this.computer_status.HeaderText = "Trạng thái";
             this.computer_status.Name = "computer_status";
             this.computer_status.ReadOnly = true;
             // 
-            // computer_order
+            // computer_start_time
             // 
-            this.computer_order.DataPropertyName = "Order";
-            this.computer_order.HeaderText = "Order";
-            this.computer_order.Name = "computer_order";
-            this.computer_order.ReadOnly = true;
+            this.computer_start_time.DataPropertyName = "Start_Time";
+            this.computer_start_time.HeaderText = "Thời gian bắt đầu ";
+            this.computer_start_time.Name = "computer_start_time";
+            this.computer_start_time.ReadOnly = true;
             // 
-            // computer_area
+            // computer_end_time
             // 
-            this.computer_area.DataPropertyName = "Area";
-            this.computer_area.HeaderText = "Area";
-            this.computer_area.Name = "computer_area";
-            this.computer_area.ReadOnly = true;
+            this.computer_end_time.DataPropertyName = "End_Time";
+            this.computer_end_time.HeaderText = "Thời gian kết thúc";
+            this.computer_end_time.Name = "computer_end_time";
+            this.computer_end_time.ReadOnly = true;
             // 
             // computer_area_id
             // 
@@ -188,14 +317,7 @@
             this.computer_area_id.HeaderText = "Area_Id";
             this.computer_area_id.Name = "computer_area_id";
             this.computer_area_id.ReadOnly = true;
-            // 
-            // txtSearchComputer
-            // 
-            this.txtSearchComputer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchComputer.Location = new System.Drawing.Point(815, 84);
-            this.txtSearchComputer.Name = "txtSearchComputer";
-            this.txtSearchComputer.Size = new System.Drawing.Size(273, 29);
-            this.txtSearchComputer.TabIndex = 40;
+            this.computer_area_id.Visible = false;
             // 
             // frmHome
             // 
@@ -203,6 +325,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 650);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtSearchComputer);
             this.Controls.Add(this.dgvComputerByArea);
             this.Controls.Add(this.cbArea);
@@ -216,6 +340,8 @@
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVendor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputerByArea)).EndInit();
+            this.contextData.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,11 +357,23 @@
         private System.Windows.Forms.ComboBox cbArea;
         private System.Windows.Forms.DataGridView dgvComputerByArea;
         private System.Windows.Forms.TextBox txtSearchComputer;
+        private System.Windows.Forms.ContextMenuStrip contextData;
+        private System.Windows.Forms.ToolStripMenuItem tsmTurnOn;
+        private System.Windows.Forms.ToolStripMenuItem tsmOrderFood;
+        private System.Windows.Forms.ToolStripMenuItem tsmPay;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn computer_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn computer_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn computer_status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn computer_order;
-        private System.Windows.Forms.DataGridViewTextBoxColumn computer_area;
+        private System.Windows.Forms.DataGridViewTextBoxColumn computer_start_time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn computer_end_time;
         private System.Windows.Forms.DataGridViewTextBoxColumn computer_area_id;
     }
 }

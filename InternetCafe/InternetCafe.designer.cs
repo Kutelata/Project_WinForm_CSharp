@@ -33,27 +33,30 @@ namespace InternetCafe
     partial void Insertarea(area instance);
     partial void Updatearea(area instance);
     partial void Deletearea(area instance);
+    partial void Insertuser(user instance);
+    partial void Updateuser(user instance);
+    partial void Deleteuser(user instance);
     partial void Insertbill(bill instance);
     partial void Updatebill(bill instance);
     partial void Deletebill(bill instance);
+    partial void Insertcomputer(computer instance);
+    partial void Updatecomputer(computer instance);
+    partial void Deletecomputer(computer instance);
     partial void Insertfood(food instance);
     partial void Updatefood(food instance);
     partial void Deletefood(food instance);
     partial void Insertfood_type(food_type instance);
     partial void Updatefood_type(food_type instance);
     partial void Deletefood_type(food_type instance);
-    partial void Insertorder(order instance);
-    partial void Updateorder(order instance);
-    partial void Deleteorder(order instance);
+    partial void Insertorder_computer(order_computer instance);
+    partial void Updateorder_computer(order_computer instance);
+    partial void Deleteorder_computer(order_computer instance);
+    partial void Insertorder_food(order_food instance);
+    partial void Updateorder_food(order_food instance);
+    partial void Deleteorder_food(order_food instance);
     partial void Insertrole(role instance);
     partial void Updaterole(role instance);
     partial void Deleterole(role instance);
-    partial void Insertcomputer(computer instance);
-    partial void Updatecomputer(computer instance);
-    partial void Deletecomputer(computer instance);
-    partial void Insertuser(user instance);
-    partial void Updateuser(user instance);
-    partial void Deleteuser(user instance);
     #endregion
 		
 		public InternetCafeDataContext() : 
@@ -94,11 +97,27 @@ namespace InternetCafe
 			}
 		}
 		
+		public System.Data.Linq.Table<user> users
+		{
+			get
+			{
+				return this.GetTable<user>();
+			}
+		}
+		
 		public System.Data.Linq.Table<bill> bills
 		{
 			get
 			{
 				return this.GetTable<bill>();
+			}
+		}
+		
+		public System.Data.Linq.Table<computer> computers
+		{
+			get
+			{
+				return this.GetTable<computer>();
 			}
 		}
 		
@@ -118,11 +137,19 @@ namespace InternetCafe
 			}
 		}
 		
-		public System.Data.Linq.Table<order> orders
+		public System.Data.Linq.Table<order_computer> order_computers
 		{
 			get
 			{
-				return this.GetTable<order>();
+				return this.GetTable<order_computer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<order_food> order_foods
+		{
+			get
+			{
+				return this.GetTable<order_food>();
 			}
 		}
 		
@@ -134,34 +161,25 @@ namespace InternetCafe
 			}
 		}
 		
-		public System.Data.Linq.Table<computer> computers
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deleteArea")]
+		public ISingleResult<deleteAreaResult> deleteArea()
 		{
-			get
-			{
-				return this.GetTable<computer>();
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<deleteAreaResult>)(result.ReturnValue));
 		}
 		
-		public System.Data.Linq.Table<user> users
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchUserByEmail")]
+		public ISingleResult<searchUserByEmailResult> searchUserByEmail([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string email)
 		{
-			get
-			{
-				return this.GetTable<user>();
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email);
+			return ((ISingleResult<searchUserByEmailResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchArea")]
-		public ISingleResult<searchAreaResult> searchArea([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deleteFoodType")]
+		public ISingleResult<deleteFoodTypeResult> deleteFoodType()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
-			return ((ISingleResult<searchAreaResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getUser")]
-		public ISingleResult<getUserResult> getUser([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string account, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string password)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), account, password);
-			return ((ISingleResult<getUserResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<deleteFoodTypeResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllArea")]
@@ -178,18 +196,11 @@ namespace InternetCafe
 			return ((ISingleResult<getAllComputerResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchComputer")]
-		public ISingleResult<searchComputerResult> searchComputer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
-			return ((ISingleResult<searchComputerResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deleteArea")]
-		public ISingleResult<deleteAreaResult> deleteArea()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getALLFood")]
+		public ISingleResult<getALLFoodResult> getALLFood()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<deleteAreaResult>)(result.ReturnValue));
+			return ((ISingleResult<getALLFoodResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getALLFoodType")]
@@ -199,53 +210,11 @@ namespace InternetCafe
 			return ((ISingleResult<getALLFoodTypeResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getALLFood")]
-		public ISingleResult<getALLFoodResult> getALLFood()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<getALLFoodResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchFood")]
-		public ISingleResult<searchFoodResult> searchFood([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
-			return ((ISingleResult<searchFoodResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllRole")]
 		public ISingleResult<getAllRoleResult> getAllRole()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<getAllRoleResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchUser")]
-		public ISingleResult<searchUserResult> searchUser([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
-			return ((ISingleResult<searchUserResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchUserByEmail")]
-		public ISingleResult<searchUserByEmailResult> searchUserByEmail([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(255)")] string email)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email);
-			return ((ISingleResult<searchUserByEmailResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SearchFoodType")]
-		public ISingleResult<SearchFoodTypeResult> SearchFoodType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
-			return ((ISingleResult<SearchFoodTypeResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deleteFoodType")]
-		public ISingleResult<deleteFoodTypeResult> deleteFoodType()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<deleteFoodTypeResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllUser")]
@@ -255,10 +224,45 @@ namespace InternetCafe
 			return ((ISingleResult<getAllUserResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchComputerByArea")]
-		public ISingleResult<searchComputerByAreaResult> searchComputerByArea([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> area_id)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchArea")]
+		public ISingleResult<searchAreaResult> searchArea([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), area_id);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<searchAreaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchComputer")]
+		public ISingleResult<searchComputerResult> searchComputer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<searchComputerResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchFood")]
+		public ISingleResult<searchFoodResult> searchFood([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<searchFoodResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchFoodType")]
+		public ISingleResult<searchFoodTypeResult> searchFoodType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<searchFoodTypeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchUser")]
+		public ISingleResult<searchUserResult> searchUser([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
+			return ((ISingleResult<searchUserResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchComputerByArea")]
+		public ISingleResult<searchComputerByAreaResult> searchComputerByArea([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> area_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), area_id, name);
 			return ((ISingleResult<searchComputerByAreaResult>)(result.ReturnValue));
 		}
 	}
@@ -401,1172 +405,6 @@ namespace InternetCafe
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.bill")]
-	public partial class bill : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _entity_id;
-		
-		private int _order_id;
-		
-		private EntityRef<order> _order;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onentity_idChanging(int value);
-    partial void Onentity_idChanged();
-    partial void Onorder_idChanging(int value);
-    partial void Onorder_idChanged();
-    #endregion
-		
-		public bill()
-		{
-			this._order = default(EntityRef<order>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this.Onentity_idChanging(value);
-					this.SendPropertyChanging();
-					this._entity_id = value;
-					this.SendPropertyChanged("entity_id");
-					this.Onentity_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_order_id", DbType="Int NOT NULL")]
-		public int order_id
-		{
-			get
-			{
-				return this._order_id;
-			}
-			set
-			{
-				if ((this._order_id != value))
-				{
-					if (this._order.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onorder_idChanging(value);
-					this.SendPropertyChanging();
-					this._order_id = value;
-					this.SendPropertyChanged("order_id");
-					this.Onorder_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="order_bill", Storage="_order", ThisKey="order_id", OtherKey="entity_id", IsForeignKey=true)]
-		public order order
-		{
-			get
-			{
-				return this._order.Entity;
-			}
-			set
-			{
-				order previousValue = this._order.Entity;
-				if (((previousValue != value) 
-							|| (this._order.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._order.Entity = null;
-						previousValue.bills.Remove(this);
-					}
-					this._order.Entity = value;
-					if ((value != null))
-					{
-						value.bills.Add(this);
-						this._order_id = value.entity_id;
-					}
-					else
-					{
-						this._order_id = default(int);
-					}
-					this.SendPropertyChanged("order");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.food")]
-	public partial class food : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		private double _price;
-		
-		private int _quantity;
-		
-		private string _image;
-		
-		private int _food_type_id;
-		
-		private EntitySet<order> _orders;
-		
-		private EntityRef<food_type> _food_type;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onentity_idChanging(int value);
-    partial void Onentity_idChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnpriceChanging(double value);
-    partial void OnpriceChanged();
-    partial void OnquantityChanging(int value);
-    partial void OnquantityChanged();
-    partial void OnimageChanging(string value);
-    partial void OnimageChanged();
-    partial void Onfood_type_idChanging(int value);
-    partial void Onfood_type_idChanged();
-    #endregion
-		
-		public food()
-		{
-			this._orders = new EntitySet<order>(new Action<order>(this.attach_orders), new Action<order>(this.detach_orders));
-			this._food_type = default(EntityRef<food_type>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this.Onentity_idChanging(value);
-					this.SendPropertyChanging();
-					this._entity_id = value;
-					this.SendPropertyChanged("entity_id");
-					this.Onentity_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
-		public double price
-		{
-			get
-			{
-				return this._price;
-			}
-			set
-			{
-				if ((this._price != value))
-				{
-					this.OnpriceChanging(value);
-					this.SendPropertyChanging();
-					this._price = value;
-					this.SendPropertyChanged("price");
-					this.OnpriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int NOT NULL")]
-		public int quantity
-		{
-			get
-			{
-				return this._quantity;
-			}
-			set
-			{
-				if ((this._quantity != value))
-				{
-					this.OnquantityChanging(value);
-					this.SendPropertyChanging();
-					this._quantity = value;
-					this.SendPropertyChanged("quantity");
-					this.OnquantityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string image
-		{
-			get
-			{
-				return this._image;
-			}
-			set
-			{
-				if ((this._image != value))
-				{
-					this.OnimageChanging(value);
-					this.SendPropertyChanging();
-					this._image = value;
-					this.SendPropertyChanged("image");
-					this.OnimageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_food_type_id", DbType="Int NOT NULL")]
-		public int food_type_id
-		{
-			get
-			{
-				return this._food_type_id;
-			}
-			set
-			{
-				if ((this._food_type_id != value))
-				{
-					if (this._food_type.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onfood_type_idChanging(value);
-					this.SendPropertyChanging();
-					this._food_type_id = value;
-					this.SendPropertyChanged("food_type_id");
-					this.Onfood_type_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="food_order", Storage="_orders", ThisKey="entity_id", OtherKey="food_id")]
-		public EntitySet<order> orders
-		{
-			get
-			{
-				return this._orders;
-			}
-			set
-			{
-				this._orders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="food_type_food", Storage="_food_type", ThisKey="food_type_id", OtherKey="entity_id", IsForeignKey=true)]
-		public food_type food_type
-		{
-			get
-			{
-				return this._food_type.Entity;
-			}
-			set
-			{
-				food_type previousValue = this._food_type.Entity;
-				if (((previousValue != value) 
-							|| (this._food_type.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._food_type.Entity = null;
-						previousValue.foods.Remove(this);
-					}
-					this._food_type.Entity = value;
-					if ((value != null))
-					{
-						value.foods.Add(this);
-						this._food_type_id = value.entity_id;
-					}
-					else
-					{
-						this._food_type_id = default(int);
-					}
-					this.SendPropertyChanged("food_type");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_orders(order entity)
-		{
-			this.SendPropertyChanging();
-			entity.food = this;
-		}
-		
-		private void detach_orders(order entity)
-		{
-			this.SendPropertyChanging();
-			entity.food = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.food_type")]
-	public partial class food_type : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		private EntitySet<food> _foods;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onentity_idChanging(int value);
-    partial void Onentity_idChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    #endregion
-		
-		public food_type()
-		{
-			this._foods = new EntitySet<food>(new Action<food>(this.attach_foods), new Action<food>(this.detach_foods));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this.Onentity_idChanging(value);
-					this.SendPropertyChanging();
-					this._entity_id = value;
-					this.SendPropertyChanged("entity_id");
-					this.Onentity_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="food_type_food", Storage="_foods", ThisKey="entity_id", OtherKey="food_type_id")]
-		public EntitySet<food> foods
-		{
-			get
-			{
-				return this._foods;
-			}
-			set
-			{
-				this._foods.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_foods(food entity)
-		{
-			this.SendPropertyChanging();
-			entity.food_type = this;
-		}
-		
-		private void detach_foods(food entity)
-		{
-			this.SendPropertyChanging();
-			entity.food_type = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[order]")]
-	public partial class order : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _entity_id;
-		
-		private int _computer_id;
-		
-		private System.Nullable<int> _food_id;
-		
-		private System.Nullable<int> _quantity;
-		
-		private System.Nullable<int> _user_id;
-		
-		private System.DateTime _start_time;
-		
-		private System.DateTime _end_time;
-		
-		private EntitySet<bill> _bills;
-		
-		private EntityRef<food> _food;
-		
-		private EntityRef<computer> _computer;
-		
-		private EntityRef<user> _user;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onentity_idChanging(int value);
-    partial void Onentity_idChanged();
-    partial void Oncomputer_idChanging(int value);
-    partial void Oncomputer_idChanged();
-    partial void Onfood_idChanging(System.Nullable<int> value);
-    partial void Onfood_idChanged();
-    partial void OnquantityChanging(System.Nullable<int> value);
-    partial void OnquantityChanged();
-    partial void Onuser_idChanging(System.Nullable<int> value);
-    partial void Onuser_idChanged();
-    partial void Onstart_timeChanging(System.DateTime value);
-    partial void Onstart_timeChanged();
-    partial void Onend_timeChanging(System.DateTime value);
-    partial void Onend_timeChanged();
-    #endregion
-		
-		public order()
-		{
-			this._bills = new EntitySet<bill>(new Action<bill>(this.attach_bills), new Action<bill>(this.detach_bills));
-			this._food = default(EntityRef<food>);
-			this._computer = default(EntityRef<computer>);
-			this._user = default(EntityRef<user>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this.Onentity_idChanging(value);
-					this.SendPropertyChanging();
-					this._entity_id = value;
-					this.SendPropertyChanged("entity_id");
-					this.Onentity_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_computer_id", DbType="Int NOT NULL")]
-		public int computer_id
-		{
-			get
-			{
-				return this._computer_id;
-			}
-			set
-			{
-				if ((this._computer_id != value))
-				{
-					if (this._computer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Oncomputer_idChanging(value);
-					this.SendPropertyChanging();
-					this._computer_id = value;
-					this.SendPropertyChanged("computer_id");
-					this.Oncomputer_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_food_id", DbType="Int")]
-		public System.Nullable<int> food_id
-		{
-			get
-			{
-				return this._food_id;
-			}
-			set
-			{
-				if ((this._food_id != value))
-				{
-					if (this._food.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onfood_idChanging(value);
-					this.SendPropertyChanging();
-					this._food_id = value;
-					this.SendPropertyChanged("food_id");
-					this.Onfood_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
-		public System.Nullable<int> quantity
-		{
-			get
-			{
-				return this._quantity;
-			}
-			set
-			{
-				if ((this._quantity != value))
-				{
-					this.OnquantityChanging(value);
-					this.SendPropertyChanging();
-					this._quantity = value;
-					this.SendPropertyChanged("quantity");
-					this.OnquantityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_id", DbType="Int")]
-		public System.Nullable<int> user_id
-		{
-			get
-			{
-				return this._user_id;
-			}
-			set
-			{
-				if ((this._user_id != value))
-				{
-					if (this._user.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onuser_idChanging(value);
-					this.SendPropertyChanging();
-					this._user_id = value;
-					this.SendPropertyChanged("user_id");
-					this.Onuser_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_time", DbType="DateTime NOT NULL")]
-		public System.DateTime start_time
-		{
-			get
-			{
-				return this._start_time;
-			}
-			set
-			{
-				if ((this._start_time != value))
-				{
-					this.Onstart_timeChanging(value);
-					this.SendPropertyChanging();
-					this._start_time = value;
-					this.SendPropertyChanged("start_time");
-					this.Onstart_timeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_time", DbType="DateTime NOT NULL")]
-		public System.DateTime end_time
-		{
-			get
-			{
-				return this._end_time;
-			}
-			set
-			{
-				if ((this._end_time != value))
-				{
-					this.Onend_timeChanging(value);
-					this.SendPropertyChanging();
-					this._end_time = value;
-					this.SendPropertyChanged("end_time");
-					this.Onend_timeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="order_bill", Storage="_bills", ThisKey="entity_id", OtherKey="order_id")]
-		public EntitySet<bill> bills
-		{
-			get
-			{
-				return this._bills;
-			}
-			set
-			{
-				this._bills.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="food_order", Storage="_food", ThisKey="food_id", OtherKey="entity_id", IsForeignKey=true)]
-		public food food
-		{
-			get
-			{
-				return this._food.Entity;
-			}
-			set
-			{
-				food previousValue = this._food.Entity;
-				if (((previousValue != value) 
-							|| (this._food.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._food.Entity = null;
-						previousValue.orders.Remove(this);
-					}
-					this._food.Entity = value;
-					if ((value != null))
-					{
-						value.orders.Add(this);
-						this._food_id = value.entity_id;
-					}
-					else
-					{
-						this._food_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("food");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="computer_order", Storage="_computer", ThisKey="computer_id", OtherKey="entity_id", IsForeignKey=true)]
-		public computer computer
-		{
-			get
-			{
-				return this._computer.Entity;
-			}
-			set
-			{
-				computer previousValue = this._computer.Entity;
-				if (((previousValue != value) 
-							|| (this._computer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._computer.Entity = null;
-						previousValue.orders.Remove(this);
-					}
-					this._computer.Entity = value;
-					if ((value != null))
-					{
-						value.orders.Add(this);
-						this._computer_id = value.entity_id;
-					}
-					else
-					{
-						this._computer_id = default(int);
-					}
-					this.SendPropertyChanged("computer");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_order", Storage="_user", ThisKey="user_id", OtherKey="entity_id", IsForeignKey=true)]
-		public user user
-		{
-			get
-			{
-				return this._user.Entity;
-			}
-			set
-			{
-				user previousValue = this._user.Entity;
-				if (((previousValue != value) 
-							|| (this._user.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._user.Entity = null;
-						previousValue.orders.Remove(this);
-					}
-					this._user.Entity = value;
-					if ((value != null))
-					{
-						value.orders.Add(this);
-						this._user_id = value.entity_id;
-					}
-					else
-					{
-						this._user_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("user");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_bills(bill entity)
-		{
-			this.SendPropertyChanging();
-			entity.order = this;
-		}
-		
-		private void detach_bills(bill entity)
-		{
-			this.SendPropertyChanging();
-			entity.order = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.role")]
-	public partial class role : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		private EntitySet<user> _users;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onentity_idChanging(int value);
-    partial void Onentity_idChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    #endregion
-		
-		public role()
-		{
-			this._users = new EntitySet<user>(new Action<user>(this.attach_users), new Action<user>(this.detach_users));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this.Onentity_idChanging(value);
-					this.SendPropertyChanging();
-					this._entity_id = value;
-					this.SendPropertyChanged("entity_id");
-					this.Onentity_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_user", Storage="_users", ThisKey="entity_id", OtherKey="role_id")]
-		public EntitySet<user> users
-		{
-			get
-			{
-				return this._users;
-			}
-			set
-			{
-				this._users.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_users(user entity)
-		{
-			this.SendPropertyChanging();
-			entity.role = this;
-		}
-		
-		private void detach_users(user entity)
-		{
-			this.SendPropertyChanging();
-			entity.role = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.computer")]
-	public partial class computer : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		private System.Nullable<bool> _status;
-		
-		private int _area_id;
-		
-		private EntitySet<order> _orders;
-		
-		private EntityRef<area> _area;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onentity_idChanging(int value);
-    partial void Onentity_idChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnstatusChanging(System.Nullable<bool> value);
-    partial void OnstatusChanged();
-    partial void Onarea_idChanging(int value);
-    partial void Onarea_idChanged();
-    #endregion
-		
-		public computer()
-		{
-			this._orders = new EntitySet<order>(new Action<order>(this.attach_orders), new Action<order>(this.detach_orders));
-			this._area = default(EntityRef<area>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this.Onentity_idChanging(value);
-					this.SendPropertyChanging();
-					this._entity_id = value;
-					this.SendPropertyChanged("entity_id");
-					this.Onentity_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Bit")]
-		public System.Nullable<bool> status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this.OnstatusChanging(value);
-					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area_id", DbType="Int NOT NULL")]
-		public int area_id
-		{
-			get
-			{
-				return this._area_id;
-			}
-			set
-			{
-				if ((this._area_id != value))
-				{
-					if (this._area.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onarea_idChanging(value);
-					this.SendPropertyChanging();
-					this._area_id = value;
-					this.SendPropertyChanged("area_id");
-					this.Onarea_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="computer_order", Storage="_orders", ThisKey="entity_id", OtherKey="computer_id")]
-		public EntitySet<order> orders
-		{
-			get
-			{
-				return this._orders;
-			}
-			set
-			{
-				this._orders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="area_computer", Storage="_area", ThisKey="area_id", OtherKey="entity_id", IsForeignKey=true)]
-		public area area
-		{
-			get
-			{
-				return this._area.Entity;
-			}
-			set
-			{
-				area previousValue = this._area.Entity;
-				if (((previousValue != value) 
-							|| (this._area.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._area.Entity = null;
-						previousValue.computers.Remove(this);
-					}
-					this._area.Entity = value;
-					if ((value != null))
-					{
-						value.computers.Add(this);
-						this._area_id = value.entity_id;
-					}
-					else
-					{
-						this._area_id = default(int);
-					}
-					this.SendPropertyChanged("area");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_orders(order entity)
-		{
-			this.SendPropertyChanging();
-			entity.computer = this;
-		}
-		
-		private void detach_orders(order entity)
-		{
-			this.SendPropertyChanging();
-			entity.computer = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[user]")]
 	public partial class user : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1588,8 +426,6 @@ namespace InternetCafe
 		private string _image;
 		
 		private int _role_id;
-		
-		private EntitySet<order> _orders;
 		
 		private EntityRef<role> _role;
 		
@@ -1617,7 +453,6 @@ namespace InternetCafe
 		
 		public user()
 		{
-			this._orders = new EntitySet<order>(new Action<order>(this.attach_orders), new Action<order>(this.detach_orders));
 			this._role = default(EntityRef<role>);
 			OnCreated();
 		}
@@ -1786,19 +621,6 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_order", Storage="_orders", ThisKey="entity_id", OtherKey="user_id")]
-		public EntitySet<order> orders
-		{
-			get
-			{
-				return this._orders;
-			}
-			set
-			{
-				this._orders.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_user", Storage="_role", ThisKey="role_id", OtherKey="entity_id", IsForeignKey=true)]
 		public role role
 		{
@@ -1852,22 +674,315 @@ namespace InternetCafe
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.bill")]
+	public partial class bill : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		private void attach_orders(order entity)
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _entity_id;
+		
+		private System.Nullable<int> _order_food_id;
+		
+		private EntityRef<order_food> _order_food;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onentity_idChanging(int value);
+    partial void Onentity_idChanged();
+    partial void Onorder_food_idChanging(System.Nullable<int> value);
+    partial void Onorder_food_idChanged();
+    #endregion
+		
+		public bill()
 		{
-			this.SendPropertyChanging();
-			entity.user = this;
+			this._order_food = default(EntityRef<order_food>);
+			OnCreated();
 		}
 		
-		private void detach_orders(order entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int entity_id
 		{
-			this.SendPropertyChanging();
-			entity.user = null;
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this.Onentity_idChanging(value);
+					this.SendPropertyChanging();
+					this._entity_id = value;
+					this.SendPropertyChanged("entity_id");
+					this.Onentity_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_order_food_id", DbType="Int")]
+		public System.Nullable<int> order_food_id
+		{
+			get
+			{
+				return this._order_food_id;
+			}
+			set
+			{
+				if ((this._order_food_id != value))
+				{
+					if (this._order_food.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onorder_food_idChanging(value);
+					this.SendPropertyChanging();
+					this._order_food_id = value;
+					this.SendPropertyChanged("order_food_id");
+					this.Onorder_food_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="order_food_bill", Storage="_order_food", ThisKey="order_food_id", OtherKey="entity_id", IsForeignKey=true)]
+		public order_food order_food
+		{
+			get
+			{
+				return this._order_food.Entity;
+			}
+			set
+			{
+				order_food previousValue = this._order_food.Entity;
+				if (((previousValue != value) 
+							|| (this._order_food.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._order_food.Entity = null;
+						previousValue.bills.Remove(this);
+					}
+					this._order_food.Entity = value;
+					if ((value != null))
+					{
+						value.bills.Add(this);
+						this._order_food_id = value.entity_id;
+					}
+					else
+					{
+						this._order_food_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("order_food");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
-	public partial class searchAreaResult
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.computer")]
+	public partial class computer : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private System.Nullable<bool> _status;
+		
+		private int _area_id;
+		
+		private EntityRef<area> _area;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onentity_idChanging(int value);
+    partial void Onentity_idChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnstatusChanging(System.Nullable<bool> value);
+    partial void OnstatusChanged();
+    partial void Onarea_idChanging(int value);
+    partial void Onarea_idChanged();
+    #endregion
+		
+		public computer()
+		{
+			this._area = default(EntityRef<area>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this.Onentity_idChanging(value);
+					this.SendPropertyChanging();
+					this._entity_id = value;
+					this.SendPropertyChanged("entity_id");
+					this.Onentity_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Bit")]
+		public System.Nullable<bool> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area_id", DbType="Int NOT NULL")]
+		public int area_id
+		{
+			get
+			{
+				return this._area_id;
+			}
+			set
+			{
+				if ((this._area_id != value))
+				{
+					if (this._area.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onarea_idChanging(value);
+					this.SendPropertyChanging();
+					this._area_id = value;
+					this.SendPropertyChanged("area_id");
+					this.Onarea_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="area_computer", Storage="_area", ThisKey="area_id", OtherKey="entity_id", IsForeignKey=true)]
+		public area area
+		{
+			get
+			{
+				return this._area.Entity;
+			}
+			set
+			{
+				area previousValue = this._area.Entity;
+				if (((previousValue != value) 
+							|| (this._area.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._area.Entity = null;
+						previousValue.computers.Remove(this);
+					}
+					this._area.Entity = value;
+					if ((value != null))
+					{
+						value.computers.Add(this);
+						this._area_id = value.entity_id;
+					}
+					else
+					{
+						this._area_id = default(int);
+					}
+					this.SendPropertyChanged("area");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.food")]
+	public partial class food : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _entity_id;
 		
@@ -1875,7 +990,820 @@ namespace InternetCafe
 		
 		private double _price;
 		
-		public searchAreaResult()
+		private int _quantity;
+		
+		private string _image;
+		
+		private int _food_type_id;
+		
+		private EntityRef<food_type> _food_type;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onentity_idChanging(int value);
+    partial void Onentity_idChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnpriceChanging(double value);
+    partial void OnpriceChanged();
+    partial void OnquantityChanging(int value);
+    partial void OnquantityChanged();
+    partial void OnimageChanging(string value);
+    partial void OnimageChanged();
+    partial void Onfood_type_idChanging(int value);
+    partial void Onfood_type_idChanged();
+    #endregion
+		
+		public food()
+		{
+			this._food_type = default(EntityRef<food_type>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this.Onentity_idChanging(value);
+					this.SendPropertyChanging();
+					this._entity_id = value;
+					this.SendPropertyChanged("entity_id");
+					this.Onentity_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
+		public double price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this.OnpriceChanging(value);
+					this.SendPropertyChanging();
+					this._price = value;
+					this.SendPropertyChanged("price");
+					this.OnpriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int NOT NULL")]
+		public int quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this.OnquantityChanging(value);
+					this.SendPropertyChanging();
+					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string image
+		{
+			get
+			{
+				return this._image;
+			}
+			set
+			{
+				if ((this._image != value))
+				{
+					this.OnimageChanging(value);
+					this.SendPropertyChanging();
+					this._image = value;
+					this.SendPropertyChanged("image");
+					this.OnimageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_food_type_id", DbType="Int NOT NULL")]
+		public int food_type_id
+		{
+			get
+			{
+				return this._food_type_id;
+			}
+			set
+			{
+				if ((this._food_type_id != value))
+				{
+					if (this._food_type.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onfood_type_idChanging(value);
+					this.SendPropertyChanging();
+					this._food_type_id = value;
+					this.SendPropertyChanged("food_type_id");
+					this.Onfood_type_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="food_type_food", Storage="_food_type", ThisKey="food_type_id", OtherKey="entity_id", IsForeignKey=true)]
+		public food_type food_type
+		{
+			get
+			{
+				return this._food_type.Entity;
+			}
+			set
+			{
+				food_type previousValue = this._food_type.Entity;
+				if (((previousValue != value) 
+							|| (this._food_type.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._food_type.Entity = null;
+						previousValue.foods.Remove(this);
+					}
+					this._food_type.Entity = value;
+					if ((value != null))
+					{
+						value.foods.Add(this);
+						this._food_type_id = value.entity_id;
+					}
+					else
+					{
+						this._food_type_id = default(int);
+					}
+					this.SendPropertyChanged("food_type");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.food_type")]
+	public partial class food_type : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private EntitySet<food> _foods;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onentity_idChanging(int value);
+    partial void Onentity_idChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    #endregion
+		
+		public food_type()
+		{
+			this._foods = new EntitySet<food>(new Action<food>(this.attach_foods), new Action<food>(this.detach_foods));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this.Onentity_idChanging(value);
+					this.SendPropertyChanging();
+					this._entity_id = value;
+					this.SendPropertyChanged("entity_id");
+					this.Onentity_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="food_type_food", Storage="_foods", ThisKey="entity_id", OtherKey="food_type_id")]
+		public EntitySet<food> foods
+		{
+			get
+			{
+				return this._foods;
+			}
+			set
+			{
+				this._foods.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_foods(food entity)
+		{
+			this.SendPropertyChanging();
+			entity.food_type = this;
+		}
+		
+		private void detach_foods(food entity)
+		{
+			this.SendPropertyChanging();
+			entity.food_type = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.order_computer")]
+	public partial class order_computer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _entity_id;
+		
+		private int _computer_id;
+		
+		private System.Nullable<System.DateTime> _start_time;
+		
+		private System.Nullable<System.DateTime> _end_time;
+		
+		private EntitySet<order_food> _order_foods;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onentity_idChanging(int value);
+    partial void Onentity_idChanged();
+    partial void Oncomputer_idChanging(int value);
+    partial void Oncomputer_idChanged();
+    partial void Onstart_timeChanging(System.Nullable<System.DateTime> value);
+    partial void Onstart_timeChanged();
+    partial void Onend_timeChanging(System.Nullable<System.DateTime> value);
+    partial void Onend_timeChanged();
+    #endregion
+		
+		public order_computer()
+		{
+			this._order_foods = new EntitySet<order_food>(new Action<order_food>(this.attach_order_foods), new Action<order_food>(this.detach_order_foods));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this.Onentity_idChanging(value);
+					this.SendPropertyChanging();
+					this._entity_id = value;
+					this.SendPropertyChanged("entity_id");
+					this.Onentity_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_computer_id", DbType="Int NOT NULL")]
+		public int computer_id
+		{
+			get
+			{
+				return this._computer_id;
+			}
+			set
+			{
+				if ((this._computer_id != value))
+				{
+					this.Oncomputer_idChanging(value);
+					this.SendPropertyChanging();
+					this._computer_id = value;
+					this.SendPropertyChanged("computer_id");
+					this.Oncomputer_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> start_time
+		{
+			get
+			{
+				return this._start_time;
+			}
+			set
+			{
+				if ((this._start_time != value))
+				{
+					this.Onstart_timeChanging(value);
+					this.SendPropertyChanging();
+					this._start_time = value;
+					this.SendPropertyChanged("start_time");
+					this.Onstart_timeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> end_time
+		{
+			get
+			{
+				return this._end_time;
+			}
+			set
+			{
+				if ((this._end_time != value))
+				{
+					this.Onend_timeChanging(value);
+					this.SendPropertyChanging();
+					this._end_time = value;
+					this.SendPropertyChanged("end_time");
+					this.Onend_timeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="order_computer_order_food", Storage="_order_foods", ThisKey="entity_id", OtherKey="order_computer_id")]
+		public EntitySet<order_food> order_foods
+		{
+			get
+			{
+				return this._order_foods;
+			}
+			set
+			{
+				this._order_foods.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_order_foods(order_food entity)
+		{
+			this.SendPropertyChanging();
+			entity.order_computer = this;
+		}
+		
+		private void detach_order_foods(order_food entity)
+		{
+			this.SendPropertyChanging();
+			entity.order_computer = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.order_food")]
+	public partial class order_food : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _entity_id;
+		
+		private System.Nullable<int> _order_computer_id;
+		
+		private System.Nullable<int> _food_id;
+		
+		private System.Nullable<int> _quantity;
+		
+		private EntitySet<bill> _bills;
+		
+		private EntityRef<order_computer> _order_computer;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onentity_idChanging(int value);
+    partial void Onentity_idChanged();
+    partial void Onorder_computer_idChanging(System.Nullable<int> value);
+    partial void Onorder_computer_idChanged();
+    partial void Onfood_idChanging(System.Nullable<int> value);
+    partial void Onfood_idChanged();
+    partial void OnquantityChanging(System.Nullable<int> value);
+    partial void OnquantityChanged();
+    #endregion
+		
+		public order_food()
+		{
+			this._bills = new EntitySet<bill>(new Action<bill>(this.attach_bills), new Action<bill>(this.detach_bills));
+			this._order_computer = default(EntityRef<order_computer>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this.Onentity_idChanging(value);
+					this.SendPropertyChanging();
+					this._entity_id = value;
+					this.SendPropertyChanged("entity_id");
+					this.Onentity_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_order_computer_id", DbType="Int")]
+		public System.Nullable<int> order_computer_id
+		{
+			get
+			{
+				return this._order_computer_id;
+			}
+			set
+			{
+				if ((this._order_computer_id != value))
+				{
+					if (this._order_computer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onorder_computer_idChanging(value);
+					this.SendPropertyChanging();
+					this._order_computer_id = value;
+					this.SendPropertyChanged("order_computer_id");
+					this.Onorder_computer_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_food_id", DbType="Int")]
+		public System.Nullable<int> food_id
+		{
+			get
+			{
+				return this._food_id;
+			}
+			set
+			{
+				if ((this._food_id != value))
+				{
+					this.Onfood_idChanging(value);
+					this.SendPropertyChanging();
+					this._food_id = value;
+					this.SendPropertyChanged("food_id");
+					this.Onfood_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
+		public System.Nullable<int> quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this.OnquantityChanging(value);
+					this.SendPropertyChanging();
+					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="order_food_bill", Storage="_bills", ThisKey="entity_id", OtherKey="order_food_id")]
+		public EntitySet<bill> bills
+		{
+			get
+			{
+				return this._bills;
+			}
+			set
+			{
+				this._bills.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="order_computer_order_food", Storage="_order_computer", ThisKey="order_computer_id", OtherKey="entity_id", IsForeignKey=true)]
+		public order_computer order_computer
+		{
+			get
+			{
+				return this._order_computer.Entity;
+			}
+			set
+			{
+				order_computer previousValue = this._order_computer.Entity;
+				if (((previousValue != value) 
+							|| (this._order_computer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._order_computer.Entity = null;
+						previousValue.order_foods.Remove(this);
+					}
+					this._order_computer.Entity = value;
+					if ((value != null))
+					{
+						value.order_foods.Add(this);
+						this._order_computer_id = value.entity_id;
+					}
+					else
+					{
+						this._order_computer_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("order_computer");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_bills(bill entity)
+		{
+			this.SendPropertyChanging();
+			entity.order_food = this;
+		}
+		
+		private void detach_bills(bill entity)
+		{
+			this.SendPropertyChanging();
+			entity.order_food = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.role")]
+	public partial class role : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private EntitySet<user> _users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onentity_idChanging(int value);
+    partial void Onentity_idChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    #endregion
+		
+		public role()
+		{
+			this._users = new EntitySet<user>(new Action<user>(this.attach_users), new Action<user>(this.detach_users));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this.Onentity_idChanging(value);
+					this.SendPropertyChanging();
+					this._entity_id = value;
+					this.SendPropertyChanged("entity_id");
+					this.Onentity_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="role_user", Storage="_users", ThisKey="entity_id", OtherKey="role_id")]
+		public EntitySet<user> users
+		{
+			get
+			{
+				return this._users;
+			}
+			set
+			{
+				this._users.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_users(user entity)
+		{
+			this.SendPropertyChanging();
+			entity.role = this;
+		}
+		
+		private void detach_users(user entity)
+		{
+			this.SendPropertyChanging();
+			entity.role = null;
+		}
+	}
+	
+	public partial class deleteAreaResult
+	{
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private System.Nullable<int> _count_computer;
+		
+		public deleteAreaResult()
 		{
 		}
 		
@@ -1911,24 +1839,24 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
-		public double price
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_computer", DbType="Int")]
+		public System.Nullable<int> count_computer
 		{
 			get
 			{
-				return this._price;
+				return this._count_computer;
 			}
 			set
 			{
-				if ((this._price != value))
+				if ((this._count_computer != value))
 				{
-					this._price = value;
+					this._count_computer = value;
 				}
 			}
 		}
 	}
 	
-	public partial class getUserResult
+	public partial class searchUserByEmailResult
 	{
 		
 		private int _entity_id;
@@ -1937,19 +1865,17 @@ namespace InternetCafe
 		
 		private string _password;
 		
-		private string _firstName;
+		private string _user_name;
 		
-		private string _lastName;
+		private string _email;
 		
 		private string _image;
 		
+		private string _role;
+		
 		private int _role_id;
 		
-		private int _entity_id1;
-		
-		private string _name;
-		
-		public getUserResult()
+		public searchUserByEmailResult()
 		{
 		}
 		
@@ -2001,34 +1927,34 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="NVarChar(255)")]
-		public string firstName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_name", DbType="NVarChar(511)")]
+		public string user_name
 		{
 			get
 			{
-				return this._firstName;
+				return this._user_name;
 			}
 			set
 			{
-				if ((this._firstName != value))
+				if ((this._user_name != value))
 				{
-					this._firstName = value;
+					this._user_name = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string lastName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string email
 		{
 			get
 			{
-				return this._lastName;
+				return this._email;
 			}
 			set
 			{
-				if ((this._lastName != value))
+				if ((this._email != value))
 				{
-					this._lastName = value;
+					this._email = value;
 				}
 			}
 		}
@@ -2049,6 +1975,22 @@ namespace InternetCafe
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string role
+		{
+			get
+			{
+				return this._role;
+			}
+			set
+			{
+				if ((this._role != value))
+				{
+					this._role = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_id", DbType="Int NOT NULL")]
 		public int role_id
 		{
@@ -2064,19 +2006,33 @@ namespace InternetCafe
 				}
 			}
 		}
+	}
+	
+	public partial class deleteFoodTypeResult
+	{
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id1", DbType="Int NOT NULL")]
-		public int entity_id1
+		private int _entity_id;
+		
+		private string _name;
+		
+		private System.Nullable<int> _count_food;
+		
+		public deleteFoodTypeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
 		{
 			get
 			{
-				return this._entity_id1;
+				return this._entity_id;
 			}
 			set
 			{
-				if ((this._entity_id1 != value))
+				if ((this._entity_id != value))
 				{
-					this._entity_id1 = value;
+					this._entity_id = value;
 				}
 			}
 		}
@@ -2093,6 +2049,22 @@ namespace InternetCafe
 				if ((this._name != value))
 				{
 					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_food", DbType="Int")]
+		public System.Nullable<int> count_food
+		{
+			get
+			{
+				return this._count_food;
+			}
+			set
+			{
+				if ((this._count_food != value))
+				{
+					this._count_food = value;
 				}
 			}
 		}
@@ -2258,210 +2230,6 @@ namespace InternetCafe
 		}
 	}
 	
-	public partial class searchComputerResult
-	{
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		private string _status;
-		
-		private string _area;
-		
-		private int _area_id;
-		
-		public searchComputerResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this._entity_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
-		public string status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this._status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string area
-		{
-			get
-			{
-				return this._area;
-			}
-			set
-			{
-				if ((this._area != value))
-				{
-					this._area = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area_id", DbType="Int NOT NULL")]
-		public int area_id
-		{
-			get
-			{
-				return this._area_id;
-			}
-			set
-			{
-				if ((this._area_id != value))
-				{
-					this._area_id = value;
-				}
-			}
-		}
-	}
-	
-	public partial class deleteAreaResult
-	{
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		private System.Nullable<int> _count_computer;
-		
-		public deleteAreaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this._entity_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_computer", DbType="Int")]
-		public System.Nullable<int> count_computer
-		{
-			get
-			{
-				return this._count_computer;
-			}
-			set
-			{
-				if ((this._count_computer != value))
-				{
-					this._count_computer = value;
-				}
-			}
-		}
-	}
-	
-	public partial class getALLFoodTypeResult
-	{
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		public getALLFoodTypeResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this._entity_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-	}
-	
 	public partial class getALLFoodResult
 	{
 		
@@ -2596,24 +2364,14 @@ namespace InternetCafe
 		}
 	}
 	
-	public partial class searchFoodResult
+	public partial class getALLFoodTypeResult
 	{
 		
 		private int _entity_id;
 		
 		private string _name;
 		
-		private double _price;
-		
-		private int _quantity;
-		
-		private string _image;
-		
-		private string _type;
-		
-		private int _food_type_id;
-		
-		public searchFoodResult()
+		public getALLFoodTypeResult()
 		{
 		}
 		
@@ -2645,86 +2403,6 @@ namespace InternetCafe
 				if ((this._name != value))
 				{
 					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
-		public double price
-		{
-			get
-			{
-				return this._price;
-			}
-			set
-			{
-				if ((this._price != value))
-				{
-					this._price = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int NOT NULL")]
-		public int quantity
-		{
-			get
-			{
-				return this._quantity;
-			}
-			set
-			{
-				if ((this._quantity != value))
-				{
-					this._quantity = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string image
-		{
-			get
-			{
-				return this._image;
-			}
-			set
-			{
-				if ((this._image != value))
-				{
-					this._image = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string type
-		{
-			get
-			{
-				return this._type;
-			}
-			set
-			{
-				if ((this._type != value))
-				{
-					this._type = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_food_type_id", DbType="Int NOT NULL")]
-		public int food_type_id
-		{
-			get
-			{
-				return this._food_type_id;
-			}
-			set
-			{
-				if ((this._food_type_id != value))
-				{
-					this._food_type_id = value;
 				}
 			}
 		}
@@ -2769,416 +2447,6 @@ namespace InternetCafe
 				if ((this._name != value))
 				{
 					this._name = value;
-				}
-			}
-		}
-	}
-	
-	public partial class searchUserResult
-	{
-		
-		private int _entity_id;
-		
-		private string _account;
-		
-		private string _password;
-		
-		private string _user_name;
-		
-		private string _email;
-		
-		private string _image;
-		
-		private string _role;
-		
-		private int _role_id;
-		
-		public searchUserResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this._entity_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_account", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string account
-		{
-			get
-			{
-				return this._account;
-			}
-			set
-			{
-				if ((this._account != value))
-				{
-					this._account = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this._password = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_name", DbType="NVarChar(510)")]
-		public string user_name
-		{
-			get
-			{
-				return this._user_name;
-			}
-			set
-			{
-				if ((this._user_name != value))
-				{
-					this._user_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this._email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string image
-		{
-			get
-			{
-				return this._image;
-			}
-			set
-			{
-				if ((this._image != value))
-				{
-					this._image = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string role
-		{
-			get
-			{
-				return this._role;
-			}
-			set
-			{
-				if ((this._role != value))
-				{
-					this._role = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_id", DbType="Int NOT NULL")]
-		public int role_id
-		{
-			get
-			{
-				return this._role_id;
-			}
-			set
-			{
-				if ((this._role_id != value))
-				{
-					this._role_id = value;
-				}
-			}
-		}
-	}
-	
-	public partial class searchUserByEmailResult
-	{
-		
-		private int _entity_id;
-		
-		private string _account;
-		
-		private string _password;
-		
-		private string _user_name;
-		
-		private string _email;
-		
-		private string _image;
-		
-		private string _role;
-		
-		private int _role_id;
-		
-		public searchUserByEmailResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this._entity_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_account", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string account
-		{
-			get
-			{
-				return this._account;
-			}
-			set
-			{
-				if ((this._account != value))
-				{
-					this._account = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this._password = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_name", DbType="NVarChar(510)")]
-		public string user_name
-		{
-			get
-			{
-				return this._user_name;
-			}
-			set
-			{
-				if ((this._user_name != value))
-				{
-					this._user_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this._email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string image
-		{
-			get
-			{
-				return this._image;
-			}
-			set
-			{
-				if ((this._image != value))
-				{
-					this._image = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string role
-		{
-			get
-			{
-				return this._role;
-			}
-			set
-			{
-				if ((this._role != value))
-				{
-					this._role = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_id", DbType="Int NOT NULL")]
-		public int role_id
-		{
-			get
-			{
-				return this._role_id;
-			}
-			set
-			{
-				if ((this._role_id != value))
-				{
-					this._role_id = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SearchFoodTypeResult
-	{
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		public SearchFoodTypeResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this._entity_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-	}
-	
-	public partial class deleteFoodTypeResult
-	{
-		
-		private int _entity_id;
-		
-		private string _name;
-		
-		private System.Nullable<int> _count_food;
-		
-		public deleteFoodTypeResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
-		public int entity_id
-		{
-			get
-			{
-				return this._entity_id;
-			}
-			set
-			{
-				if ((this._entity_id != value))
-				{
-					this._entity_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_food", DbType="Int")]
-		public System.Nullable<int> count_food
-		{
-			get
-			{
-				return this._count_food;
-			}
-			set
-			{
-				if ((this._count_food != value))
-				{
-					this._count_food = value;
 				}
 			}
 		}
@@ -3372,6 +2640,496 @@ namespace InternetCafe
 		}
 	}
 	
+	public partial class searchAreaResult
+	{
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private double _price;
+		
+		public searchAreaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
+		public double price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
+				}
+			}
+		}
+	}
+	
+	public partial class searchComputerResult
+	{
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private string _status;
+		
+		private string _area;
+		
+		private int _area_id;
+		
+		public searchComputerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string area
+		{
+			get
+			{
+				return this._area;
+			}
+			set
+			{
+				if ((this._area != value))
+				{
+					this._area = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area_id", DbType="Int NOT NULL")]
+		public int area_id
+		{
+			get
+			{
+				return this._area_id;
+			}
+			set
+			{
+				if ((this._area_id != value))
+				{
+					this._area_id = value;
+				}
+			}
+		}
+	}
+	
+	public partial class searchFoodResult
+	{
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		private double _price;
+		
+		private int _quantity;
+		
+		private string _image;
+		
+		private string _type;
+		
+		private int _food_type_id;
+		
+		public searchFoodResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
+		public double price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int NOT NULL")]
+		public int quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this._quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string image
+		{
+			get
+			{
+				return this._image;
+			}
+			set
+			{
+				if ((this._image != value))
+				{
+					this._image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string type
+		{
+			get
+			{
+				return this._type;
+			}
+			set
+			{
+				if ((this._type != value))
+				{
+					this._type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_food_type_id", DbType="Int NOT NULL")]
+		public int food_type_id
+		{
+			get
+			{
+				return this._food_type_id;
+			}
+			set
+			{
+				if ((this._food_type_id != value))
+				{
+					this._food_type_id = value;
+				}
+			}
+		}
+	}
+	
+	public partial class searchFoodTypeResult
+	{
+		
+		private int _entity_id;
+		
+		private string _name;
+		
+		public searchFoodTypeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+	}
+	
+	public partial class searchUserResult
+	{
+		
+		private int _entity_id;
+		
+		private string _account;
+		
+		private string _password;
+		
+		private string _user_name;
+		
+		private string _email;
+		
+		private string _image;
+		
+		private string _role;
+		
+		private int _role_id;
+		
+		public searchUserResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_account", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string account
+		{
+			get
+			{
+				return this._account;
+			}
+			set
+			{
+				if ((this._account != value))
+				{
+					this._account = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this._password = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_name", DbType="NVarChar(510)")]
+		public string user_name
+		{
+			get
+			{
+				return this._user_name;
+			}
+			set
+			{
+				if ((this._user_name != value))
+				{
+					this._user_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string image
+		{
+			get
+			{
+				return this._image;
+			}
+			set
+			{
+				if ((this._image != value))
+				{
+					this._image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string role
+		{
+			get
+			{
+				return this._role;
+			}
+			set
+			{
+				if ((this._role != value))
+				{
+					this._role = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_id", DbType="Int NOT NULL")]
+		public int role_id
+		{
+			get
+			{
+				return this._role_id;
+			}
+			set
+			{
+				if ((this._role_id != value))
+				{
+					this._role_id = value;
+				}
+			}
+		}
+	}
+	
 	public partial class searchComputerByAreaResult
 	{
 		
@@ -3381,9 +3139,9 @@ namespace InternetCafe
 		
 		private string _status;
 		
-		private System.Nullable<int> _order;
+		private System.Nullable<System.DateTime> _start_time;
 		
-		private string _area;
+		private System.Nullable<System.DateTime> _end_time;
 		
 		private int _area_id;
 		
@@ -3439,34 +3197,34 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[order]", Storage="_order", DbType="Int")]
-		public System.Nullable<int> order
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> start_time
 		{
 			get
 			{
-				return this._order;
+				return this._start_time;
 			}
 			set
 			{
-				if ((this._order != value))
+				if ((this._start_time != value))
 				{
-					this._order = value;
+					this._start_time = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string area
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> end_time
 		{
 			get
 			{
-				return this._area;
+				return this._end_time;
 			}
 			set
 			{
-				if ((this._area != value))
+				if ((this._end_time != value))
 				{
-					this._area = value;
+					this._end_time = value;
 				}
 			}
 		}

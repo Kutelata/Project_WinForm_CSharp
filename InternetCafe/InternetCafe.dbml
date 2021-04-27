@@ -8,64 +8,6 @@
       <Association Name="area_computer" Member="computers" ThisKey="entity_id" OtherKey="area_id" Type="computer" />
     </Type>
   </Table>
-  <Table Name="dbo.bill" Member="bills">
-    <Type Name="bill">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="order_bill" Member="order" ThisKey="order_id" OtherKey="entity_id" Type="order" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.food" Member="foods">
-    <Type Name="food">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="food_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="food_order" Member="orders" ThisKey="entity_id" OtherKey="food_id" Type="order" />
-      <Association Name="food_type_food" Member="food_type" ThisKey="food_type_id" OtherKey="entity_id" Type="food_type" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.food_type" Member="food_types">
-    <Type Name="food_type">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="food_type_food" Member="foods" ThisKey="entity_id" OtherKey="food_type_id" Type="food" />
-    </Type>
-  </Table>
-  <Table Name="dbo.[order]" Member="orders">
-    <Type Name="order">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="computer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="food_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="start_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="end_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="order_bill" Member="bills" ThisKey="entity_id" OtherKey="order_id" Type="bill" />
-      <Association Name="food_order" Member="food" ThisKey="food_id" OtherKey="entity_id" Type="food" IsForeignKey="true" />
-      <Association Name="computer_order" Member="computer" ThisKey="computer_id" OtherKey="entity_id" Type="computer" IsForeignKey="true" />
-      <Association Name="user_order" Member="user" ThisKey="user_id" OtherKey="entity_id" Type="user" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.role" Member="roles">
-    <Type Name="role">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Association Name="role_user" Member="users" ThisKey="entity_id" OtherKey="role_id" Type="user" />
-    </Type>
-  </Table>
-  <Table Name="dbo.computer" Member="computers">
-    <Type Name="computer">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="area_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="computer_order" Member="orders" ThisKey="entity_id" OtherKey="computer_id" Type="order" />
-      <Association Name="area_computer" Member="area" ThisKey="area_id" OtherKey="entity_id" Type="area" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.[user]" Member="users">
     <Type Name="user">
       <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -76,31 +18,94 @@
       <Column Name="email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="user_order" Member="orders" ThisKey="entity_id" OtherKey="user_id" Type="order" />
       <Association Name="role_user" Member="role" ThisKey="role_id" OtherKey="entity_id" Type="role" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.searchArea" Method="searchArea">
-    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
-    <ElementType Name="searchAreaResult">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.bill" Member="bills">
+    <Type Name="bill">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="order_food_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="order_food_bill" Member="order_food" ThisKey="order_food_id" OtherKey="entity_id" Type="order_food" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.computer" Member="computers">
+    <Type Name="computer">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="area_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="area_computer" Member="area" ThisKey="area_id" OtherKey="entity_id" Type="area" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.food" Member="foods">
+    <Type Name="food">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="food_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="food_type_food" Member="food_type" ThisKey="food_type_id" OtherKey="entity_id" Type="food_type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.food_type" Member="food_types">
+    <Type Name="food_type">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="food_type_food" Member="foods" ThisKey="entity_id" OtherKey="food_type_id" Type="food" />
+    </Type>
+  </Table>
+  <Table Name="dbo.order_computer" Member="order_computers">
+    <Type Name="order_computer">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="computer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="start_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="end_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="order_computer_order_food" Member="order_foods" ThisKey="entity_id" OtherKey="order_computer_id" Type="order_food" />
+    </Type>
+  </Table>
+  <Table Name="dbo.order_food" Member="order_foods">
+    <Type Name="order_food">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="order_computer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="food_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="order_food_bill" Member="bills" ThisKey="entity_id" OtherKey="order_food_id" Type="bill" />
+      <Association Name="order_computer_order_food" Member="order_computer" ThisKey="order_computer_id" OtherKey="entity_id" Type="order_computer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.role" Member="roles">
+    <Type Name="role">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="role_user" Member="users" ThisKey="entity_id" OtherKey="role_id" Type="user" />
+    </Type>
+  </Table>
+  <Function Name="dbo.deleteArea" Method="deleteArea">
+    <ElementType Name="deleteAreaResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="count_computer" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.getUser" Method="getUser">
-    <Parameter Name="account" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="password" Type="System.String" DbType="VarChar(255)" />
-    <ElementType Name="getUserResult">
+  <Function Name="dbo.searchUserByEmail" Method="searchUserByEmail">
+    <Parameter Name="email" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="searchUserByEmailResult">
       <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="account" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="password" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="firstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="lastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(511)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="role" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="entity_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.deleteFoodType" Method="deleteFoodType">
+    <ElementType Name="deleteFoodTypeResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="count_food" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.getAllArea" Method="getAllArea">
@@ -119,29 +124,6 @@
       <Column Name="area_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.searchComputer" Method="searchComputer">
-    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
-    <ElementType Name="searchComputerResult">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="status" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="area" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="area_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.deleteArea" Method="deleteArea">
-    <ElementType Name="deleteAreaResult">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="count_computer" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.getALLFoodType" Method="getALLFoodType">
-    <ElementType Name="getALLFoodTypeResult">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.getALLFood" Method="getALLFood">
     <ElementType Name="getALLFoodResult">
       <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -151,6 +133,50 @@
       <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="type" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="food_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getALLFoodType" Method="getALLFoodType">
+    <ElementType Name="getALLFoodTypeResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getAllRole" Method="getAllRole">
+    <ElementType Name="getAllRoleResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getAllUser" Method="getAllUser">
+    <ElementType Name="getAllUserResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="account" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="replace_password" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="firstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="lastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="role" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.searchArea" Method="searchArea">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="searchAreaResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.searchComputer" Method="searchComputer">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="searchComputerResult">
+      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="area" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="area_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.searchFood" Method="searchFood">
@@ -165,8 +191,9 @@
       <Column Name="food_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.getAllRole" Method="getAllRole">
-    <ElementType Name="getAllRoleResult">
+  <Function Name="dbo.searchFoodType" Method="searchFoodType">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="searchFoodTypeResult">
       <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </ElementType>
@@ -184,55 +211,15 @@
       <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.searchUserByEmail" Method="searchUserByEmail">
-    <Parameter Name="email" Type="System.String" DbType="VarChar(255)" />
-    <ElementType Name="searchUserByEmailResult">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="account" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="password" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="user_name" Type="System.String" DbType="NVarChar(510)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="role" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.SearchFoodType" Method="SearchFoodType">
-    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
-    <ElementType Name="SearchFoodTypeResult">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.deleteFoodType" Method="deleteFoodType">
-    <ElementType Name="deleteFoodTypeResult">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="count_food" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.getAllUser" Method="getAllUser">
-    <ElementType Name="getAllUserResult">
-      <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="account" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="password" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="replace_password" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-      <Column Name="firstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="lastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="image" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="role" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.searchComputerByArea" Method="searchComputerByArea">
     <Parameter Name="area_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(255)" />
     <ElementType Name="searchComputerByAreaResult">
       <Column Name="entity_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="status" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="[order]" Member="order" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="area" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="start_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="end_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="area_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>

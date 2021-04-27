@@ -365,7 +365,7 @@ namespace InternetCafe.UI.Manager
 
         private void btnSearchFoodType_Click(object sender, EventArgs e)
         {
-            dgvFoodType.DataSource = DB.SearchFoodType(txtSearchFoodType.Text);
+            dgvFoodType.DataSource = DB.searchFoodType(txtSearchFoodType.Text);
         }
 
         private void dgvFoodType_SelectionChanged(object sender, EventArgs e)
@@ -644,7 +644,7 @@ namespace InternetCafe.UI.Manager
             {
                 if (mainTabControl.SelectedTab == userTabPage)
                 {
-                    MessageBox.Show("You don''t have permision");
+                    MessageBox.Show("You don't have permision");
                     mainTabControl.SelectedTab = homeTabPage;
                 }
             }

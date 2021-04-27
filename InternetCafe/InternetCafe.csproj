@@ -57,11 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Food.cs" />
     <Compile Include="ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InternetCafe.cs">
+      <DependentUpon>InternetCafe.dbml</DependentUpon>
     </Compile>
     <Compile Include="InternetCafe.designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Employee\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Employee\OrderFoodByComputer.resx">
+      <DependentUpon>OrderFoodByComputer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Manager\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

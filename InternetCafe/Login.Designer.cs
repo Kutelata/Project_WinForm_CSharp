@@ -133,7 +133,8 @@ namespace InternetCafe
             this.passValidate.FieldName = "Password";
             this.passValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passValidate.Location = new System.Drawing.Point(94, 323);
-            this.passValidate.myTextBox = "admin123";
+            this.passValidate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.passValidate.myTextBox = "vendor123";
             this.passValidate.Name = "passValidate";
             this.passValidate.Pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
             this.passValidate.Size = new System.Drawing.Size(311, 59);
@@ -146,7 +147,8 @@ namespace InternetCafe
             this.loginValidate.FieldName = "UserName";
             this.loginValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginValidate.Location = new System.Drawing.Point(94, 261);
-            this.loginValidate.myTextBox = "admin";
+            this.loginValidate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.loginValidate.myTextBox = "vendor";
             this.loginValidate.Name = "loginValidate";
             this.loginValidate.Pattern = "^[a-z]([-\']?[a-z]+)*( [a-z]([-\']?[a-z]+)*)+$";
             this.loginValidate.Size = new System.Drawing.Size(311, 56);

@@ -59,22 +59,28 @@ CREATE TABLE [computer]
 	FOREIGN KEY (area_id) REFERENCES [area](entity_id)
 )
 GO
-CREATE TABLE [order]
+CREATE TABLE [order_computer]
 (
 	entity_id INT PRIMARY KEY IDENTITY,
 	computer_id INT NOT NULL,
+	start_time DATETIME,
+	end_time DATETIME,
+)
+GO
+CREATE TABLE [order_food]
+(
+	entity_id INT PRIMARY KEY IDENTITY,
+	order_computer_id INT,
 	food_id INT,
 	quantity INT,
-	[user_id] INT,
-	start_time DATETIME NOT NULL,
-	end_time DATETIME NOT NULL,
+	FOREIGN KEY (order_computer_id) REFERENCES [order_computer](entity_id),
 )
 GO
 CREATE TABLE [bill]
 (
 	entity_id INT PRIMARY KEY IDENTITY,
-	order_id INT NOT NULL,
-	FOREIGN KEY (order_id) REFERENCES [order](entity_id)
+	order_food_id INT
+	FOREIGN KEY (order_food_id) REFERENCES [order_food](entity_id)
 )
 GO 
 
@@ -115,24 +121,7 @@ INSERT INTO [area] VALUES
 	(N'D',8000)
 GO
 INSERT INTO [computer] VALUES
-	(N'HT1',1,1),
-	(N'KHT1',0,2),
-	(N'KHT2',1,2),
-	(N'TD1',0,3),
-	(N'TD2',1,3),
-	(N'TD3',0,3),
-	(N'QD1',1,4),
-	(N'QD2',0,4),
-	(N'QD3',1,4),
-	(N'QD4',0,4)
-GO
-INSERT INTO [order] VALUES
-	(1,1,1,1,'2008-11-11 13:23:44','2008-11-11 13:23:44'),
-	(1,1,1,1,'2008-11-11 13:23:44','2008-11-11 13:23:44'),
-	(3,1,1,1,'2008-11-11 13:23:44','2008-11-11 13:23:44'),
-	(3,1,1,1,'2008-11-11 13:23:44','2008-11-11 13:23:44'),
-	(3,1,1,1,'2008-11-11 13:23:44','2008-11-11 13:23:44'),
-	(3,1,1,1,'2008-11-11 13:23:44','2008-11-11 13:23:44')
+	(N'HT1',0,1),(N'HT2',0,1),(N'HT3',0,1),(N'HT4',0,1),(N'HT5',0,1),(N'HT6',0,1),(N'HT7',0,1),(N'HT8',0,1),(N'HT9',0,1),(N'HT10',0,1)
 GO
 
 -- Area Admin
@@ -261,7 +250,7 @@ AS
 	RIGHT JOIN [food_type] ft ON ft.entity_id = f.food_type_id
 	GROUP BY ft.entity_id,ft.[name]
 GO
-CREATE PROC SearchFoodType
+CREATE PROC searchFoodType
 	@name NVARCHAR(255)
 AS
 	SELECT * FROM [food_type] WHERE LOWER([name]) LIKE '%'+LOWER(@name)+'%'
@@ -299,7 +288,8 @@ GO
 
 -- Computer User
 CREATE PROC searchComputerByArea
-	@area_id int
+	@area_id INT,
+	@name NVARCHAR(255)
 AS 
 	SELECT  
 		c.entity_id,
@@ -308,14 +298,13 @@ AS
 			WHEN c.[status] = 1 THEN N'Đang hoạt động'
 			ELSE N'Không hoạt động'
 		END AS 'status',
-		CASE
-			WHEN c.[status] = 1 THEN ('' + COUNT(o.computer_id))
-			ELSE null
-		END AS 'order',
-		a.[name] AS 'area',
+		oc.start_time,
+		oc.end_time,
 		c.area_id
-	FROM [order] o RIGHT JOIN  [computer] c ON o.computer_id = c.entity_id JOIN [area] a ON a.entity_id = c.area_id
-	WHERE c.area_id = @area_id
-	GROUP BY c.entity_id,c.[name],c.[status],a.[name],c.area_id
+	FROM [computer] c 
+	LEFT JOIN [order_computer] oc ON oc.computer_id = c.entity_id
+	JOIN [area] a ON a.entity_id = c.area_id
+	WHERE c.area_id = @area_id AND LOWER(c.[name]) LIKE '%'+LOWER(@name)+'%'
 GO
-exec searchComputerByArea null
+
+exec searchComputerByArea 1	,''
