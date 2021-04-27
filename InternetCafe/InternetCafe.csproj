@@ -135,6 +135,9 @@
     <EmbeddedResource Include="UI\Employee\OrderFoodByComputer.resx">
       <DependentUpon>OrderFoodByComputer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Employee\Pay.resx">
+      <DependentUpon>Pay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Manager\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>

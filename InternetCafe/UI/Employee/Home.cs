@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace InternetCafe.UI.Employee
     public partial class frmHome : Form
     {
         InternetCafeDataContext DB = new InternetCafeDataContext();
-        DateTime now = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+
         private int computerId;
 
         public frmHome(string myVendorName)
@@ -26,11 +27,23 @@ namespace InternetCafe.UI.Employee
         {
             DisplayAreaCombobox();
             loadComputerByArea();
+            loadTimeUse();
+            loadFoodOrder();
         }
 
         private void loadComputerByArea()
         {
             dgvComputerByArea.DataSource = DB.searchComputerByArea(Convert.ToInt32(cbArea.SelectedIndex + 1), txtSearchComputer.Text);
+        }
+
+        private void loadTimeUse()
+        {
+            dgvTime.DataSource = DB.getTimeUse(computerId);
+        }
+
+        private void loadFoodOrder()
+        {
+            dgvFood.DataSource = DB.getFoodOrder(computerId);
         }
 
         private void DisplayAreaCombobox()
@@ -47,6 +60,8 @@ namespace InternetCafe.UI.Employee
                 var row = dgvComputerByArea.CurrentRow;
                 computerId = Convert.ToInt32(row.Cells["computer_id"].Value);
             }
+            loadTimeUse();
+            loadFoodOrder();
         }
 
         private void cbArea_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,15 +77,24 @@ namespace InternetCafe.UI.Employee
         private void tsmTurnOn_Click(object sender, EventArgs e)
         {
             var c = DB.computers.SingleOrDefault(x => x.entity_id == computerId);
+            DateTime now = DateTime.Now;
             if (c.status == false)
             {
-                c.status = true;
-                order_computer oc = new order_computer();
-                oc.computer_id = c.entity_id;
-                oc.start_time = now;
-                DB.order_computers.InsertOnSubmit(oc);
-                DB.SubmitChanges();
-                loadComputerByArea();
+                try
+                {
+                    MessageBox.Show("Bật máy thành công");
+                    c.status = true;
+                    order_computer oc = new order_computer();
+                    oc.computer_id = c.entity_id;
+                    oc.start_time = now;
+                    DB.order_computers.InsertOnSubmit(oc);
+                    DB.SubmitChanges();
+                    loadComputerByArea();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Error : " + ex);
+                }
             }
             else
             {
@@ -95,7 +119,17 @@ namespace InternetCafe.UI.Employee
 
         private void tsmPay_Click(object sender, EventArgs e)
         {
-
+            var c = DB.computers.SingleOrDefault(x => x.entity_id == computerId);
+            int findOrderComputerId = DB.getTimeUse(computerId).FirstOrDefault().entity_id;
+            DateTime now = DateTime.Now;
+            if (c.status == true)
+            {
+               
+            }
+            else
+            {
+                MessageBox.Show("Chưa bật máy !");
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -116,7 +150,5 @@ namespace InternetCafe.UI.Employee
                 this.Close();
             }
         }
-
-
     }
 }

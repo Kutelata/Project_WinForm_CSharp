@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -94,14 +95,28 @@ namespace InternetCafe.UI.Employee
 
         private void btnSaveFood_Click(object sender, EventArgs e)
         {
-            // var findOrderComputer = 
             foreach (var item in lstfood)
             {
-                order_food of = new order_food();
-                // Insert
+                var findOrderComputer = DB.getAllOrderComputer(computerId).FirstOrDefault();
+                var findFood = DB.foods.FirstOrDefault(f => f.entity_id == item.Id);
+                if (findFood.quantity >= item.Quantity)
+                {
+                    try
+                    {
+                        DB.addOrderFood(findOrderComputer.entity_id, item.Id, item.Quantity);
+                        MessageBox.Show("Đặt thành công !");
+                    }
+                    catch (SqlException)
+                    {
+                        MessageBox.Show("Hết hàng !");
+                    }
 
-                // Save
-                DB.SubmitChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Số lượng phải nhỏ hơn trong kho !");
+                }
+
             }
         }
 

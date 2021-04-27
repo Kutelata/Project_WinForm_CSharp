@@ -34,7 +34,9 @@ CREATE TABLE [food]
 	quantity INT NOT NULL,
 	[image] VARCHAR(255) NOT NULL,
 	food_type_id INT NOT NULL,
-	FOREIGN KEY (food_type_id) REFERENCES [food_type](entity_id)
+	FOREIGN KEY (food_type_id) REFERENCES [food_type](entity_id),
+	CHECK (price > 0),
+	CHECK (quantity >= 0),
 )
 GO
 CREATE TABLE [user]
@@ -65,8 +67,10 @@ CREATE TABLE [order_computer]
 	computer_id INT NOT NULL,
 	start_time DATETIME,
 	end_time DATETIME,
+	total float,
 )
 GO
+
 CREATE TABLE [order_food]
 (
 	entity_id INT PRIMARY KEY IDENTITY,
@@ -114,11 +118,7 @@ INSERT INTO [area] VALUES
 	(N'Hút thuốc',5000),
 	(N'Không được hút thuốc',10000),
 	(N'Thi đấu',20000),
-	(N'Qua đêm',30000),
-	(N'A',5000),
-	(N'B',6000),
-	(N'C',7000),
-	(N'D',8000)
+	(N'Qua đêm',30000)
 GO
 INSERT INTO [computer] VALUES
 	(N'HT1',0,1),(N'HT2',0,1),(N'HT3',0,1),(N'HT4',0,1),(N'HT5',0,1),(N'HT6',0,1),(N'HT7',0,1),(N'HT8',0,1),(N'HT9',0,1),(N'HT10',0,1)
@@ -298,13 +298,78 @@ AS
 			WHEN c.[status] = 1 THEN N'Đang hoạt động'
 			ELSE N'Không hoạt động'
 		END AS 'status',
-		oc.start_time,
-		oc.end_time,
 		c.area_id
 	FROM [computer] c 
-	LEFT JOIN [order_computer] oc ON oc.computer_id = c.entity_id
 	JOIN [area] a ON a.entity_id = c.area_id
-	WHERE c.area_id = @area_id AND LOWER(c.[name]) LIKE '%'+LOWER(@name)+'%'
+	WHERE c.area_id = @area_id AND LOWER(c.[name]) LIKE '%'+LOWER(@name)+'%' 
 GO
-
-exec searchComputerByArea 1	,''
+CREATE PROC getAllOrderComputer
+	@computerId INT
+AS
+	SELECT 
+		*
+	FROM [order_computer] oc
+	WHERE oc.computer_id = @computerId AND oc.end_time IS NULL
+GO
+CREATE PROC addOrderFood
+	@order_computer_id int,
+	@food_id int,
+	@quantity int
+AS
+	if((select COUNT([of].order_computer_id) from order_food [of] where [of].order_computer_id = @order_computer_id) = 0)
+		begin
+			update food set quantity = quantity - @quantity where entity_id = @food_id
+			if(@@ROWCOUNT = 1)
+				insert into order_food values (@order_computer_id,@food_id,@quantity)
+		end
+	else
+		begin
+			update food set quantity = quantity - @quantity where entity_id = @food_id
+			if(@@ROWCOUNT = 1)
+				update order_food set food_id = @food_id , quantity = @quantity where order_computer_id = @order_computer_id
+			
+		end
+GO
+create proc getTimeUse
+	@computerId INT
+AS
+	SELECT 
+		oc.entity_id,
+		oc.start_time as N'Thời gian bắt đầu',
+		oc.end_time as N'Thời gian kết thúc',
+		a.price as N'Giá tiền'
+	FROM [order_computer] oc
+	JOIN [computer] c on c.entity_id = oc.computer_id
+	JOIN [area] a on a.entity_id = c.area_id
+	WHERE oc.computer_id = @computerId AND oc.end_time IS NULL
+go
+create proc getFoodOrder
+	@computerId int
+as
+	SELECT 
+		f.entity_id as N'Id',
+		f.[name] as N'Tên món ăn',
+		[of].quantity as N'Số lượng',
+		f.price as N'Giá',
+		(f.price * [of].quantity) as N'Tổng giá'
+	FROM [order_food] [of]
+	JOIN order_computer oc on oc.entity_id = [of].order_computer_id
+	JOIN computer c on c.entity_id = oc.computer_id
+	JOIN [food] f on f.entity_id = [of].food_id
+	WHERE oc.computer_id = @computerId AND c.[status] = 1
+go
+create proc moneyTime
+	@computerId INT,@end_time datetime
+AS
+	declare @stime datetime,@etime datetime,@timeUse int,@price float
+	set @etime = @end_time 
+	set @stime = (select oc.start_time FROM [order_computer] oc WHERE oc.computer_id = @computerId AND oc.end_time IS NULL)
+	set @timeUse = datediff(minute,@stime,@etime)/60 
+	set @price = (select a.price FROM [order_computer] oc JOIN [computer] c on c.entity_id = oc.computer_id JOIN [area] a on a.entity_id = c.area_id WHERE oc.computer_id = @computerId AND oc.end_time IS NULL)
+	update order_computer set end_time = @end_time ,total = @timeUse * @price where computer_id = @computerId and end_time is null
+go
+--create proc moneyFood
+	
+--as
+	
+--go

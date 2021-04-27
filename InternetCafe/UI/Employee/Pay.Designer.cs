@@ -29,10 +29,17 @@ namespace InternetCafe.UI.Employee
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Pay
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1010, 403);
+            this.Name = "Pay";
             this.Text = "Pay";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

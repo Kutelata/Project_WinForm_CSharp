@@ -120,3 +120,4 @@ C:\Users\ADMIN\Downloads\Project_Winform_CSharp-main\InternetCafe\obj\Debug\Inte
 C:\Users\ADMIN\Downloads\Project_Winform_CSharp-main\InternetCafe\obj\Debug\InternetCafe.UI.Employee.OrderFoodByComputer.resources
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.UI.Employee.OrderFoodByComputer.resources
 E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.csprojAssemblyReference.cache
+E:\CSharp\Winform\Project_Winform_CSharp\InternetCafe\obj\Debug\InternetCafe.UI.Employee.Pay.resources

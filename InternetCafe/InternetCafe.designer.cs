@@ -259,11 +259,46 @@ namespace InternetCafe
 			return ((ISingleResult<searchUserResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllOrderComputer")]
+		public ISingleResult<getAllOrderComputerResult> getAllOrderComputer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> computerId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), computerId);
+			return ((ISingleResult<getAllOrderComputerResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addOrderFood")]
+		public int addOrderFood([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> order_computer_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> food_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> quantity)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), order_computer_id, food_id, quantity);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchComputerByArea")]
 		public ISingleResult<searchComputerByAreaResult> searchComputerByArea([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> area_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string name)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), area_id, name);
 			return ((ISingleResult<searchComputerByAreaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getFoodOrder")]
+		public ISingleResult<getFoodOrderResult> getFoodOrder([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> computerId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), computerId);
+			return ((ISingleResult<getFoodOrderResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.moneyTime")]
+		public int moneyTime([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> computerId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> end_time)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), computerId, end_time);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getTimeUse")]
+		public ISingleResult<getTimeUseResult> getTimeUse([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> computerId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), computerId);
+			return ((ISingleResult<getTimeUseResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3130,6 +3165,86 @@ namespace InternetCafe
 		}
 	}
 	
+	public partial class getAllOrderComputerResult
+	{
+		
+		private int _entity_id;
+		
+		private int _computer_id;
+		
+		private System.Nullable<System.DateTime> _start_time;
+		
+		private System.Nullable<System.DateTime> _end_time;
+		
+		public getAllOrderComputerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_computer_id", DbType="Int NOT NULL")]
+		public int computer_id
+		{
+			get
+			{
+				return this._computer_id;
+			}
+			set
+			{
+				if ((this._computer_id != value))
+				{
+					this._computer_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> start_time
+		{
+			get
+			{
+				return this._start_time;
+			}
+			set
+			{
+				if ((this._start_time != value))
+				{
+					this._start_time = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> end_time
+		{
+			get
+			{
+				return this._end_time;
+			}
+			set
+			{
+				if ((this._end_time != value))
+				{
+					this._end_time = value;
+				}
+			}
+		}
+	}
+	
 	public partial class searchComputerByAreaResult
 	{
 		
@@ -3138,10 +3253,6 @@ namespace InternetCafe
 		private string _name;
 		
 		private string _status;
-		
-		private System.Nullable<System.DateTime> _start_time;
-		
-		private System.Nullable<System.DateTime> _end_time;
 		
 		private int _area_id;
 		
@@ -3197,38 +3308,6 @@ namespace InternetCafe
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> start_time
-		{
-			get
-			{
-				return this._start_time;
-			}
-			set
-			{
-				if ((this._start_time != value))
-				{
-					this._start_time = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> end_time
-		{
-			get
-			{
-				return this._end_time;
-			}
-			set
-			{
-				if ((this._end_time != value))
-				{
-					this._end_time = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_area_id", DbType="Int NOT NULL")]
 		public int area_id
 		{
@@ -3241,6 +3320,184 @@ namespace InternetCafe
 				if ((this._area_id != value))
 				{
 					this._area_id = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getFoodOrderResult
+	{
+		
+		private int _Id;
+		
+		private string _Tên_món_ăn;
+		
+		private System.Nullable<int> _Số_lượng;
+		
+		private double _Giá;
+		
+		private System.Nullable<double> _Tổng_giá;
+		
+		public getFoodOrderResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tên món ăn]", Storage="_Tên_món_ăn", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string Tên_món_ăn
+		{
+			get
+			{
+				return this._Tên_món_ăn;
+			}
+			set
+			{
+				if ((this._Tên_món_ăn != value))
+				{
+					this._Tên_món_ăn = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Số lượng]", Storage="_Số_lượng", DbType="Int")]
+		public System.Nullable<int> Số_lượng
+		{
+			get
+			{
+				return this._Số_lượng;
+			}
+			set
+			{
+				if ((this._Số_lượng != value))
+				{
+					this._Số_lượng = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Giá", DbType="Float NOT NULL")]
+		public double Giá
+		{
+			get
+			{
+				return this._Giá;
+			}
+			set
+			{
+				if ((this._Giá != value))
+				{
+					this._Giá = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tổng giá]", Storage="_Tổng_giá", DbType="Float")]
+		public System.Nullable<double> Tổng_giá
+		{
+			get
+			{
+				return this._Tổng_giá;
+			}
+			set
+			{
+				if ((this._Tổng_giá != value))
+				{
+					this._Tổng_giá = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getTimeUseResult
+	{
+		
+		private int _entity_id;
+		
+		private System.Nullable<System.DateTime> _Thời_gian_bắt_đầu;
+		
+		private System.Nullable<System.DateTime> _Thời_gian_kết_thúc;
+		
+		private double _Giá_tiền;
+		
+		public getTimeUseResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_entity_id", DbType="Int NOT NULL")]
+		public int entity_id
+		{
+			get
+			{
+				return this._entity_id;
+			}
+			set
+			{
+				if ((this._entity_id != value))
+				{
+					this._entity_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Thời gian bắt đầu]", Storage="_Thời_gian_bắt_đầu", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Thời_gian_bắt_đầu
+		{
+			get
+			{
+				return this._Thời_gian_bắt_đầu;
+			}
+			set
+			{
+				if ((this._Thời_gian_bắt_đầu != value))
+				{
+					this._Thời_gian_bắt_đầu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Thời gian kết thúc]", Storage="_Thời_gian_kết_thúc", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Thời_gian_kết_thúc
+		{
+			get
+			{
+				return this._Thời_gian_kết_thúc;
+			}
+			set
+			{
+				if ((this._Thời_gian_kết_thúc != value))
+				{
+					this._Thời_gian_kết_thúc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Giá tiền]", Storage="_Giá_tiền", DbType="Float NOT NULL")]
+		public double Giá_tiền
+		{
+			get
+			{
+				return this._Giá_tiền;
+			}
+			set
+			{
+				if ((this._Giá_tiền != value))
+				{
+					this._Giá_tiền = value;
 				}
 			}
 		}
